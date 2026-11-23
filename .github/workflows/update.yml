@@ -44,18 +44,26 @@ jobs:
             data/market.json data/paper.json data/reviews.json data/operations.json data/learning.json data/portfolio.enc.json data/private-status.json data/codex-trading.json
       - run: npm run build
       - uses: actions/configure-pages@v5
+        id: pages
+        continue-on-error: true
         with:
           enablement: true
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outcome == 'success'
         with:
           path: dist
       - name: Wait for uploaded Pages artifact to be visible
+        if: steps.pages.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
         run: node scripts/wait-pages-artifact.mjs
       - name: Deploy updated dashboard
+        if: steps.pages.outcome == 'success'
         id: deployment
         continue-on-error: true
         uses: actions/deploy-pages@v4
+      - name: Explain pending Pages setup
+        if: steps.pages.outcome != 'success'
+        run: echo '::notice::Paper work is saved. Pages publication is pending destination repository settings; no deployment is claimed.'

@@ -117,3 +117,12 @@ Verified the daily report covers wins/losses/flats, net outcomes, gross fees, cr
 
 ### 2026-11-21 research deployment and recovery checkpoint
 Update recovery 44865242323 and collect-only recovery 44865372834 succeeded, restoring published execution at 04:16:22 UTC and collection at 04:17:57 with the completed hour ending 04:00. Today's daily review already existed and was not repeated. These were manual dispatches, not five-minute timer evidence. Source deployment 44865491787 and research deployment 44865566980 succeeded. New lab reports no validated historical replacement; outcome models await sufficient feature-frozen evidence. Research cannot adopt its candidates. The five-hour research automation is enabled; its first scheduled run is pending, and no claim of quota reset verification is made. Existing schedules, PIN gate, encrypted state and risk rules remain intact.
+
+## Destination activation checkpoint
+- Imported the latest authorized source snapshot without writing to the source repository.
+- 128 tests and build passed; credential, private-envelope and destination-scope audits passed.
+- The first destination trader check completed at 23:12 UTC. A repeat invocation correctly skipped because two hours had not elapsed. No new private fills occurred; automatic entries are enabled, pause state is normal, and recent decisions were WAIT.
+- All four support roles completed their first cycle at approximately 23:13 UTC; the verifier was healthy and ledger/heartbeat/risk-cap preservation checks passed. Research adopted no public replacement. Reports remain split between public demo and encrypted private state.
+- Two new Codex tasks are enabled: Trader every two hours and Agent Team hourly. The latter enforces separate verifier/researcher/manager/supervisor deadlines. The account plan rejected a third new task, so five roles share these two schedules; no unrelated task was disabled.
+- GitHub publication run 45287105661 passed tests/build but failed when creating Pages: HTTP 403, resource not accessible by integration. Operational workflows now retain successful paper work when Pages setup is unavailable; the standalone publisher continues to show the setup failure honestly.
+- Setting the private key secret also returned HTTP 403. The workspace run was verified using the existing private key securely; this does not establish that GitHub-only private runs can access that key.
