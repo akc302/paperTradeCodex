@@ -10,7 +10,7 @@ Only `akc302/paperTradeCodex` may be modified or receive workflow dispatches. Th
 | Manager | Every 6 hours | Refresh evidence and `scripts/team-report.mjs`, check arithmetic, jobs and researcher notes, repair bounded operational defects with tests. |
 | Supervisor | Every 8 hours | Independently audit the manager/researcher, privacy and fee assumptions; run `scripts/supervisor-report.mjs`; record blockers without changing ledgers or risk caps. |
 
-These are scheduled tasks, not continuously running processes. Delivery depends on resource/tool availability. The source's configured research cron remains a secondary trigger; all actual task results must be verified. The source's five-minute self-dispatch loop was removed. GitHub trading cron is `0 */2 * * *` UTC. Successful execution receipts prevent other roles/manual retries from adding extra checks inside two hours. A scheduled check may generate WAIT or risk-skip records instead of a trade. Stops and pending fills are observed only when the two-hour check executes, not continuously.
+These are scheduled tasks, not continuously running processes. Delivery depends on resource/tool availability. The source's configured research cron remains a secondary trigger; all actual task results must be verified. The source's five-minute self-dispatch loop was removed. GitHub trading cron is `15 1-23/2 * * *` UTC (01:15, 03:15, …, 23:15), aligned with the Codex trader task. Successful execution receipts prevent other roles/manual retries from adding extra checks inside two hours. A scheduled check may generate WAIT or risk-skip records instead of a trade. Stops and pending fills are observed only when the two-hour check executes, not continuously.
 
 ## Safe execution
 
@@ -32,3 +32,5 @@ The copied runtime diagnostics now use a two-hour cadence. Evidence coverage den
 ## Baseline and continuity
 
 Latest source snapshot imported for activation: `ae429e7a00261e0f8adbfa980f86741f95627a54` on November 23, 2026. All source data was imported before destination execution. After the first destination check, do not overwrite this independent journal with new source data. Future source code refreshes must merge code separately and preserve destination state and scheduling.
+
+If a Codex trader invocation arrives at most five minutes before the 7200-second receipt deadline due to scheduler jitter, wait in short intervals until due and recheck current main. Do not skip a whole two-hour cycle for a few seconds of early delivery. When a destination updater is already running, wait/pull/check instead of racing it. The hard receipt guard remains unchanged.

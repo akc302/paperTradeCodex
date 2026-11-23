@@ -2,7 +2,7 @@ name: Update paper account
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '15 1-23/2 * * *'
   workflow_dispatch:
 
 permissions:
