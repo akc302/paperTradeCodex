@@ -1,0 +1,96 @@
+name: Journal evidence and daily learning
+on:
+  schedule:
+    - cron: '23 * * * *'
+    - cron: '37 0 * * *'
+    - cron: '17 */5 * * *'
+  workflow_dispatch:
+    inputs:
+      phase:
+        type: choice
+        options: [collect, review, research]
+        default: collect
+        description: Collect outcomes, daily review, or shadow strategy research
+permissions:
+  contents: write
+  pages: write
+  actions: write
+  id-token: write
+concurrency:
+  group: paper-learning
+  cancel-in-progress: false
+jobs:
+  research:
+    # Migration gate: enable only after this repository's Actions/Pages setup.
+    if: ${{ github.repository == 'akc302/paperTradeCodex' && vars.PAPERTRADE_CODEX_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - name: Choose collection or daily review
+        id: phase
+        env:
+          REQUESTED_PHASE: ${{ inputs.phase }}
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          phase=collect
+          if [ "$REQUESTED_PHASE" = review ] || [ "$SCHEDULE" = '37 0 * * *' ]; then phase=review; fi
+          if [ "$REQUESTED_PHASE" = research ] || [ "$SCHEDULE" = '17 */5 * * *' ]; then phase=research; fi
+          echo "value=$phase" >> "$GITHUB_OUTPUT"
+      - name: Collect or research, manager report, and save (replays on newest main if another job pushed first)
+        id: team
+        env:
+          PAPER_STATE_KEY: ${{ secrets.PAPER_STATE_KEY }}
+          LEARNING_PHASE: ${{ steps.phase.outputs.value }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [ "$LEARNING_PHASE" = research ]; then work='node scripts/strategy-lab.mjs'; else work="node scripts/journal-learning.mjs $LEARNING_PHASE"; fi
+          # Daily review: refresh the 2-year 6h/1d public candle history (a failed refresh keeps stored files), then apply rule changes.
+          # Slow public downloads and the rule sweep run once, before the save loop; a replay after a push conflict only copies their results.
+          if [ "$LEARNING_PHASE" = review ]; then
+            node scripts/fetch-history.mjs || echo 'History refresh incomplete; stored files kept.'
+            node scripts/sweep.mjs || echo 'Rule sweep failed; previous sweep kept.'
+            mkdir -p "$RUNNER_TEMP/review" && cp -r data/history "$RUNNER_TEMP/review/" && { cp data/sweep.json "$RUNNER_TEMP/review/" 2>/dev/null || true; }
+            work="cp -r \"$RUNNER_TEMP/review/history\" data/ && { cp \"$RUNNER_TEMP/review/sweep.json\" data/ 2>/dev/null || true; } && $work && node scripts/rules.mjs"
+          fi
+          scripts/commit-retry.sh 'Collect journal evidence and daily research' "$work && node scripts/team-report.mjs" \
+            data/evidence.json data/research.json data/learning.json data/paper.json data/portfolio.enc.json data/team-report.json data/sweep.json data/history
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Wait for Pages artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: node scripts/wait-pages-artifact.mjs
+      - uses: actions/deploy-pages@v4
+        id: deployment
+        continue-on-error: true
+      - name: Restart stalled agents
+        if: steps.team.outputs.dispatch != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DISPATCH: ${{ steps.team.outputs.dispatch }}
+        run: |
+          for job in $DISPATCH; do
+            case "$job" in
+              update.yml) gh workflow run update.yml ;;
+              learning.yml:research) gh workflow run learning.yml -f phase=research ;;
+            esac
+          done

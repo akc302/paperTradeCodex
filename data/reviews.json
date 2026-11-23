@@ -1,0 +1,1646 @@
+{
+  "updatedAt": "2026-11-20T01:17:40.264Z",
+  "reviews": [
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "AVAX-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794355200,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "SYNC": 1,
+          "WAIT": 2
+        },
+        "waitCount": 2,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "Waiting for a closed 4h support bounce or descending resistance break.",
+            "count": 2
+          },
+          {
+            "reason": "Initial synchronization: monitoring starts here; historical signals were not traded.",
+            "count": 1
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 0,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 2 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "No WAIT decisions had four later contiguous completed candles for the hindsight comparison."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "LINK-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794355200,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "SYNC": 1,
+          "WAIT": 2
+        },
+        "waitCount": 2,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "Waiting for a closed 4h support bounce or descending resistance break.",
+            "count": 2
+          },
+          {
+            "reason": "Initial synchronization: monitoring starts here; historical signals were not traded.",
+            "count": 1
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 0,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 2 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "No WAIT decisions had four later contiguous completed candles for the hindsight comparison."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "DOGE-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794355200,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "SYNC": 1,
+          "WAIT": 2
+        },
+        "waitCount": 2,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "Waiting for a closed 4h support bounce or descending resistance break.",
+            "count": 2
+          },
+          {
+            "reason": "Initial synchronization: monitoring starts here; historical signals were not traded.",
+            "count": 1
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 0,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 2 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "No WAIT decisions had four later contiguous completed candles for the hindsight comparison."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "ADA-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794355200,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "SYNC": 1,
+          "WAIT": 2
+        },
+        "waitCount": 2,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "Waiting for a closed 4h support bounce or descending resistance break.",
+            "count": 2
+          },
+          {
+            "reason": "Initial synchronization: monitoring starts here; historical signals were not traded.",
+            "count": 1
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 0,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 2 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "No WAIT decisions had four later contiguous completed candles for the hindsight comparison."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "XRP-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794355200,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "SYNC": 1,
+          "WAIT": 2
+        },
+        "waitCount": 2,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "Waiting for a closed 4h support bounce or descending resistance break.",
+            "count": 2
+          },
+          {
+            "reason": "Initial synchronization: monitoring starts here; historical signals were not traded.",
+            "count": 1
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 0,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 2 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "No WAIT decisions had four later contiguous completed candles for the hindsight comparison."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "SOL-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": -0.004839258215292103,
+        "drawdown": 0.004839258215292103,
+        "closedTrades": 1,
+        "winRate": 0,
+        "totalFees": 23.708755889336985
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 218,
+        "start": 1794351600,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "SYNC": 1,
+          "WAIT": 2
+        },
+        "waitCount": 2,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "Waiting for a closed 4h support bounce or descending resistance break.",
+            "count": 2
+          },
+          {
+            "reason": "Initial synchronization: monitoring starts here; historical signals were not traded.",
+            "count": 1
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 0,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 2 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "No WAIT decisions had four later contiguous completed candles for the hindsight comparison."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "ETH-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 218,
+        "start": 1794351600,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "SYNC": 1,
+          "WAIT": 2
+        },
+        "waitCount": 2,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "No valid trendline with three spaced touches over at least one week.",
+            "count": 2
+          },
+          {
+            "reason": "Initial synchronization: monitoring starts here; historical signals were not traded.",
+            "count": 1
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 0,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 2 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "No WAIT decisions had four later contiguous completed candles for the hindsight comparison."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "time": "2026-11-20T01:17:40.264Z",
+      "product": "BTC-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 506,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 218,
+        "start": 1794351600,
+        "end": 1795132800
+      },
+      "outcomes": {
+        "periodStart": "2026-11-19T00:00:00.000Z",
+        "periodEnd": "2026-11-20T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "decisionCount": 3,
+        "actionCounts": {
+          "WAIT": 3
+        },
+        "waitCount": 3,
+        "bullishSignals": 0,
+        "riskSkips": 0,
+        "topReasons": [
+          {
+            "reason": "Waiting for a closed 4h support bounce or descending resistance break.",
+            "count": 3
+          }
+        ],
+        "counterfactual": {
+          "horizonHours": 4,
+          "thresholdPct": 0.02,
+          "evaluatedWaits": 1,
+          "upMovesAboveThreshold": 0,
+          "method": "Compare the recorded decision reference price with the fourth later contiguous completed candle close. Hindsight only; excludes execution, costs, risk, and opportunity feasibility."
+        },
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market.",
+          "Reviewed 3 recorded decisions: 3 WAIT, 0 bullish signals, 0 risk-related skips.",
+          "0 of 1 evaluated WAIT decisions preceded a later four-hour close at least 2% above the reference price. This is a hindsight counterfactual, not executable profit or evidence every move could be caught."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T22:03:22.751Z",
+      "product": "AVAX-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 503,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794344400,
+        "end": 1795122000
+      },
+      "outcomes": {
+        "periodStart": "2026-11-18T00:00:00.000Z",
+        "periodEnd": "2026-11-19T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T22:03:22.751Z",
+      "product": "LINK-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 503,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794344400,
+        "end": 1795122000
+      },
+      "outcomes": {
+        "periodStart": "2026-11-18T00:00:00.000Z",
+        "periodEnd": "2026-11-19T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T22:03:22.751Z",
+      "product": "DOGE-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 503,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794344400,
+        "end": 1795122000
+      },
+      "outcomes": {
+        "periodStart": "2026-11-18T00:00:00.000Z",
+        "periodEnd": "2026-11-19T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T22:03:22.751Z",
+      "product": "ADA-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 503,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794344400,
+        "end": 1795122000
+      },
+      "outcomes": {
+        "periodStart": "2026-11-18T00:00:00.000Z",
+        "periodEnd": "2026-11-19T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T22:03:22.751Z",
+      "product": "XRP-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 503,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794344400,
+        "end": 1795122000
+      },
+      "outcomes": {
+        "periodStart": "2026-11-18T00:00:00.000Z",
+        "periodEnd": "2026-11-19T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T22:03:22.751Z",
+      "product": "SOL-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": -0.004839258215292103,
+        "drawdown": 0.004839258215292103,
+        "closedTrades": 1,
+        "winRate": 0,
+        "totalFees": 23.708755889336985
+      },
+      "training": {
+        "candles": 504,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794344400,
+        "end": 1795122000
+      },
+      "outcomes": {
+        "periodStart": "2026-11-18T00:00:00.000Z",
+        "periodEnd": "2026-11-19T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T22:03:22.751Z",
+      "product": "ETH-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "after": {
+        "strategy": "trendline",
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.2,
+        "trendLookback": 180,
+        "maxHoldHours": 48,
+        "maxDailyLoss": 0.04,
+        "maxOpenPositions": 4,
+        "maxTotalRisk": 0.03
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 504,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794344400,
+        "end": 1795122000
+      },
+      "outcomes": {
+        "periodStart": "2026-11-18T00:00:00.000Z",
+        "periodEnd": "2026-11-19T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "pnl": 0,
+        "fees": 0,
+        "stops": 0,
+        "timeouts": 0,
+        "lessons": [
+          "No paper trades closed in the previous UTC day; there is no new outcome evidence for this market."
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "time": "2026-11-19T21:40:10.435Z",
+      "product": "BTC-USD",
+      "status": "retained",
+      "reason": "Retained current parameters: fewer than five closed trades in a comparison sample.",
+      "before": {
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.25
+      },
+      "after": {
+        "lookback": 48,
+        "pivotWindow": 3,
+        "proximity": 0.006,
+        "stopBuffer": 0.004,
+        "rewardRisk": 2,
+        "riskPct": 0.01,
+        "feeRate": 0.006,
+        "slippage": 0.0005,
+        "maxAllocation": 0.25
+      },
+      "baseline": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "candidate": {
+        "returnPct": 0,
+        "drawdown": 0,
+        "closedTrades": 0,
+        "winRate": 0,
+        "totalFees": 0
+      },
+      "training": {
+        "candles": 503,
+        "baseline": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        },
+        "candidate": {
+          "returnPct": 0,
+          "drawdown": 0,
+          "closedTrades": 0,
+          "winRate": 0,
+          "totalFees": 0
+        }
+      },
+      "holdout": {
+        "candles": 217,
+        "start": 1794340800,
+        "end": 1795118400
+      }
+    }
+  ]
+}

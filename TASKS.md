@@ -1,0 +1,107 @@
+# PaperTrading task memory
+
+Paper only. No real order calls. Never commit Coinbase credentials, unlock keys, or plaintext portfolio data. User goal: $85,000 simulated portfolio; no deadline/return guarantee. PIN is a cosmetic gate; private account remains encrypted.
+
+## Verified implemented
+- [x] Encrypted private portfolio snapshot, isolated public demo, browser practice account.
+- [x] Five-minute checks configured; actual timer delivery is UNVERIFIED (see November 20 audit). Completed 1h/4h signals, journal and daily quantitative reviews implemented.
+- [x] Shared risk/cash limits, stop/target/time exits, atomic multi-market updates, missing-feed pauses.
+- [x] Current Coinbase fee tier read through MCP (stored only in encrypted private account).
+- [x] Per-fill maker/taker records, fee observation timestamps, cached/live status, gross fees and pending rebate separately.
+- [x] Market entries/stop exits modeled as taker; existing resting limit targets modeled as maker. Candle fills are approximate, not exchange queue reconstruction.
+- [x] Automated fee-model tests; old trades keep their charged entry fees.
+
+## Work requiring additional integration or evidence
+- [ ] Authenticated LIVE Coinbase fee-tier refresh before every order. Chat MCP is unavailable inside GitHub Actions; cached tier is explicitly labeled. Requires a separately provisioned read-only runtime integration, never credentials committed in source.
+- [x] User confirmed Premium/unlimited rebates. Future modeled fills credit virtual USDC at 25% of eligible gross fees; source is user confirmation, not API verification. No retroactive rewriting of historical costs.
+- [ ] Full pending limit-order book (post-only rejection, maker/taker partial fills, cancellation, time-in-force, size increments). Current strategy fills do not reproduce these exchange mechanics.
+- [x] Historical-market shadow logistic model added with chronological validation, embargo and reproducible feature schema; never promoted automatically. A model trained on executed strategy trades still requires sufficient outcomes.
+- [ ] Broad Tori video inventory with verified URLs, dates, available caption status; original source-linked summaries. No claim to have watched/transcribed the entire channel.
+- [ ] Daily news ingestion, source/time provenance, market relevance and bounded shadow-only features. No claim unattended AI/web research is already active.
+- [ ] Reliable always-on backend/monitoring if strict 24/7 execution or one-minute checks are required. GitHub Actions is best effort.
+
+## Acceptance before marking complete
+Every change: meaningful tests, private-data publication audit, successful deployment and private updater status, truthful UI. Do not label cached fees as live, pending rebates as cash, research candidates as validated models, or scheduled checks as guaranteed uptime.
+
+## Monitoring
+- [x] Hourly independent health workflow checks published state/freshness/automation flags and feed errors without decrypting financial data.
+- [x] An unhealthy result dispatches the existing updater once, waits, and verifies recovery; persistent failures fail the monitor and remain visible in Actions.
+- [ ] Human-level unattended debugging and arbitrary code repairs are not implemented. GitHub scheduling has no guaranteed hourly SLA. Configure repository Actions notifications to receive failures.
+
+## 2026-11-20 operational audit and active experiment
+- [x] Actual run-history audit found ZERO schedule-event runs despite configured cron. Earlier manual successes did not prove unattended timers. Simplified/re-enabled GitHub schedules; actual timer evidence is recorded in public operations.json. At 03:10 UTC one successful scheduled run appeared. That proves a timer can fire, but does not establish a five-minute cadence.
+- [x] Found Pages artifact visibility race; deployment now waits for the uploaded artifact to appear through the API with actions:read permission before deploying.
+- [x] Independent hourly ChatGPT health/recovery task created as fallback, enabled. It is not a five-minute timer and has no guaranteed uptime.
+- [x] Current-quote execution mode introduced: entries/exits timestamp when fresh quotes are actually observed, no backdated fills. Atomic complete-universe quote validation and five-minute idempotency buckets; 30-minute re-entry cooldown.
+- [x] User-requested aggressive PAPER experiment: 2% planned risk per entry, 8% aggregate, four slots, 25% allocation per slot, two-hour holding cap, 12% daily entry pause. Fixed risk caps remain; no real order integration. Existing ledgers retained.
+- [x] Fitted regularized logistic regression introduced in SHADOW mode. Public and encrypted private models use their own fee hurdle, earlier training and later holdout, four-hour embargo, Brier loss vs constant baseline, and explicit as-of times. Daily model fitting does not autonomously rewrite code or promise improvement.
+- [x] WebSocket display ticks with REST fallback; display streaming does NOT advance or prove the server trader is running. Confirmed swing labels and reference trendlines are visible.
+- [x] WAIT/SYNC explicitly labeled decision records, not pending orders; executed paper positions and closed fills remain separate.
+- [ ] Regular GitHub five-minute and hourly delivery still require a sustained sequence of actual successful schedule-event runs. A continuously provisioned backend or independent external dispatcher is needed if strict timing is essential.
+
+### 2026-11-20 04:18 UTC fallback check
+One successful GitHub schedule event remains visible (03:10 UTC); no sustained five-minute sequence. Published state was about 55 minutes old, so the independent monitor dispatched update.yml once. The standalone health script still used a 90-minute freshness window, inconsistent with this monitor's 15-minute requirement; corrected it to 15 minutes and added a regression test. No trading/risk rules changed. The GitHub timer issue remains unresolved; a manual recovery is not proof of timer health.
+
+## Execution / evidence / review separation — 2026-11-20
+- [x] update.yml and the normal updater now run trade-only. They do not retrain or retune at each five-minute check. Explicit PAPER_JOB_MODE=all remains only for legacy integration fixtures.
+- [x] learning.yml collect phase: hourly at :23 UTC, summarizes completed hourly windows; deduplicated, catch-up capable, no trade execution. Public dummy evidence is public; private evidence remains encrypted.
+- [x] learning.yml review phase: daily at 00:37 UTC, evaluates the previous UTC day; one review per day, no repeated tuning on every collection. Does not advance the trading heartbeat.
+- [x] Counts wins, losses, flat results, realized net P&L, gross fees, credited/pending rebates, expectancy, profit factor, drawdown, market/setup/exit groups and sampling coverage. Snapshot rebalance records excluded from strategy evidence.
+- [x] A distinct executed-trade-outcome logistic model uses frozen entry features and completed net outcomes, with at least 100 eligible closed trades, chronological holdout and exclusion of trades whose outcomes cross the split. It remains shadow-only.
+- [x] Daily parameter adoption requires complete execution sampling for the prior day, a fresh execution heartbeat, at least 100 completed trades overall, 30 in the market including five wins/five losses, and existing train/holdout guards. Only target ratio, stop-ATR multiplier or future holding duration can change; risk caps and existing positions cannot.
+- [x] Insufficient evidence retains the current strategy. Up to 90 daily reviews retained in state; Git history preserves prior versions.
+- [ ] Reliable five-minute execution delivery remains unresolved. Learning schedules also depend on GitHub delivery; the independent hourly task supplies bounded recovery/collection/daily-review dispatch fallback.
+
+Collection/review validation compared pre/post account, configuration and trading-heartbeat hashes and confirmed they were unchanged. Private financial evidence is never written to this public memory file.
+
+Deployment validation: all 63 tests and the publication build passed. Daily review workflow 44675291550 and collect-only workflow 44675385076 both completed successfully via workflow_dispatch; published evidence freshness and encrypted private reports were verified. These manual checks validate execution, not scheduled timer delivery. The initial pending collection dispatch was superseded by the daily dispatch in the shared Pages concurrency queue; collection was subsequently dispatched and verified separately.
+
+### 2026-11-20 05:19 UTC fallback recovery
+No new schedule-event run appeared after the previously observed 03:10 run. Trading was approximately 44 minutes stale; evidence lacked the completed hour ending 05:00. Dispatched update.yml once (44680285972): simulation and state commit succeeded, but Pages deployment failed when deploy-pages found zero artifacts immediately after the visibility probe succeeded. Dispatched collect once (44680379132): succeeded, published the refreshed 05:20 trading state and completed hourly evidence. Private collection invariants confirmed unchanged account, configuration, product parameters and execution heartbeat. Today's daily review already existed; no retraining or tuning was repeated.
+
+Bounded deployment mitigation: all three workflows now share a visibility helper requiring three consecutive successful artifact probes, resetting readiness after missing results or API errors, with a bounded 18-probe failure. Two regressions cover transient disappearance and persistent absence/errors. All 65 tests and the static publication audit/build pass. Consecutive observations reduce the observed race but cannot guarantee subsequent GitHub API consistency. Reliable five-minute timer delivery remains unresolved; manual recovery is not timer evidence. No risk/trading rules changed; no private financial metrics were added to this public log.
+
+## Day-trade skill adaptation — 2026-11-20
+- [x] Reviewed upstream scanner, entry, exit and time-machine skills at pinned revision; ran the scanner breakout rule offline. MIT attribution and license included. No broker code or credential integration imported.
+- [x] Adapted closed-candle patterns to 1h 24/7 crypto. No unsupported NYSE opening-bell assumption. Context alone never confirms an entry.
+- [x] Paper decisions and new entries freeze pattern context; closes retain it. Legacy trades stay unrecorded. Outcome collection groups confirmed/unconfirmed/unrecorded evidence.
+- [x] Fixed baseline versus pattern-filtered chronological replay with identical costs/risk rules, conservative exits, separated holdout and minimum sample checks. Explicit observation mode: research cannot retune the account or modify open trades.
+- [x] Dashboard current confirmation, reference levels, historical comparison and journal columns; daily review refreshes the research.
+- [x] Initial research generated using only available approximately 727–728 hourly candles per market; all eight public comparisons reported no demonstrated edge under the fixed criterion. No claim of years of history or guaranteed improvement. Private reports remain encrypted.
+- [x] Initial research preserved public/private account, config, per-market config and trading-heartbeat hashes.
+- [ ] Gather forward entry-time pattern evidence before deciding whether a filter should affect automated entries. Current paper trading continues under the existing entry rules.
+
+### 2026-11-20 06:17 UTC fallback check
+Both execution and learning workflows are active. Actual schedule-event history still shows only the 03:10 UTC trading run; no sustained five-minute cadence. Published execution was about 29 minutes stale and evidence lacked the hour ending 06:00. Dispatched update.yml once (44686742453), successfully refreshed and deployed the 06:17 state. Dispatched learning.yml collect once (44686844123) to collect the missing completed hour. Compared encrypted pre/post collection state: account, global/product configurations, execution heartbeat, daily report and ML model were unchanged. Today's daily report already existed; no daily refitting or tuning repeated. It retains parameters with incomplete coverage and insufficient executed-trade model evidence; market-label and pattern research remain shadow-only. No code or risk-rule changes were required. The timer-delivery issue remains unresolved; fallback dispatch is not scheduler evidence.
+
+### 2026-11-20 07:25 UTC fallback recovery
+Published execution was approximately 67 minutes stale and collection lacked the hour ending 07:00. No new schedule-event trading run appeared after 03:10. Dispatched update.yml once (44694819771) and collect-only learning.yml once (44694935929); both succeeded and deployed. Verified published market/private heartbeat 07:25:37 UTC, collection 07:26:50 UTC, latest completed evidence hour 07:00. Encrypted pre/post collection comparison preserved account, global/product configuration, execution heartbeat, daily report, market model and pattern research. Today's review already existed; no refit, retuning, risk change or code change. Timer delivery and precise continuous execution remain unresolved; these were fallback dispatches. No private financial figures recorded here.
+
+### 2026-11-20 12:16 UTC timer evidence and recovery
+A second actual scheduled execution succeeded: update.yml run 44731926685, created 11:58:34 UTC, publishing 11:58:57 state. Scheduled health run 44733756913 also succeeded at 12:11. These events confirm renewed timer delivery, not a regular five-minute cadence; the earlier execution schedule event was 03:10. At inspection execution was over the 15-minute freshness limit and collection lacked the hour ending 12:00. Dispatched update.yml once (44734436978) and collect-only learning.yml once (44734538457); both succeeded. Verified published market/private heartbeat 12:17:04, collection 12:18:10, latest completed evidence hour 12:00. Encrypted collection preserved account, global/product settings, execution heartbeat, daily report, ML and pattern research. Today's review was already present, with incomplete coverage and insufficient executed-outcome model evidence; no refit, tuning, risk or code change. Sustained five-minute timer delivery remains unresolved. No private financial figures are recorded here.
+
+### 2026-11-20 14:20 UTC scheduled collection observed
+The first observed schedule-event learning run, 44750202218, created 14:05:53 UTC, succeeded and published collection timestamp 14:06:17 with evidence through 14:00. Compared its encrypted state with the parent revision: account, global/product settings, execution heartbeat, daily review, market model and pattern research were unchanged. No collection recovery was necessary. Trading remained approximately 63 minutes stale; dispatched update.yml once (44752604008), which succeeded and published market/private heartbeat 14:21:28. Today's review already existed; no retraining or tuning repeated. Execution timer history still shows only 03:10 and 11:58; one scheduled collection does not establish hourly reliability or five-minute execution cadence. No code/risk changes and no private financial figures published.
+
+### 2026-11-20 20:17 UTC execution timer evidence
+Third observed successful scheduled trading run: 44806373183, created 19:53:47 UTC, published 19:54:07 state. Earlier execution schedule events remain 03:10 and 11:58; these long gaps do not establish five-minute cadence. At inspection execution was about 23 minutes old, beyond the 15-minute recovery threshold, and evidence lacked the hour ending 20:00. Dispatched update.yml once (44809962172) and collect-only learning.yml once (44810086021); both succeeded and deployed. Verified published market/private heartbeat 20:17:41, collection 20:18:50, evidence through 20:00. Encrypted collection preserved account, global/product settings, execution heartbeat, daily review, ML and pattern research. Today's review already existed; no refit, tuning, risk or code change. No private financial metrics published.
+
+### 2026-11-20 21:22 UTC scheduled health recovery verified
+Scheduled health run 44813940732 (20:43 UTC) detected stale state, dispatched updater run 44813967948, waited for success and verified health ok at 20:44:55. The updater event is workflow_dispatch, not an additional scheduled trading event. At this inspection published execution was about 39 minutes stale and evidence lacked the hour ending 21:00. Dispatched update.yml once (44819847277) and collect-only learning.yml once (44819965512); both succeeded and deployed. Verified published market/private heartbeat 21:23:32, collection 21:24:41, evidence through 21:00. Encrypted collection preserved account, global/product settings, execution heartbeat, daily review, market model and pattern research. Today's review already existed; no fitting, tuning, risk or code change. Direct execution schedule history remains 03:10, 11:58 and 19:53; regular five-minute delivery remains unverified. No private financial figures recorded.
+
+### 2026-11-21 01:22 UTC daily review recovery
+Observed fourth direct schedule-event execution, run 44847549310, created 01:00:58 UTC and published 01:01:18. Long gaps still do not establish five-minute cadence. At inspection trading was over 15 minutes stale, evidence lacked the hour ending 01:00, and reviewDate remained November 20 after the November 21 00:37 review deadline. Dispatched update.yml once (44849775520), collect once (44849859375), then daily review once (44849993561); all succeeded and deployed. Verified published market/private heartbeat 01:22:45, collection 01:24:49, latest hourly evidence 01:00 and reviewDate November 21 for November 20 outcomes.
+
+Verified the daily report covers wins/losses/flats, net outcomes, gross fees, credited/pending rebates, expectancy, drawdown and market/setup/exit/pattern groupings. Incomplete execution coverage and insufficient eligible executed outcomes retained parameters; own-trade model remains collecting-data. The separately fitted market-label model remains shadow-only and is not evidence of winning executed trades. Refreshed pattern-filter comparisons report no demonstrated edge. Encrypted account, global/product settings and execution heartbeat were unchanged by review; collection also preserved models/research. No source/risk changes or private financial figures published. Five-minute timer reliability and complete execution sampling remain unresolved.
+
+## Cost-aware strategy lab — 2026-11-21
+- [x] Added `scripts/strategy-lab.mjs`, fixed seven-approach chronological comparison, final-test freeze, forward comparison and fee/slippage stress. Research cannot execute or adopt strategies, alter risk caps, or advance the trading heartbeat.
+- [x] Added constant/logistic/nearest-neighbor/naive-Bayes outcome-model comparison with entry-feature checks, 100-trade minimum, purged chronological train/validation/test and one frozen final evaluation. Existing market-label ML remains separate.
+- [x] Added encrypted/private and synthetic/public dashboard reports, same-input checkpoint, missing-data retention, and `learning.yml phase=research`; existing cron expressions unchanged.
+- [x] Created separate five-hour research task (now the Claude researcher, agent 2). Existing automations retained.  no promise of uninterrupted execution or all-winning trades.
+- [x] Initial private research inspection preserved account/configuration/heartbeat and found no candidate clearing the complete historical criterion. Model fitting remains blocked by insufficient eligible outcomes. Private financial figures omitted from this log.
+- [x] Added `RESEARCH_PLAN.md` with experiment registry, prerequisites, limitations and future adoption checklist. A new daily promotion gate for lab candidates remains pending sufficient independent evidence; the lab currently stays shadow-only.
+- [x] Verified committed research workflow 44865566980 succeeded and deployed public/encrypted reports at 04:20 UTC. Private account, global/product configurations, trading heartbeat, evidence and prior models/review were unchanged. All 76 tests passed, publication audit passed, and served ciphertext matched the verified local envelope.
+
+### 2026-11-21 research deployment and recovery checkpoint
+Update recovery 44865242323 and collect-only recovery 44865372834 succeeded, restoring published execution at 04:16:22 UTC and collection at 04:17:57 with the completed hour ending 04:00. Today's daily review already existed and was not repeated. These were manual dispatches, not five-minute timer evidence. Source deployment 44865491787 and research deployment 44865566980 succeeded. New lab reports no validated historical replacement; outcome models await sufficient feature-frozen evidence. Research cannot adopt its candidates. The five-hour research automation is enabled; its first scheduled run is pending, and no claim of quota reset verification is made. Existing schedules, PIN gate, encrypted state and risk rules remain intact.

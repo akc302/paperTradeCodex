@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101411"><meta name="description" content="A paper-only trading lab for support and resistance. Track virtual trades, test ideas, and review your strategy every day.">
+  <title>Level Lab · Paper trading, with a process</title><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css">
+</head>
+<body class="pin-locked">
+  <style>body.pin-locked>.sidebar,body.pin-locked>main,body.pin-locked>dialog,body.pin-locked>#toast{display:none!important}#pin-screen{position:fixed;inset:0;z-index:100;background:#101411;display:grid;place-items:center;padding:24px}#pin-screen[hidden]{display:none}.pin-card{width:min(360px,100%);padding:30px;border:1px solid #364238;border-radius:14px;background:#181d19;text-align:center}.pin-card h1{font-size:26px}.pin-card input{text-align:center;font-size:28px;letter-spacing:12px}.pin-card button{width:100%;margin-top:20px}</style>
+  <section id="pin-screen" aria-label="Unlock dashboard"><form id="pin-form" class="pin-card"><img src="./favicon.svg" width="48" height="48" alt="Level Lab"><h1>Unlock your dashboard</h1><p class="muted">Enter your four-digit PIN.</p><label for="access-pin">PIN<input id="access-pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" minlength="4" autocomplete="off" required autofocus></label><button class="button primary" type="submit">Unlock</button><p id="pin-error" role="alert" class="negative"></p></form></section>
+  <noscript>This dashboard requires JavaScript.</noscript>
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><img src="./favicon.svg" alt="" width="34" height="34">level<span>lab</span></a>
+    <div class="workspace-label">YOUR TRADING WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <a href="#overview" data-nav="overview"><span class="nav-icon">◫</span>Overview</a>
+      <a href="#journal" data-nav="journal"><span class="nav-icon">≡</span>Trade journal<span id="journal-count" class="nav-count">0</span></a>
+      <a href="#strategy" data-nav="strategy"><span class="nav-icon">⌘</span>Strategy lab</a>
+      <a href="#updates" data-nav="updates"><span class="nav-icon">◷</span>Daily reviews</a>
+      <a href="#settings" data-nav="settings"><span class="nav-icon">⚙</span>Settings</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="lab-symbol">⌁</div><strong>Practice with purpose.</strong><p>Real market data.<br>Virtual capital. Better questions.</p><div class="paper-badge"><span></span> PAPER TRADING ONLY</div><a class="source-link" href="https://github.com/akc302/paperTradeCodex" target="_blank" rel="noopener">View source on GitHub ↗</a></div>
+  </aside>
+  <main>
+    <header class="topbar"><span class="breadcrumb">Workspace <span>/</span> <b id="breadcrumb">Overview</b></span><div class="header-right"><span class="timezone">UTC</span><span class="mode-pill">Sandbox</span><div class="avatar" title="Your paper trading workspace">AK</div></div></header>
+    <div class="content">
+      <div id="notice" role="status" hidden></div>
+      <section class="page-heading"><div><div class="eyebrow">OBSERVE. TEST. REFINE.</div><h1 id="page-title">Your edge starts here.</h1><p id="page-subtitle">A clear view of your markets, your trades, and what comes next.</p></div><button id="refresh" class="button secondary"><span>⟳</span> Refresh data</button></section>
+      <div class="context-row"><div class="account-switch" role="group" aria-label="Paper account"><button data-account="private">My Coinbase paper portfolio</button><button data-account="shared" class="active">Public demo account</button><button data-account="personal">My practice account</button></div><span id="account-note" class="muted">Hourly simulation · shared on GitHub</span></div>
+      <div id="view"></div>
+      <footer><span>Level Lab <span class="footer-sep">/</span> Built to learn, not to promise returns.</span><span id="footer-source">Coinbase market data · Paper execution</span></footer>
+    </div>
+  </main>
+  <dialog id="trade-dialog"><form id="trade-form"><div class="dialog-top"><div><span class="eyebrow">VIRTUAL EXECUTION</span><h2>Plan a paper trade</h2></div><button type="button" class="icon-button" id="close-dialog" aria-label="Close dialog">×</button></div><p class="muted">Practice account only. Fill uses a fresh Coinbase quote plus estimated slippage.</p><div id="trade-reference" class="reference-price"></div><label>Stop loss · USD<input id="trade-stop" name="stop" inputmode="decimal" type="number" min="0.00000001" step="any" required></label><label>Take profit · USD<input id="trade-target" name="target" inputmode="decimal" type="number" min="0.00000001" step="any" required></label><p class="small muted" id="trade-risk"></p><p id="trade-error" class="negative" role="alert"></p><button type="submit" class="button primary full">Open virtual position</button><p class="small muted">No real orders. Cash, positions, and P&amp;L stay in this browser.</p></form></dialog>
+  <div id="toast" role="status" hidden></div>
+  <script type="module">
+const form=document.getElementById('pin-form'),input=document.getElementById('access-pin'),error=document.getElementById('pin-error');
+let failures=0,until=0;
+form.addEventListener('submit',async event=>{
+ event.preventDefault();
+ if(Date.now()<until){error.textContent='Please wait 30 seconds before trying again.';return;}
+ const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(input.value)))).map(n=>n.toString(16).padStart(2,'0')).join('');
+ input.value='';
+ if(digest!=="8ad38db8cfc0cf1f9d8190d2c0301b97ddc148359388daf00c0ba4bb058cee91"){failures++;if(failures%5===0)until=Date.now()+30000;error.textContent='Incorrect PIN. Please try again.';input.focus();return;}
+ const button=form.querySelector('button');button.disabled=true;error.textContent='';
+ try{await import('./app.js');document.getElementById('pin-screen').hidden=true;document.body.classList.remove('pin-locked');}
+ catch{error.textContent='Could not load the dashboard. Reload and try again.';button.disabled=false;}
+});
+</script>
+</body></html>

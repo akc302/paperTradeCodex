@@ -1,0 +1,11 @@
+dist/
+node_modules/
+.DS_Store
+test-results/
+*.zip
+.env
+.env.*
+.private/
+*-key.txt
+*-credentials.*
+coinbase-snapshot.json

@@ -1,0 +1,10 @@
+{
+  "feeTier": "Advanced 2",
+  "makerFeeRate": 0.0015,
+  "takerFeeRate": 0.003,
+  "feeRate": 0.003,
+  "rebateRate": 0.25,
+  "rebateVerified": true,
+  "feeObservedAt": "2026-11-21T16:30:00Z",
+  "source": "Owner-provided Coinbase Advanced spot fee schedule; 25% Coinbase One rebate on fees, owner-confirmed. Edit this file when the tier changes."
+}

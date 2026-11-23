@@ -1,0 +1,45 @@
+{
+  "updatedAt": "2026-11-23T16:20:58.442Z",
+  "triggerEvent": "workflow_dispatch",
+  "scheduleEventCount": 13,
+  "fiveMinuteCadenceVerified": true,
+  "recentRuns": [
+    {
+      "createdAt": "2026-11-23T16:20:01Z",
+      "event": "workflow_dispatch",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "createdAt": "2026-11-23T16:15:02Z",
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "createdAt": "2026-11-23T16:10:03Z",
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "createdAt": "2026-11-23T16:05:02Z",
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "createdAt": "2026-11-23T16:00:01Z",
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "createdAt": "2026-11-23T15:55:02Z",
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "note": "The trader re-dispatches itself every ~5 minutes because GitHub cron delivery is throttled; cadence is verified from actual successful runs."
+}

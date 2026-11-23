@@ -1,0 +1,53 @@
+name: Hourly health check
+on:
+  schedule:
+    - cron: '41 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: paper-health-monitor
+  cancel-in-progress: false
+jobs:
+  monitor:
+    # Migration gate: enable only after this repository's Actions/Pages setup.
+    if: ${{ github.repository == 'akc302/paperTradeCodex' && vars.PAPERTRADE_CODEX_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check published updates and feed freshness
+        id: health
+        continue-on-error: true
+        run: node scripts/health-check.mjs
+      - name: Retry the existing updater once if unhealthy
+        if: steps.health.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          previous_run=$(gh run list --workflow update.yml --limit 1 --json databaseId --jq '.[0].databaseId')
+          gh workflow run update.yml
+          recovery_run=''
+          for attempt in $(seq 1 20); do
+            candidate=$(gh run list --workflow update.yml --limit 1 --json databaseId --jq '.[0].databaseId')
+            if [ "$candidate" != "$previous_run" ]; then recovery_run="$candidate"; break; fi
+            sleep 3
+          done
+          if [ -z "$recovery_run" ]; then echo 'Recovery workflow did not appear.'; exit 1; fi
+          gh run watch "$recovery_run" --interval 10 --exit-status
+      - name: Verify recovery
+        if: steps.health.outcome == 'failure'
+        run: node scripts/health-check.mjs
+      - name: Record monitoring result
+        if: always()
+        run: |
+          echo '## Paper trading health monitor' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Checks published state, enabled automation, market-feed errors, and freshness. An unhealthy result triggers one updater retry. Persistent faults fail this workflow for investigation; no arbitrary source edits or real trades are performed.' >> "$GITHUB_STEP_SUMMARY"

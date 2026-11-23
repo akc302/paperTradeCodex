@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{waitForStableArtifact}from'../scripts/wait-pages-artifact.mjs';
+test('Pages visibility must stabilize after a transient disappearance',async()=>{let calls=0;const sequence=[true,false,true,true,true];await waitForStableArtifact({probe:async()=>sequence[calls++],pause:async()=>{}});assert.equal(calls,5);});
+test('Pages visibility errors reset readiness and persistent absence fails boundedly',async()=>{let calls=0;await assert.rejects(waitForStableArtifact({probe:async()=>{calls++;if(calls===2)throw Error('temporary');return calls===1;},pause:async()=>{},attempts:4}),/did not remain visible/);assert.equal(calls,4);});

@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "at": "2026-11-21T16:30:00Z",
+      "tradesReviewed": 42,
+      "losses": 40,
+      "findings": [
+        "42/42 closed trades were 'aggressive-exploration' entries taken while EMA20<EMA50 with negative 24h change (-0.2% to -10%): every entry was counter-trend in a downtrend regime.",
+        "Entries cluster: 4 coins entered in the same 5-min run each time (03:20, 05:49, 08:23, 11:16, 13:18, 15:16, 00:21, 02:50, 04:16, 07:00 UTC), so each bad signal cost 4x; correlated losses, not diversification.",
+        "Net -2068.75 = gross -945.70 minus fees 1123.03. Taker 0.6% each side (1.2% round trip) is 54% of the loss; 8 of 40 losers were gross-positive and fee-killed.",
+        "Targets were ~5.5-7% away with a 2h max hold: only 4/40 losers ever reached half the target (median MFE ~0.6%). Target was unreachable in the hold window; 30/42 exits were time-exits.",
+        "Stops were 1.25-1.6x ATR; all 12 quote-stops hit within 1-2h in -2% to -6% hourly flushes (e.g. 02:50 batch, MAE ~-6%). Too tight for downtrend volatility.",
+        "Untagged entries (no pattern match): 35 trades, 0 wins, -1980.81. Pattern-tagged: oversold-bounce 1/5, ma20-reclaim 1/2 (the only 2 winners, both with 2-4h holds and MFE >3.6%).",
+        "productConfigs adopted ~13:32 UTC (patternRequired, 24h hold, 2.5x ATR stop) address the hold/stop/pattern findings; only 1 trade (paper-44, win) closed since, so too early to judge. No regime filter or fee reduction adopted yet."
+      ],
+      "changes": [
+        "engine.js: new regimeFilter tunable + downtrendRegime() (EMA20<EMA50 and 24h <= -3% blocks BUY)",
+        "strategy-lab CANDIDATES: regime-block, aggressive-day-hold+regime-block (pattern required, 24h hold, 2.5x ATR stop)"
+      ],
+      "adopted": true,
+      "nextIdea": "Add strategy-lab CANDIDATES: (a) 'aggressive+regime-block' that skips entries when EMA20<EMA50 and 24h change < -3% (or requires a 4h close above EMA50); (b) cap same-run entries to 1-2 coins when they are highly correlated; (c) maker-limit entry modeling (0.4% maker vs 0.6% taker, before the 25% rebate) so entries are rejected unless expected move > 2.5x round-trip cost. Judge on the unseen newest-25% test with fees; FROZEN risk caps unchanged.",
+      "status": "Regime filter merged (PR #11). learning.yml research run at 17:58Z adopted: ADA-USD regime-block (regimeFilter:true, 4h hold); SOL/LINK 4h hold; DOGE 1.5x ATR stop. BTC/ETH/XRP/AVAX kept current rules (no candidate beat them on unseen data). Judge at next run whether downtrend losses stop on ADA."
+    },
+    {
+      "at": "2026-11-21T20:32:14.169Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "No paper trades closed since the 16:30Z note (the account restarted at $30,000 at 16:38Z). XRP and ADA are open under the old aggressive hourly rules, 2.5h in.",
+        "PR #10 (merged 18:28Z) made trend-follow the main strategy: main productConfigs are now {} and the hourly rules moved into the hourly-legacy and lab-hourly challengers. The lab now runs hourly research in shadow and feeds lab-hourly.",
+        "Bug: challengers RULE_KEYS lacked regimeFilter (PRs #10 and #11 were merged in parallel), so lab-hourly silently dropped ADA regimeFilter:true and could not carry any future regime-block adoption.",
+        "GitHub skipped the scheduled learning runs at 19:23, 20:17 (research) and 20:23Z. Research was dispatched by hand at 20:29Z: every market chose keep. XRP's leading candidate was aggressive-day-hold+regime-block, but it did not clear adoption on unseen data."
+      ],
+      "changes": [
+        "scripts/challengers.mjs: add regimeFilter to RULE_KEYS",
+        "tests/challengers.test.js: every strategy-lab TUNABLE key must survive into challengers"
+      ],
+      "adopted": false,
+      "nextIdea": "Once the first trend-follow trades close, compare them with the hourly challengers on net after fees. If lab-hourly keeps losing in downtrends, make regime-block its default rather than waiting for per-market adoption. Also check whether the trend-follow entry needs a 1d EMA50 regime gate.",
+      "status": "RULE_KEYS fix merged. ADA regimeFilter returns to lab-hourly when the lab next adopts it for ADA."
+    },
+    {
+      "at": "2026-11-22T00:29:37.443Z",
+      "tradesReviewed": 1,
+      "losses": 1,
+      "findings": [
+        "Main ledger paper-2 ADA-USD lost -68.84 net (-24.11 gross, 44.73 fees at 0.3% taker each way, 11.18 rebate). Entered 18:01Z on a 20h closing-high breakout with mixed trend (EMA20/50 not aligned) and +3.3% 24h, so the regime filter correctly did not apply. MFE was +0.67% against a +5.07% target, and it time-exited at 4.1h of 4h, -0.8%.",
+        "The same ADA trade lost -114.75 in both the hourly-legacy and lab-hourly challengers (entered 18:50Z). The two are duplicates until the lab adopts a different rule.",
+        "Repeat of the 16:30Z finding: on the 4h hold, the ~5% target (1.5R on a 1.28x ATR stop) is unreachable; median MFE is under 1%. One trade is not enough evidence to change rules by hand.",
+        "Trend-follow main has made no entries because every market fails the daily EMA50 trend test. That is correct capital preservation in this downtrend, not a fault.",
+        "GitHub skipped the 00:17Z research schedule; it was dispatched at 00:27Z. The lab chose keep for all 8 markets, and the 2-year trend leader trend-k3-top3 is not validated."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "If lab-hourly logs 3+ more 4h time-exits with MFE below 1/3 of target, add a candidate that scales the target to what is reachable in the hold: target = entry + k*ATR*sqrt(holdHours), with k fitted on train data. Alternatively, drop the 4h ADA hold for aggressive-day-hold. Judge on unseen data after fees.",
+      "status": "Analysis recorded; no code change this run (insufficient new evidence)."
+    },
+    {
+      "at": "2026-11-22T03:08:21.191Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "Owner asked for steady trading activity (day/scalp style), not days of no trades.",
+        "Sweep of 90 hourly variants (aggressive, rsi-reversion, donchian, ema-trend, horizontal x hold 4/8/24h x stop 1.5/2.5 ATR x 1-1.5R x regime filter) on the newest ~8 days, taker 0.3%: 0 profitable after fees.",
+        "Walk-forward of 432 scalp variants (hold 2/3/6h, stop 0.75-1.25 ATR, 0.6-1R, maker 0.15% entries): 0 profitable on both train and validation windows; best unseen -26.",
+        "Over ~30 days at 0.5% risk: horizontal support-bounce with a 4h hold, 1.5x ATR stop and 1R trades 1.4/day across 8 coins at 29% wins. That is the least-bad active setup; aggressive trades 9-13/day but at 16-22% wins and 10x the loss.",
+        "Conclusion: in this ~10% downtrend, no long-only hourly rule has a positive edge after fees, so making the main account more aggressive would lose money."
+      ],
+      "changes": [
+        "scripts/challengers.mjs: new 'scout-daytrade' challenger (horizontal, 4h hold, 1.5x ATR, 1R, maker-limit entry) at riskScale 0.25 (0.5% risk/trade); existing challenger sets get missing seeds appended; riskScale can only lower risk",
+        "tests: scout seeding is idempotent, risk is clamped to at most the main caps"
+      ],
+      "adopted": true,
+      "nextIdea": "Use the scout's live trades plus lab backtests to fit entry filters (hour of day, distance to support in ATR, volume ratio) that raise its win rate above 45%. Promote it only through the daily gate (7+ days, 20+ trades, PF 1.2+).",
+      "status": "Scout runs on every 5-minute trader pass; main account stays on gated trend rules."
+    },
+    {
+      "at": "2026-11-22T05:29:37.229Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "No trades closed in any account since 03:09Z. Main and both hourly challengers still hold the same XRP position (10-11h of a 24h hold).",
+        "scout-daytrade has been live since 03:09Z with no errors and no entries yet. Six coins are away from the support zone; ETH and XRP have support but too little room to resistance after fees, which is the fee guard working as intended. Expected pace is about 1.4 trades/day, so 2h without an entry is within normal range.",
+        "Trend challengers and main stay flat: every market still fails the daily EMA50 trend test.",
+        "GitHub skipped the 05:17Z research schedule; it was dispatched at 05:27Z. The lab chose keep for all 8 markets, and the 2-year trend leader trend-k3-top3 is still not validated."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "Next run: if the scout has made 0 entries for 12h, test proximity 0.008-0.01 and a 1h-close-above-support confirmation in the lab so it trades more without dropping the fee guard. Once it has 5+ closed trades, fit hour-of-day and volume-ratio filters on them.",
+      "status": "Monitoring; no rule change this run."
+    },
+    {
+      "at": "2026-11-22T06:09:06.378Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "Owner asked to widen the scout entry zone now, instead of waiting 12h for evidence.",
+        "Backtest of the scout setup (horizontal, 4h hold, 1.5x ATR, 1R, maker entry, 0.5% risk) over ~30 days for proximity 0.6/0.8/1.0/1.2/1.5%: 1.4/1.5/1.6/1.7/1.8 trades/day. Last 8 days: 9t 44% -1 / 9t 44% -1 / 11t 36% -60 / 13t 38% -62 / 14t 43% -26.",
+        "1.5% gives the most trades (+29% vs 0.6%) for almost the same 8-day result; 1.0-1.2% are worse on both counts."
+      ],
+      "changes": [
+        "scripts/challengers.mjs: scout proximity 0.006 to 0.015; researcher-owned seed rules are synced into the existing scout in place (ledger kept, change logged in rulesHistory)",
+        "tests: in-place sync keeps the ledger, runs once, and leaves other challengers untouched"
+      ],
+      "adopted": true,
+      "nextIdea": "Review the scout's first closed trades: is the win rate near the backtest's ~40% and do entries cluster at certain hours? If 1.5% entries lose more than the 0.6% ones would have, revert to 0.6%.",
+      "status": "Applied via the daily-review rules step."
+    },
+    {
+      "at": "2026-11-22T10:29:36.288Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "No trades closed since 06:09Z. Main and both hourly challengers still hold XRP (15-16h of a 24h hold).",
+        "The scout made its first entry after the 1.5% zone change: ETH at 1709.57, filled as a simulated maker limit at 0.15% fee. Its stop sits 0.21% below entry, at support less the stop buffer rather than 1.5x ATR, and its target is +2.1%. A support-based stop this tight can be hit by normal hourly noise; check it when the trade closes.",
+        "The hourly challengers opened ETH+LINK (hourly-legacy) and ETH+AVAX (lab-hourly) about 1.4h ago.",
+        "Lab at 10:28Z: BTC adopt-improvement for aggressive-day-hold+regime-block, fed into lab-hourly with regimeFilter:true. This is the first end-to-end use of the regime filter in a challenger and confirms the RULE_KEYS fix. The other markets kept their rules; the trend leader is still not validated.",
+        "GitHub skipped the 10:17Z research schedule; it was dispatched at 10:27Z."
+      ],
+      "changes": [
+        "lab-hourly BTC-USD adopted regimeFilter:true (aggressive, 24h hold, 2.5x ATR, 1.5R)"
+      ],
+      "adopted": true,
+      "nextIdea": "When the scout's first trades close, compare its support-based stops (here 0.21%) with ATR. If they are mostly stopped out within 1h, test a minimum stop of max(support stop, 1x ATR) in the horizontal strategy for the scout.",
+      "status": "Monitoring; no code change this run."
+    },
+    {
+      "at": "2026-11-22T12:16:05.801Z",
+      "tradesReviewed": 2,
+      "losses": 2,
+      "findings": [
+        "The scout's first 2 trades were both ETH-USD quote-stops: -47.97 (held 0.2h) and -45.81 (held 0.5h). Fees were 33.34 and 33.30 each (0.15% maker entry, 0.3% taker stop exit).",
+        "Cause: the support-based stop sat about 0.2% below entry. At 0.5% risk this would mean a very large position, so the 25% allocation cap limited it to about $7.4k notional. Real risk was about $14 of price move plus $33 of fees, so fees were 70% of each loss and ordinary hourly noise hit the stop.",
+        "Hypothesis tested (failed): a volatility floor on the stop (minStopAtr 0.5/0.75/1/1.5 x ATR, with 1R and 0.8R targets) over ~30 days. It cuts the stopped-in-1h losses from 21 to as few as 1, but does not raise the win rate (15-29%) and makes net and last-8-day results worse (e.g. 1.0 ATR: 5t 20% -92 vs current 14t 43% -26). Not adopted; experimental code reverted.",
+        "Main and both hourly challengers still hold XRP (17-18h of 24h). The hourly challengers' ETH, LINK and AVAX positions are 3.2h old."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "The scout's setups lose mainly to the taker stop-exit fee. Test a maker-style stop (a resting limit just below support, simulated maker at 0.15%) and an entry filter that requires the 1h ATR to be at least 3x the round-trip fee. Both target the fee share of losses rather than the stop distance.",
+      "status": "No rule change; the scout keeps running for more evidence."
+    },
+    {
+      "at": "2026-11-22T15:29:22.877Z",
+      "tradesReviewed": 1,
+      "losses": 0,
+      "findings": [
+        "1 trade closed since 12:15Z: hourly-legacy LINK-USD, a win, time-exited at 4.0h of 4h for +34.67 net (+48.48 gross, 13.81 fees). Entered 09:05Z with 24h +4.1%, so it was not in a downtrend. MFE was +3.08% against a +4.67% target, with a stop 1.94% away. Same lesson as before: the target is not reached within 4h, but this time the price drift was positive.",
+        "The scout made no new entries since its 2 ETH stop-outs.",
+        "Hypothesis tested (failed on unseen data): an entry filter requiring ATR >= k x round-trip fee for the scout setup. Walk-forward results (train / validation / unseen) for k=0: 20t 15% -407 / 21t 29% -328 / 13t 46% -8. k=2: 14t 14% -272 / 11t 36% -91 / 12t 42% -46. k=3: 2t / 0t / 5t 40% -37, too few trades. It improves the older windows but not the unseen newest 25%, so it is not adopted and the code is reverted.",
+        "Main and both hourly challengers still hold XRP (20-21h of 24h). The hourly challengers also hold ETH (6.4h), DOGE and AVAX."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "The win (LINK) entered with a positive 24h change; most losers entered with a negative one. Test a simple 24h momentum gate (24h change > 0) for the scout and the hourly challengers on the same walk-forward split. Separately, model a maker-limit stop exit to cut the 0.3% taker fee on stop-outs.",
+      "status": "No rule change this run."
+    },
+    {
+      "at": "2026-11-22T20:28:43.538Z",
+      "tradesReviewed": 3,
+      "losses": 3,
+      "findings": [
+        "3 losses closed, all the same XRP-USD position time-exiting at 24h: main -65.89 (gross -21.13, fees 44.77) and the hourly-legacy/lab-hourly copies -72.21 each (gross -38.77, fees 33.43). Entries were 21 Nov 18:01Z and 19:15Z with 24h +2.9%/+3.3%. Targets were +7.6-7.9% away; MFE was only +0.4-0.5% over 24h.",
+        "So a positive 24h change did NOT protect these trades. The repeated failure is the aggressive 2.5x ATR stop with 1.5R target: it puts targets about 7-8% away, which the market has not reached in 24h on any losing trade.",
+        "Hypothesis tested (failed): a 24h momentum gate (buy only if the close is above the close 24h ago). Walk-forward, train / validation / unseen. Hourly aggressive rules without the gate: 97t 29% -2087 / 55t 15% -2337 / 66t 27% -2685. With the gate: 57t 25% -1297 / 23t 0% -1590 / 33t 9% -1895. It loses less only by trading half as much, and the win rate falls. Scout: 13t 46% -8 unseen without the gate, 0t with it. Not adopted; code reverted.",
+        "Hypothesis tested (failed): a smaller target for the hourly rules (0.6R instead of 1.5R, same stop). Unseen 72t 29% -2440 vs 66t 27% -2685. Win rate rises only 2 points; still deeply negative after fees.",
+        "Overall: the aggressive hourly rules lose about $2.7k per 8 days per $10k at 2% risk on unseen data. They stay as challenger evidence only; nothing like them should reach the main account."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "Stop tuning long-only hourly entries in this downtrend; 4 different filters have now failed out of sample. Test instead (a) the scout and hourly challengers at a lower riskScale (0.25) so evidence costs less, and (b) a 6h-bar mean-reversion entry (RSI(14) < 30 on 6h with a 1d close above EMA200) using the 2-year history, so there are hundreds of out-of-sample trades instead of about 13.",
+      "status": "No rule change this run."
+    },
+    {
+      "at": "2026-11-23T00:30:24.689Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "No new trades closed since 20:28Z. Main has not entered for about 30h because all 8 coins fail the daily EMA50 trend test (intended).",
+        "New research on the 2-year 6h/1d history (8 coins, chronological 50/25/25 split, maker entry 0.15% + taker exit 0.3%). 6h RSI(14) dip buys WITHOUT a daily trend filter lose out of sample: RSI<25 unseen 42t 45% -11.2R; RSI<30 unseen 88t 43% -24.3R.",
+        "With a daily uptrend filter (last daily close > EMA100), RSI<25, 2x 6h-ATR stop, 1R target, 48h max hold: train 4t 25% -1.6R, validation 5t 100% +2.3R, unseen 5t 100% +4.2R. RSI<30 with the same filter hovers around 0R. Positive out of sample on both later windows, but samples are small (14 trades in total)."
+      ],
+      "changes": [
+        "engine.js: new 'dip-6h' strategy (dipSignal), using the stored 6h/daily history like trend-follow, in the live batch path and backtests",
+        "scripts/challengers.mjs: new 'scout-dip6h' challenger (dipRsi 25, 2x ATR stop, 1R, 48h hold, maker limit entry) at riskScale 0.25",
+        "tests/dip6h.test.js: buys only on a 6h dip inside a daily uptrend; seeds at 1/4 risk"
+      ],
+      "adopted": true,
+      "nextIdea": "scout-dip6h will make no entries until coins close back above their daily EMA100 (none are today). Track its live trades from then on. Meanwhile, test the same dip rule on BTC/ETH only, and with an EMA50 daily filter, to see whether more trades keep the edge.",
+      "status": "Challenger seeded via the daily-review rules step; the main account is unchanged."
+    },
+    {
+      "at": "2026-11-23T02:51:09.797Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "Owner: trade actively at significant size; buy at support, sell at resistance; paper losses are acceptable while the researcher learns.",
+        "Gate-free simulation over 32 days, 8 coins: buy in the bottom 20-35% of the 12/24h range, sell at 60-80% of it, stop 0.5-2% under the low, maker 0.15% in and out (taker on stops). 48 variants averaged -0.5% to -0.7% per trade overall. The best on the newest 25% (24h range, entry 35%, exit 80%, 2% stop) made +0.25%/trade over 78 trades at 56% wins, but -0.62%/trade over the full period.",
+        "Full engine backtest of that variant (all gates and fees): 8-11 trades/day across 8 coins, 42-46% wins. Net per $10k account over 32 days: -4.9k at 25% allocation, -9.0k at 50%, -9.5k at 100%. In this downtrend most range lows break, so the setup has a negative edge.",
+        "Owner chose to run it as a full-size challenger (not the main account): up to 50% of equity per position, 100% total exposure, same 2% risk, 4-position and 12% daily-loss caps as main."
+      ],
+      "changes": [
+        "engine.js: new 'range' strategy (24h range low buy, near-high target, % stop, fee-width guard)",
+        "scripts/challengers.mjs: 'daytrader-range' challenger with owner-authorized size overrides (maxAllocation 0.5, maxExposure 1; only these two keys may be overridden, capped at 100%)",
+        "tests: range strategy behaviour and the override limits"
+      ],
+      "adopted": true,
+      "nextIdea": "Use daytrader-range's live trades (expect 5-10 a day) to fit entry filters: skip ranges whose low was set in the last 3h (still falling), require 2+ touches of the low, and only trade coins whose 24h range is at least 2.5% wide. Re-test each on the newest unseen data before changing the challenger.",
+      "status": "Seeded via the daily-review rules step; main account unchanged."
+    },
+    {
+      "at": "2026-11-23T03:05:42.689Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "Owner gave admin authority to speed up the research loop. Fees stay at Advanced 2 until the owner changes tier.",
+        "First automatic sweep (32 rules on the 33-day hourly feed): 0 rules are positive in all three windows. The best on the newest 25% is horizontal support bounce (0.6% zone, 8h hold, 1R): 4t +117.58 unseen, but negative in train and validation. Too little data, so the daily review now fetches 1 year of hourly candles."
+      ],
+      "changes": [
+        "Research every 3h and the daily review now restart themselves from the 5-minute trader when GitHub skips their timers (scripts/overdue.mjs)",
+        "1 year of hourly Coinbase candles in data/history/*-1h.json, refreshed daily and incrementally",
+        "scripts/sweep.mjs: a daily automatic backtest of 32 rules on 1-year hourly data, scored on train/validation/unseen after fees, written to data/sweep.json and summarised in the team report",
+        "Losing challengers retire after 30 trades with net < 0 and profit factor < 0.8 (owner-requested daytrader-range exempt); new rules un-retire them",
+        "learning.yml timeout 20 to 40 min to fit the history fetch and sweep"
+      ],
+      "adopted": true,
+      "nextIdea": "Once data/sweep.json comes from 1-year hourly data, promote any rule that is positive in all three windows into a challenger, and expand the grid around it.",
+      "status": "Merged; the daily review was dispatched to fetch the hourly year and run the first full sweep."
+    },
+    {
+      "at": "2026-11-23T04:07:23.649Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "No trades closed since 03:04Z. daytrader-range is live with 2 resting limit buys (XRP, ADA). The hourly challengers hold ETH, DOGE, XRP and AVAX.",
+        "First full-year sweep (8 coins x 8,755 hourly candles, 32 rules, Advanced 2 fees, 2% risk, 25% allocation): 0 rules positive in any of the train, validation or unseen windows. Best profit factors were 0.5-0.8; every family loses over the year, not just in this month's downtrend.",
+        "Best by unseen result: rsi-reversion (2.5 ATR stop, 2R, 24h hold): train 142t 25% -4203 / validation 68t 31% -1254 / unseen 65t 38% -1014. donchian (2R, 24h): 424t/201t/180t with profit factor 0.52/0.81/0.69, the closest to break-even. horizontal and aggressive were worst, at profit factor 0.2-0.4.",
+        "Conclusion: with long-only spot and these fees, short-horizon hourly entries have no edge over a year. Hourly challengers are evidence only; the research focus moves to longer-horizon and trend-following rules, which hold for days and pay fees once per large move."
+      ],
+      "changes": [
+        "Review pipeline fixed (PR #28): the year of hourly history (4.8 MB) and the sweep are now committed; the sweep runs in about 9 min with worker threads"
+      ],
+      "adopted": false,
+      "nextIdea": "Add rule families built for bigger moves to the sweep: hourly donchian breakouts with an ATR trailing stop and no fixed target, multi-day holds (72-168h), and the dip-6h entry with a trailing exit. Keep only rules whose profit factor is above 1.1 in all three windows.",
+      "status": "Recorded; sweep grid expansion is next."
+    },
+    {
+      "at": "2026-11-23T06:34:18.139Z",
+      "tradesReviewed": 2,
+      "losses": 1,
+      "findings": [
+        "daytrader-range closed 2 trades, both at target: ADA +92.41 (gross +128.47, held 2.2h) and XRP -2.83 (gross +37.73, held 0.5h). The XRP target was only 0.2% above the fill, so fees turned a winning exit into a loss; fixed in PR #30 (target must clear round-trip fees + 0.1% at the live quote).",
+        "Hypothesis tested (failed): let-winners-run rules on 1-year hourly data. 16 variants of donchian and ema-trend breakouts with 3-5R targets, 72-168h holds and 2.5-3.5 ATR stops. None is positive in all windows. Unseen results were -3.6k to -5.2k per $10k per coin, with profit factor 0.38-0.52. donchian 5R/168h/3.5ATR made money only in the validation window (+1,917, PF 1.37), which was a rally, and lost in train (PF 0.42) and unseen (PF 0.39).",
+        "Regime: over the stored history BTC fell from about 98,970 to 58,790 and the alt-coins fell further. In a bear year, long-only entries of any holding length lose after fees, and holding cash (the main account's daily trend filter) is what preserves capital. The 2-year trend leader is still not validated."
+      ],
+      "changes": [
+        "scripts/sweep.mjs: add donchian 3R/5R, 168h hold, 3.5 ATR (closest to break-even) to the daily grid so a regime change shows up quickly"
+      ],
+      "adopted": false,
+      "nextIdea": "Stop searching for a long-only edge in the bear regime. Make capital preservation the main measure (main stays in cash until the daily trend turns), keep daytrader-range as the active evidence account, and add a regime detector to the sweep report (share of coins above daily EMA50) so the team switches to the validated trend rules the day the regime turns up.",
+      "status": "Recorded; small grid addition."
+    },
+    {
+      "at": "2026-11-23T09:29:34.486Z",
+      "tradesReviewed": 4,
+      "losses": 0,
+      "findings": [
+        "4 closes since 06:30Z, all hourly-challenger winners on a relief bounce, all time exits short of their ~4.5% targets: ETH +151.08 (gross +185.02, 24.1h, in both hourly challengers), SOL +84.78 (4.1h) and AVAX +50.44 (24.1h) in lab-hourly.",
+        "These winners do not overturn the 1-year sweep (hourly rules lose overall, profit factor at most 0.8): one bounce day is noise against 300+ backtested trades per rule. They stay as challenger evidence.",
+        "Regime today: 0 of 8 coins in a daily uptrend (close > EMA50 and EMA20 > EMA50); BTC -6.36% over 7 days and -24.56% over 30 days. State: down. The main account correctly stays in cash."
+      ],
+      "changes": [
+        "scripts/sweep.mjs: regimeFrom() adds a market-regime block (coins in a daily uptrend, share, up/mixed/down, BTC 7d/30d change) to data/sweep.json",
+        "team report: researcher.sweep.regime so the manager sees the regime every hour",
+        "test for the regime signal"
+      ],
+      "adopted": true,
+      "nextIdea": "When the regime turns 'mixed' or 'up' (at least one coin back above its daily EMA50), re-run the 2-year trend validation and the dip-6h rule on those coins first. Until then, track whether the hourly challengers' bounce gains hold over the next 30 trades before their retirement check.",
+      "status": "Merged."
+    },
+    {
+      "at": "2026-11-23T12:35:44.669Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "No trades closed since 09:29Z. The sweep is unchanged since 08:16Z: 0 of 34 rules pass all three windows.",
+        "New family tested on 1-year hourly data with the stored 6h/daily history: dip-6h (6h RSI dip, bought only while the daily close is above EMA100). Train and validation: 0 trades, because no coin was in a daily uptrend in those windows. Unseen: RSI<25 5t 100% +371.13; RSI<30 15t 67% +325.87 (1R, PF 1.58) / +466.20 (2R, PF 1.83).",
+        "This matches the 2-year 6h test (validation +2.3R, unseen +4.2R). It is the only family with a positive edge so far, but it trades only in daily uptrends and the sample is small (5-15 trades), so it cannot pass the three-window gate yet. scout-dip6h (RSI<25, 1/4 risk) is already live for it."
+      ],
+      "changes": [
+        "scripts/sweep.mjs: dip-6h (RSI 25/30, 1R/2R, 48h) added to the daily grid, with the stored 6h/daily history passed to every backtest"
+      ],
+      "adopted": false,
+      "nextIdea": "When the regime signal shows coins back in a daily uptrend, add an RSI<30, 2R dip-6h challenger at 1/4 risk next to scout-dip6h, and judge both on live trades. Meanwhile test the same dip logic on daily RSI with a weekly-trend filter, so more history (2 years of daily bars) gives more trades.",
+      "status": "Grid extended; daily review picks it up."
+    },
+    {
+      "at": "2026-11-23T15:29:55.713Z",
+      "tradesReviewed": 7,
+      "losses": 3,
+      "findings": [
+        "Rally day: the hourly challengers made 4 target wins, +888.16 in total. hourly-legacy XRP +312.30 (13.9h, MFE 10.6%) and DOGE +114.64 (22.8h, MFE 9.4%); lab-hourly AVAX +338.97 (1.4h, MFE 7.8%) and XRP +122.25 (1.9h).",
+        "3 losses, all 4h time exits: ADA -91.62 and -91.17 (MFE 3.64% vs a 4.01% target, cut just short) and SOL -63.48 (MFE 0.48%). All winners had 24h holds; all losers had the lab-adopted 4h hold.",
+        "1-year check (lab-hourly rules, 4h vs 24h hold). Full year: ADA -5,659 vs -4,574, SOL -6,619 vs -3,897, LINK -6,198 vs -4,779, so 24h loses less on every coin. Newest 25% is mixed: ADA -1,455 vs -1,156, SOL -1,027 vs -1,312, LINK -857 vs -869. Both holds lose, so today's pattern does not justify a rule change; the lab keeps choosing per coin.",
+        "Regime is still 'down' on completed daily bars (0/8 above EMA50; BTC -6.4% 7d, -24.6% 30d). Today's rally is not yet in a closed daily candle."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "If tomorrow's daily close lifts any coin above its EMA50, the regime turns 'mixed': re-run the 2-year trend validation on those coins and consider an RSI<30 2R dip-6h challenger. Keep watching whether the hourly challengers' rally gains survive their 30-trade retirement check.",
+      "status": "Recorded; no rule change."
+    }
+  ]
+}

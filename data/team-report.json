@@ -1,0 +1,385 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-23T16:06:37.034Z",
+  "goal": 85000,
+  "equity": 29865.26287940766,
+  "startingEquity": 30000,
+  "progressToGoal": -0.0024497658289516534,
+  "returnPct": -0.004491237353078032,
+  "drawdown": 0.008947045452893567,
+  "openPositions": 0,
+  "last24h": {
+    "closedTrades": 1,
+    "wins": 0,
+    "winRate": 0,
+    "netPnl": -65.89437935579004,
+    "grossFees": 44.76844966230692,
+    "rebatesCredited": 11.19211241557673
+  },
+  "allTime": {
+    "closedTrades": 2,
+    "wins": 0,
+    "winRate": 0,
+    "netPnl": -134.73712059234225,
+    "grossFees": 89.49721503664338,
+    "rebatesCredited": 22.374303759160846
+  },
+  "losingStreak": 2,
+  "rulesInUse": {
+    "BTC-USD": {
+      "strategy": "trend-follow",
+      "approach": "wider-stop",
+      "decision": "keep"
+    },
+    "ETH-USD": {
+      "strategy": "trend-follow",
+      "approach": "aggressive-day-hold+regime-block",
+      "decision": "keep"
+    },
+    "SOL-USD": {
+      "strategy": "trend-follow",
+      "approach": "wider-stop",
+      "decision": "keep"
+    },
+    "XRP-USD": {
+      "strategy": "trend-follow",
+      "approach": "current",
+      "decision": "keep"
+    },
+    "ADA-USD": {
+      "strategy": "trend-follow",
+      "approach": "current",
+      "decision": "keep"
+    },
+    "DOGE-USD": {
+      "strategy": "trend-follow",
+      "approach": "longer-hold",
+      "decision": "keep"
+    },
+    "LINK-USD": {
+      "strategy": "trend-follow",
+      "approach": "current",
+      "decision": "keep"
+    },
+    "AVAX-USD": {
+      "strategy": "trend-follow",
+      "approach": "longer-hold",
+      "decision": "keep"
+    }
+  },
+  "agents": {
+    "trader": {
+      "role": "5-minute paper trader",
+      "lastRunMinutesAgo": 1,
+      "healthy": true
+    },
+    "researcher": {
+      "role": "Claude every 5h: loss analysis, backtest, rule adoption",
+      "lastRunHoursAgo": 0,
+      "healthy": true,
+      "sweep": {
+        "at": "2026-11-23T08:16:51.985Z",
+        "source": "data/history 1h (1 year)",
+        "days": 364.8,
+        "rulesTested": 34,
+        "passingAllWindows": 0,
+        "regime": null,
+        "best": {
+          "config": {
+            "strategy": "rsi-reversion",
+            "stopAtrMultiplier": 2.5,
+            "rewardRisk": 2,
+            "maxHoldHours": 24
+          },
+          "unseen": {
+            "trades": 65,
+            "winRate": 0.38461538461538464,
+            "net": -1014.26,
+            "profitFactor": 0.5
+          }
+        }
+      },
+      "latestNote": {
+        "at": "2026-11-23T15:29:55.713Z",
+        "tradesReviewed": 7,
+        "losses": 3,
+        "findings": 4,
+        "changes": 0,
+        "adopted": false,
+        "nextIdea": "If tomorrow's daily close lifts any coin above its EMA50, the regime turns 'mixed': re-run the 2-year trend validation on those coins and consider an RSI<30 2R dip-6h challenger. Keep watching whether the hourly challengers' rally gains survive their 30-trade retirement check."
+      }
+    },
+    "verifier": {
+      "role": "hourly health check and one retry",
+      "workflow": "health.yml"
+    },
+    "manager": {
+      "role": "Claude every 6h: reads this report and the researcher notes, restarts and fixes jobs"
+    },
+    "supervisor": {
+      "role": "Claude every 8h: audits the manager and researcher for the owner"
+    }
+  },
+  "integrity": {
+    "ok": true,
+    "cashDifference": 0,
+    "problems": []
+  },
+  "readiness": {
+    "ready": false,
+    "passed": 2,
+    "total": 9,
+    "checks": [
+      {
+        "id": "history",
+        "label": "28+ days of forward paper trading with the research team",
+        "pass": false,
+        "value": "2.5 days"
+      },
+      {
+        "id": "sample",
+        "label": "150+ closed trades in the last 28 days",
+        "pass": false,
+        "value": "2 trades"
+      },
+      {
+        "id": "winrate",
+        "label": "Win rate 60%+ after fees",
+        "pass": false,
+        "value": "0.0%"
+      },
+      {
+        "id": "profit",
+        "label": "Net profit after fees and rebates, profit factor 1.3+",
+        "pass": false,
+        "value": "$-134.74, PF 0.00"
+      },
+      {
+        "id": "weekly",
+        "label": "Profitable in each of the last 4 weeks",
+        "pass": false,
+        "value": "$-135 / $0 / $0 / $0"
+      },
+      {
+        "id": "drawdown",
+        "label": "Max drawdown 10% or less over 28 days",
+        "pass": true,
+        "value": "0.9%"
+      },
+      {
+        "id": "validated",
+        "label": "Research validated (profitable on unseen data) for most markets",
+        "pass": false,
+        "value": "0/8 markets"
+      },
+      {
+        "id": "uptime",
+        "label": "Trader ran in 95%+ of hours over the last 7 days",
+        "pass": false,
+        "value": "24%"
+      },
+      {
+        "id": "integrity",
+        "label": "No calculation errors in the ledger",
+        "pass": true,
+        "value": "balanced"
+      }
+    ],
+    "message": "Not ready: 2/9 evidence checks passed. Keep paper trading."
+  },
+  "goalEstimate": {
+    "goal": 85000,
+    "equity": 29865.26287940766,
+    "windowDays": 30,
+    "label": "Estimated time to $85,000 at the trailing 30-day growth rate (not a promise)",
+    "status": "insufficient-history",
+    "spanDays": 2.6712619675916653,
+    "message": "Needs at least 7 days of equity history."
+  },
+  "scorecard": [
+    {
+      "id": "main",
+      "label": "Main: trend-follow",
+      "equity": 29865.26287940766,
+      "initial": 30000,
+      "netPnl": -134.73712059234225,
+      "profitFactor": 0,
+      "maxDrawdown": 0.008947045452893567,
+      "winRate": 0,
+      "avgWin": null,
+      "avgLoss": -67.36856029617113,
+      "closedTrades": 2,
+      "fees": 67.12291127748253,
+      "makerFills": 0,
+      "takerFills": 4,
+      "openPositions": 0,
+      "pause": "normal",
+      "drawdown": 0.004900472986521631
+    },
+    {
+      "id": "trend-k2",
+      "label": "Trend follow, 2×ATR trail",
+      "equity": 29975.046647868254,
+      "initial": 29975.046647868254,
+      "netPnl": 0,
+      "profitFactor": null,
+      "maxDrawdown": 0,
+      "winRate": null,
+      "avgWin": null,
+      "avgLoss": null,
+      "closedTrades": 0,
+      "fees": 0,
+      "makerFills": 0,
+      "takerFills": 0,
+      "openPositions": 0,
+      "pause": "normal",
+      "drawdown": 0
+    },
+    {
+      "id": "trend-k4",
+      "label": "Trend follow, 4×ATR trail",
+      "equity": 29975.046647868254,
+      "initial": 29975.046647868254,
+      "netPnl": 0,
+      "profitFactor": null,
+      "maxDrawdown": 0,
+      "winRate": null,
+      "avgWin": null,
+      "avgLoss": null,
+      "closedTrades": 0,
+      "fees": 0,
+      "makerFills": 0,
+      "takerFills": 0,
+      "openPositions": 0,
+      "pause": "normal",
+      "drawdown": 0
+    },
+    {
+      "id": "lab-trend",
+      "label": "Lab trend leader (2-year walk-forward)",
+      "equity": 29975.046647868254,
+      "initial": 29975.046647868254,
+      "netPnl": 0,
+      "profitFactor": null,
+      "maxDrawdown": 0,
+      "winRate": null,
+      "avgWin": null,
+      "avgLoss": null,
+      "closedTrades": 0,
+      "fees": 0,
+      "makerFills": 0,
+      "takerFills": 0,
+      "openPositions": 0,
+      "pause": "normal",
+      "drawdown": 0
+    },
+    {
+      "id": "hourly-legacy",
+      "label": "Previous hourly rules",
+      "equity": 30123.218230996186,
+      "initial": 29975.046647868254,
+      "netPnl": 334.1084887124103,
+      "profitFactor": 2.199337982986681,
+      "maxDrawdown": 0.01751721703325264,
+      "winRate": 0.5714285714285714,
+      "avgWin": 153.17147878398367,
+      "avgLoss": -92.8591421411748,
+      "closedTrades": 7,
+      "fees": 134.90969187887856,
+      "makerFills": 9,
+      "takerFills": 5,
+      "openPositions": 3,
+      "pause": "normal",
+      "drawdown": 0.017517217033252597
+    },
+    {
+      "id": "lab-hourly",
+      "label": "Lab hourly per-market rules",
+      "equity": 30046.08467165415,
+      "initial": 29975.046647868254,
+      "netPnl": 265.69849277305923,
+      "profitFactor": 1.551442318552868,
+      "maxDrawdown": 0.014286801854790292,
+      "winRate": 0.5,
+      "avgWin": 149.5046251602895,
+      "avgLoss": -96.36492660567765,
+      "closedTrades": 10,
+      "fees": 208.44299413865588,
+      "makerFills": 12,
+      "takerFills": 8,
+      "openPositions": 3,
+      "pause": "normal",
+      "drawdown": 0.014286801854790254
+    },
+    {
+      "id": "scout-daytrade",
+      "label": "Day-trade scout: support bounce (1.5% zone), 4h hold, 1/4 risk",
+      "equity": 29694.93239255542,
+      "initial": 29788.7180982152,
+      "netPnl": -93.78570565978161,
+      "profitFactor": 0,
+      "maxDrawdown": 0.0031483632612374084,
+      "winRate": 0,
+      "avgWin": null,
+      "avgLoss": -46.892852829890806,
+      "closedTrades": 2,
+      "fees": 49.97918829152223,
+      "makerFills": 2,
+      "takerFills": 2,
+      "openPositions": 0,
+      "pause": "normal",
+      "drawdown": 0.0031483632612374635
+    },
+    {
+      "id": "scout-dip6h",
+      "label": "6h dip scout: RSI<25 in daily uptrend, 48h hold, 1/4 risk",
+      "equity": 29865.26287940766,
+      "initial": 29865.26287940766,
+      "netPnl": 0,
+      "profitFactor": null,
+      "maxDrawdown": 0,
+      "winRate": null,
+      "avgWin": null,
+      "avgLoss": null,
+      "closedTrades": 0,
+      "fees": 0,
+      "makerFills": 0,
+      "takerFills": 0,
+      "openPositions": 0,
+      "pause": "normal",
+      "drawdown": 0
+    },
+    {
+      "id": "daytrader-range",
+      "label": "Day trader: buy 24h range low, sell near high, up to 50% per trade",
+      "equity": 29954.849758825425,
+      "initial": 29865.26287940766,
+      "netPnl": 89.5868794177667,
+      "profitFactor": 32.69405714356033,
+      "maxDrawdown": 0.0028632934014937513,
+      "winRate": 0.5,
+      "avgWin": 92.41349385251631,
+      "avgLoss": -2.8266144347496125,
+      "closedTrades": 2,
+      "fees": 57.46083356209864,
+      "makerFills": 4,
+      "takerFills": 0,
+      "openPositions": 0,
+      "pause": "normal",
+      "drawdown": 0
+    }
+  ],
+  "drawdownPause": {
+    "state": "normal",
+    "drawdown": 0.004900472986521631,
+    "peak": 30012.337528729568,
+    "sizeMultiplier": 1,
+    "triggeredAt": null,
+    "clearedAt": null
+  },
+  "verdict": "needs-attention",
+  "issues": [
+    "No new paper entry for 46h; current rules may be too strict for this market."
+  ],
+  "dispatch": []
+}

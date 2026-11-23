@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-23T12:17:41.808Z",
+  "goal": 85000,
+  "start": 30000,
+  "equity": 29865.26,
+  "remaining": 55134.74,
+  "progressPct": 0,
+  "onTrack": false,
+  "verdict": "Not on track yet: the main account is flat at -0.4% and has correctly stayed in cash for 42 hours, because 0 of 8 coins are in a daily uptrend (BTC -24.6% over 30 days). The challengers are now positive on the bounce (hourly-legacy +$113.54, day trader +$89.59 over 24h), and all jobs ran without failures.",
+  "last24h": "Main: 1 closed (0 wins, -$65.89). Best challenger hourly-legacy: 3 closed (2 wins, $113.54).",
+  "readiness": "2/9",
+  "fixed": [
+    "No faults this run; confirmed the 42h without main entries is the intended daily-downtrend filter"
+  ],
+  "nextStep": "When the new regime signal shows coins back above their daily EMA50, re-validate the trend and dip rules on those coins; meanwhile challengers keep collecting evidence."
+}

@@ -1,0 +1,79 @@
+name: Update paper account
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  actions: write
+  id-token: write
+
+concurrency:
+  group: paper-trader
+  cancel-in-progress: false
+
+jobs:
+  update:
+    # Migration gate: enable only after this repository's Actions/Pages setup.
+    if: ${{ github.repository == 'akc302/paperTradeCodex' && vars.PAPERTRADE_CODEX_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - name: Trade, record timer evidence, and save (replays on newest main if another job pushed first)
+        env:
+          PAPER_STATE_KEY: ${{ secrets.PAPER_STATE_KEY }}
+          PAPER_JOB_MODE: trade
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TRIGGER_EVENT: ${{ github.event_name }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          scripts/commit-retry.sh 'Update paper account and market research' 'node scripts/update-market.mjs && node scripts/timer-evidence.mjs' \
+            data/market.json data/paper.json data/reviews.json data/operations.json data/learning.json data/portfolio.enc.json data/private-status.json
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Wait for uploaded Pages artifact to be visible
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: node scripts/wait-pages-artifact.mjs
+      - name: Deploy updated dashboard
+        id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Keep the team running (GitHub's own timer is unreliable)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          last() { gh api "repos/$GH_REPO/actions/workflows/$1/runs?per_page=1" --jq '.workflow_runs[0].created_at // "1970-01-01T00:00:00Z"'; }
+          age() { echo $(( $(date +%s) - $(date -d "$(last "$1")" +%s) )); }
+          [ "$(age learning.yml)" -gt 4200 ] && gh workflow run learning.yml -f phase=collect || true
+          [ "$(age health.yml)" -gt 4200 ] && gh workflow run health.yml || true
+          # Research every 3h and the daily review: started from here when stored state shows they are overdue.
+          running=$(gh api "repos/$GH_REPO/actions/workflows/learning.yml/runs?status=in_progress&per_page=1" --jq '.total_count' || echo 1)
+          queued=$(gh api "repos/$GH_REPO/actions/workflows/learning.yml/runs?status=queued&per_page=1" --jq '.total_count' || echo 1)
+          if [ "$running" = 0 ] && [ "$queued" = 0 ]; then for phase in $(node scripts/overdue.mjs); do gh workflow run learning.yml -f phase=$phase || true; break; done; fi
+          wait=$(( 300 - $(date +%s) % 300 ))
+          sleep "$wait"
+          gh workflow run update.yml
