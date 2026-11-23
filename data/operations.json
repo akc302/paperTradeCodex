@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-23T23:12:45.836Z",
+  "updatedAt": "2026-11-23T23:16:03.859Z",
   "repository": "akc302/paperTradeCodex",
   "intervalMinutes": 120,
-  "triggerEvent": "codex",
+  "triggerEvent": "workflow_dispatch",
   "scheduleEventCount": 0,
   "tradingCadenceVerified": false,
   "fiveMinuteCadenceVerified": false,
