@@ -308,6 +308,66 @@
       "adopted": false,
       "nextIdea": "If tomorrow's daily close lifts any coin above its EMA50, the regime turns 'mixed': re-run the 2-year trend validation on those coins and consider an RSI<30 2R dip-6h challenger. Keep watching whether the hourly challengers' rally gains survive their 30-trade retirement check.",
       "status": "Recorded; no rule change."
+    },
+    {
+      "at": "2026-11-23T16:59:19.955Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "Owner decision: the main PAPER account (fake money; never the owner's real Coinbase account) trades the hourly-legacy rules every day from now on, learning from each trade, instead of waiting for the daily-trend filter or the 7-day promotion gate.",
+        "Evidence at the switch: hourly-legacy had 7 closed trades, 4 wins, +$334.11 since 21 Nov; +$414.19 in the last 24h. Caution recorded: over the 1-year hourly backtest these rules lost after fees (profit factor < 1), so this is an owner-directed experiment and the lab, sweep and retirement checks keep testing it.",
+        "Dry run on current prices: the main paper account would place limit buys on XRP, ADA and AVAX at the next check."
+      ],
+      "changes": [
+        "scripts/rules.mjs: ownerSwitchToHourly() copies the hourly-legacy entry/exit rules to the main paper account once (limit entries kept for maker fees; risk caps unchanged and checked; previous rules archived in rulesHistory; challenger ledgers untouched); the trend migration can never re-run",
+        "The strategy lab now tunes the main paper account per market again (rolling adoption), because main is no longer trend-follow",
+        "Research is overdue after 2h (was 3h); the researcher and the manager/supervisor scheduled tasks now run every 2 hours"
+      ],
+      "adopted": true,
+      "nextIdea": "Every 2h: review each main-account trade (entry regime, MFE, stop vs ATR, fees). If the main account loses over 30 trades with profit factor < 0.8, propose switching it back to the trend rules, with the numbers, rather than letting losses run.",
+      "status": "Applied at the daily-review rules step on both the public and the encrypted paper accounts."
+    },
+    {
+      "at": "2026-11-23T18:33:12.287Z",
+      "tradesReviewed": 5,
+      "losses": 5,
+      "findings": [
+        "Main paper account: switched to hourly-legacy rules at 17:20Z; no entries yet (pattern filter not confirmed on any coin at the 17:20-18:25 checks).",
+        "Challengers gave back the rally: 5 losses, -979.71 in total. hourly-legacy BTC -105.81, ETH -281.45, SOL -239.78; lab-hourly ETH -113.87, SOL -238.80. All five entered at 14:05Z after a run-up (6h +3.9% to +6.4%, 24h +5.2% to +9.4%), reached MFE +2.0-3.7%, then fell 3.2-3.6% into 3% stops or 4h time exits. They bought late into the rally top.",
+        "Hypothesis tested (failed): a chase filter that skips buys after a 6h run above 2/3/5%, on the main account's current rules over 1 year (8 coins, fees). Train / validation / unseen: none -25,578 / -9,141 / -7,536; 2% -21,819 / -9,489 / -7,244; 3% -23,994 / -9,672 / -7,065. The small gains in train/unseen reverse in validation, and the win rate stays 25-29%. Not adopted; code reverted.",
+        "Warning for the owner: the main paper account's current rules lost about $42k on $80k of test capital over the year (about 3,400 trades, 26-29% wins). Today's +888 then -980 swing is typical of this rule set."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "Report to the owner with numbers and recommend a smaller position size (riskScale 0.5) on the main paper account while it trades the hourly rules, or a return to trend rules, before the 30-trade safety check triggers. Keep searching for an edge in the daily-uptrend dip family once the regime turns.",
+      "status": "Recorded; no rule change."
+    },
+    {
+      "at": "2026-11-23T20:29:39.434Z",
+      "tradesReviewed": 0,
+      "losses": 0,
+      "findings": [
+        "No trades closed in any account since 18:27Z. The main paper account has made no entries for 3h on the hourly rules: the pattern filter (completed-candle confirmation) blocked every coin at every check up to 20:25Z.",
+        "Tested whether that filter is the problem: main account's current rules on 1-year hourly data (8 coins, fees). Train / validation / unseen. With the filter: 1,628t -24,908 / 858t -9,269 / 839t 29% -7,539, about 9.2 trades/day on unseen. Without it: 3,306t -40,667 / 1,722t -9,994 / 1,679t 25% -7,887, about 18.4/day. The filter cuts losses in every window and keeps a higher win rate, so it stays; 3 quiet hours is normal variance at about 9 trades/day.",
+        "The underlying rules still lose after fees in every window. Nothing found today makes them profitable."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "Owner decision is pending (half size vs trend rules). Next research: a 'trade only when 2+ independent signals agree' entry (pattern + 1h RSI<35 + price within 1 ATR of the 24h low) to raise the win rate above 40%, tested on 1-year hourly data with fees.",
+      "status": "Recorded; pattern filter kept."
+    },
+    {
+      "at": "2026-11-23T22:29:34.762Z",
+      "tradesReviewed": 1,
+      "losses": 1,
+      "findings": [
+        "1 close since 20:27Z: lab-hourly AVAX-USD quote-stop -300.76 (gross -267.99, held 5.7h). The main paper account still has no entries on the hourly rules (about 5h): the pattern filter has not confirmed any coin.",
+        "Hypothesis tested (failed): a three-signal confluence entry (pattern + 1h RSI<35 + close within 1 ATR of the 24h low) on the main account's rules over 1 year with fees. Train / validation / unseen: 128t 26% -3,538 / 44t 32% -809 / 48t 40% -409, 0.5 trades/day. With the pattern filter alone: 1,628t -24,908 / 858t -9,269 / 839t 29% -7,539, 9.2/day. The win rate rises to 40%, but the average result per trade is unchanged (about -$8 to -$9); losses fall only because trades fall 94%. It does not create an edge, and the owner wants more trades, so it is not adopted; code reverted."
+      ],
+      "changes": [],
+      "adopted": false,
+      "nextIdea": "Break the main rules' 1-year result down per coin and per UTC entry hour. If 2-3 coins or a block of hours carry most of the loss, drop them from the main account's entries (keeping trade count high on the rest) and test that on unseen data.",
+      "status": "Recorded; no rule change."
     }
   ]
 }

@@ -11,8 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   monitor:
-    # Migration gate: enable only after this repository's Actions/Pages setup.
-    if: ${{ github.repository == 'akc302/paperTradeCodex' && vars.PAPERTRADE_CODEX_ENABLED == 'true' }}
+    if: ${{ github.repository == 'akc302/paperTradeCodex' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -22,9 +21,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check published updates and feed freshness
+      - name: Check destination state and feed freshness
         id: health
         continue-on-error: true
+        env:
+          HEALTH_SOURCE: repository
         run: node scripts/health-check.mjs
       - name: Retry the existing updater once if unhealthy
         if: steps.health.outcome == 'failure'
@@ -45,9 +46,11 @@ jobs:
           gh run watch "$recovery_run" --interval 10 --exit-status
       - name: Verify recovery
         if: steps.health.outcome == 'failure'
+        env:
+          HEALTH_SOURCE: repository
         run: node scripts/health-check.mjs
       - name: Record monitoring result
         if: always()
         run: |
           echo '## Paper trading health monitor' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Checks published state, enabled automation, market-feed errors, and freshness. An unhealthy result triggers one updater retry. Persistent faults fail this workflow for investigation; no arbitrary source edits or real trades are performed.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Checks repository state, enabled automation, market-feed errors, and freshness. An unhealthy result triggers one updater retry. Persistent faults fail this workflow for investigation; no arbitrary source edits or real trades are performed.' >> "$GITHUB_STEP_SUMMARY"

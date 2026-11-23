@@ -1,5 +1,5 @@
 {
- "at": "2026-11-23T08:16:51.985Z",
+ "at": "2026-11-23T17:17:43.630Z",
  "source": "data/history 1h (1 year)",
  "barsPerCoin": 8755,
  "days": 364.8,
@@ -8,38 +8,162 @@
   "makerFeeRate": 0.0015,
   "takerFeeRate": 0.003
  },
+ "regime": {
+  "coinsInUptrend": [],
+  "share": 0,
+  "state": "down",
+  "btc7dPct": -6.36,
+  "btc30dPct": -24.56
+ },
  "windows": "train 50% / validation 25% / unseen newest 25%, by entry time",
- "rulesTested": 34,
+ "rulesTested": 38,
  "passingAllWindows": 0,
  "best": {
   "config": {
-   "strategy": "rsi-reversion",
-   "stopAtrMultiplier": 2.5,
+   "strategy": "dip-6h",
+   "dipRsi": 30,
+   "stopAtrMultiplier": 2,
    "rewardRisk": 2,
-   "maxHoldHours": 24
+   "maxHoldHours": 48
   },
   "train": {
-   "trades": 142,
-   "winRate": 0.24647887323943662,
-   "net": -4203.16,
-   "profitFactor": 0.28
+   "trades": 0,
+   "winRate": null,
+   "net": 0,
+   "profitFactor": null
   },
   "validation": {
-   "trades": 68,
-   "winRate": 0.3088235294117647,
-   "net": -1253.6,
-   "profitFactor": 0.36
+   "trades": 0,
+   "winRate": null,
+   "net": 0,
+   "profitFactor": null
   },
   "unseen": {
-   "trades": 65,
-   "winRate": 0.38461538461538464,
-   "net": -1014.26,
-   "profitFactor": 0.5
+   "trades": 15,
+   "winRate": 0.6666666666666666,
+   "net": 466.2,
+   "profitFactor": 1.83
   },
   "passesEarlier": false,
   "passesAll": false
  },
  "top": [
+  {
+   "config": {
+    "strategy": "dip-6h",
+    "dipRsi": 30,
+    "stopAtrMultiplier": 2,
+    "rewardRisk": 2,
+    "maxHoldHours": 48
+   },
+   "train": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "validation": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "unseen": {
+    "trades": 15,
+    "winRate": 0.6666666666666666,
+    "net": 466.2,
+    "profitFactor": 1.83
+   },
+   "passesEarlier": false,
+   "passesAll": false
+  },
+  {
+   "config": {
+    "strategy": "dip-6h",
+    "dipRsi": 25,
+    "stopAtrMultiplier": 2,
+    "rewardRisk": 1,
+    "maxHoldHours": 48
+   },
+   "train": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "validation": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "unseen": {
+    "trades": 5,
+    "winRate": 1,
+    "net": 371.13,
+    "profitFactor": 99
+   },
+   "passesEarlier": false,
+   "passesAll": false
+  },
+  {
+   "config": {
+    "strategy": "dip-6h",
+    "dipRsi": 25,
+    "stopAtrMultiplier": 2,
+    "rewardRisk": 2,
+    "maxHoldHours": 48
+   },
+   "train": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "validation": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "unseen": {
+    "trades": 5,
+    "winRate": 1,
+    "net": 371.13,
+    "profitFactor": 99
+   },
+   "passesEarlier": false,
+   "passesAll": false
+  },
+  {
+   "config": {
+    "strategy": "dip-6h",
+    "dipRsi": 30,
+    "stopAtrMultiplier": 2,
+    "rewardRisk": 1,
+    "maxHoldHours": 48
+   },
+   "train": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "validation": {
+    "trades": 0,
+    "winRate": null,
+    "net": 0,
+    "profitFactor": null
+   },
+   "unseen": {
+    "trades": 15,
+    "winRate": 0.6666666666666666,
+    "net": 325.87,
+    "profitFactor": 1.58
+   },
+   "passesEarlier": false,
+   "passesAll": false
+  },
   {
    "config": {
     "strategy": "rsi-reversion",
@@ -228,9 +352,9 @@
     "profitFactor": 0.81
    },
    "unseen": {
-    "trades": 181,
-    "winRate": 0.32044198895027626,
-    "net": -1948.33,
+    "trades": 185,
+    "winRate": 0.31891891891891894,
+    "net": -2054.16,
     "profitFactor": 0.68
    },
    "passesEarlier": false,
@@ -263,119 +387,7 @@
    },
    "passesEarlier": false,
    "passesAll": false
-  },
-  {
-   "config": {
-    "strategy": "horizontal",
-    "proximity": 0.015,
-    "maxHoldHours": 8,
-    "rewardRisk": 1
-   },
-   "train": {
-    "trades": 358,
-    "winRate": 0.22346368715083798,
-    "net": -5834.39,
-    "profitFactor": 0.33
-   },
-   "validation": {
-    "trades": 127,
-    "winRate": 0.1968503937007874,
-    "net": -2371.94,
-    "profitFactor": 0.26
-   },
-   "unseen": {
-    "trades": 159,
-    "winRate": 0.1949685534591195,
-    "net": -2514.14,
-    "profitFactor": 0.27
-   },
-   "passesEarlier": false,
-   "passesAll": false
-  },
-  {
-   "config": {
-    "strategy": "donchian",
-    "stopAtrMultiplier": 2.5,
-    "rewardRisk": 1,
-    "maxHoldHours": 24
-   },
-   "train": {
-    "trades": 466,
-    "winRate": 0.34549356223175964,
-    "net": -8429.51,
-    "profitFactor": 0.53
-   },
-   "validation": {
-    "trades": 220,
-    "winRate": 0.38636363636363635,
-    "net": -1606.31,
-    "profitFactor": 0.76
-   },
-   "unseen": {
-    "trades": 202,
-    "winRate": 0.3465346534653465,
-    "net": -2917.59,
-    "profitFactor": 0.59
-   },
-   "passesEarlier": false,
-   "passesAll": false
-  },
-  {
-   "config": {
-    "strategy": "donchian",
-    "stopAtrMultiplier": 2.5,
-    "rewardRisk": 2,
-    "maxHoldHours": 48
-   },
-   "train": {
-    "trades": 383,
-    "winRate": 0.3028720626631854,
-    "net": -6871.11,
-    "profitFactor": 0.6
-   },
-   "validation": {
-    "trades": 177,
-    "winRate": 0.3898305084745763,
-    "net": 317.47,
-    "profitFactor": 1.05
-   },
-   "unseen": {
-    "trades": 172,
-    "winRate": 0.26744186046511625,
-    "net": -3365.71,
-    "profitFactor": 0.56
-   },
-   "passesEarlier": false,
-   "passesAll": false
-  },
-  {
-   "config": {
-    "strategy": "donchian",
-    "stopAtrMultiplier": 2.5,
-    "rewardRisk": 1,
-    "maxHoldHours": 48
-   },
-   "train": {
-    "trades": 441,
-    "winRate": 0.36507936507936506,
-    "net": -8080.83,
-    "profitFactor": 0.57
-   },
-   "validation": {
-    "trades": 205,
-    "winRate": 0.43414634146341463,
-    "net": -1121.89,
-    "profitFactor": 0.83
-   },
-   "unseen": {
-    "trades": 198,
-    "winRate": 0.35353535353535354,
-    "net": -3544.95,
-    "profitFactor": 0.56
-   },
-   "passesEarlier": false,
-   "passesAll": false
   }
  ],
- "seconds": 714.9
+ "seconds": 1038.8
 }

@@ -5,7 +5,7 @@ for(const file of ['index.html','styles.css','app.js','engine.js','private-ui.js
 await cp('THIRD_PARTY.md','dist/THIRD_PARTY.md');
 await mkdir('dist/third-party/day-trader-skill',{recursive:true});
 await cp('third-party/day-trader-skill/LICENSE','dist/third-party/day-trader-skill/LICENSE');
-const allowed=['supervisor-report.json','market.json','mcp-seed.json','paper.json','reviews.json','portfolio.enc.json','private-status.json','learning.json','operations.json','evidence.json','research.json','team-report.json','fee-tier.json','research-notes.json','sweep.json'];
+const allowed=['codex-agent-status.json','codex-trading.json','supervisor-report.json','market.json','mcp-seed.json','paper.json','reviews.json','portfolio.enc.json','private-status.json','learning.json','operations.json','evidence.json','research.json','team-report.json','fee-tier.json','research-notes.json','sweep.json'];
 for(const name of allowed){
  try{
   const raw=await readFile(`data/${name}`);

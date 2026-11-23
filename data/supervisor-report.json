@@ -1,16 +1,88 @@
 {
-  "at": "2026-11-23T12:17:41.808Z",
+  "at": "2026-11-23T23:13:30.916Z",
   "goal": 85000,
   "start": 30000,
-  "equity": 29865.26,
-  "remaining": 55134.74,
-  "progressPct": 0,
+  "equity": 29865.26287940766,
+  "remaining": 55134.73712059234,
+  "progressPct": -0.24497658289516533,
   "onTrack": false,
-  "verdict": "Not on track yet: the main account is flat at -0.4% and has correctly stayed in cash for 42 hours, because 0 of 8 coins are in a daily uptrend (BTC -24.6% over 30 days). The challengers are now positive on the bounce (hourly-legacy +$113.54, day trader +$89.59 over 24h), and all jobs ran without failures.",
-  "last24h": "Main: 1 closed (0 wins, -$65.89). Best challenger hourly-legacy: 3 closed (2 wins, $113.54).",
-  "readiness": "2/9",
-  "fixed": [
-    "No faults this run; confirmed the 42h without main entries is the intended daily-downtrend filter"
-  ],
-  "nextStep": "When the new regime signal shows coins back above their daily EMA50, re-validate the trend and dip rules on those coins; meanwhile challengers keep collecting evidence."
+  "verdict": "needs-attention",
+  "last24h": {
+    "closedTrades": 0,
+    "wins": 0,
+    "winRate": null,
+    "netPnl": 0,
+    "grossFees": 0,
+    "rebatesCredited": 0
+  },
+  "readiness": {
+    "ready": false,
+    "passed": 2,
+    "total": 9,
+    "checks": [
+      {
+        "id": "history",
+        "label": "28+ days of forward paper trading with the research team",
+        "pass": false,
+        "value": "2.8 days"
+      },
+      {
+        "id": "sample",
+        "label": "150+ closed trades in the last 28 days",
+        "pass": false,
+        "value": "2 trades"
+      },
+      {
+        "id": "winrate",
+        "label": "Win rate 60%+ after fees",
+        "pass": false,
+        "value": "0.0%"
+      },
+      {
+        "id": "profit",
+        "label": "Net profit after fees and rebates, profit factor 1.3+",
+        "pass": false,
+        "value": "$-134.74, PF 0.00"
+      },
+      {
+        "id": "weekly",
+        "label": "Profitable in each of the last 4 weeks",
+        "pass": false,
+        "value": "$-135 / $0 / $0 / $0"
+      },
+      {
+        "id": "drawdown",
+        "label": "Max drawdown 10% or less over 28 days",
+        "pass": true,
+        "value": "0.9%"
+      },
+      {
+        "id": "validated",
+        "label": "Research validated (profitable on unseen data) for most markets",
+        "pass": false,
+        "value": "0/8 markets"
+      },
+      {
+        "id": "uptime",
+        "label": "Trader ran in 95%+ of hours over the last 7 days",
+        "pass": false,
+        "value": "24%"
+      },
+      {
+        "id": "integrity",
+        "label": "No calculation errors in the ledger",
+        "pass": true,
+        "value": "balanced"
+      }
+    ],
+    "message": "Not ready: 2/9 evidence checks passed. Keep paper trading."
+  },
+  "integrity": {
+    "ok": true,
+    "cashDifference": 0,
+    "problems": []
+  },
+  "fixed": [],
+  "nextStep": "Review flagged evidence and operational gaps. No automatic risk changes.",
+  "scope": "paperTradeCodex only; two-hour execution; no real orders"
 }

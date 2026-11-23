@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-23T16:06:37.034Z",
+  "generatedAt": "2026-11-23T23:13:26.214Z",
   "goal": 85000,
   "equity": 29865.26287940766,
   "startingEquity": 30000,
@@ -9,12 +9,12 @@
   "drawdown": 0.008947045452893567,
   "openPositions": 0,
   "last24h": {
-    "closedTrades": 1,
+    "closedTrades": 0,
     "wins": 0,
-    "winRate": 0,
-    "netPnl": -65.89437935579004,
-    "grossFees": 44.76844966230692,
-    "rebatesCredited": 11.19211241557673
+    "winRate": null,
+    "netPnl": 0,
+    "grossFees": 0,
+    "rebatesCredited": 0
   },
   "allTime": {
     "closedTrades": 2,
@@ -27,86 +27,93 @@
   "losingStreak": 2,
   "rulesInUse": {
     "BTC-USD": {
-      "strategy": "trend-follow",
+      "strategy": "aggressive",
       "approach": "wider-stop",
       "decision": "keep"
     },
     "ETH-USD": {
-      "strategy": "trend-follow",
+      "strategy": "aggressive",
       "approach": "aggressive-day-hold+regime-block",
       "decision": "keep"
     },
     "SOL-USD": {
-      "strategy": "trend-follow",
-      "approach": "wider-stop",
+      "strategy": "aggressive",
+      "approach": "current",
       "decision": "keep"
     },
     "XRP-USD": {
-      "strategy": "trend-follow",
+      "strategy": "aggressive",
       "approach": "current",
       "decision": "keep"
     },
     "ADA-USD": {
-      "strategy": "trend-follow",
+      "strategy": "aggressive",
       "approach": "current",
       "decision": "keep"
     },
     "DOGE-USD": {
-      "strategy": "trend-follow",
+      "strategy": "aggressive",
       "approach": "longer-hold",
       "decision": "keep"
     },
     "LINK-USD": {
-      "strategy": "trend-follow",
+      "strategy": "aggressive",
       "approach": "current",
       "decision": "keep"
     },
     "AVAX-USD": {
-      "strategy": "trend-follow",
+      "strategy": "aggressive",
       "approach": "longer-hold",
       "decision": "keep"
     }
   },
   "agents": {
     "trader": {
-      "role": "5-minute paper trader",
+      "role": "Codex paper trader every 2 hours",
       "lastRunMinutesAgo": 1,
       "healthy": true
     },
     "researcher": {
-      "role": "Claude every 5h: loss analysis, backtest, rule adoption",
+      "role": "Codex every 5h: loss analysis, backtest, rule adoption",
       "lastRunHoursAgo": 0,
       "healthy": true,
       "sweep": {
-        "at": "2026-11-23T08:16:51.985Z",
+        "at": "2026-11-23T17:17:43.630Z",
         "source": "data/history 1h (1 year)",
         "days": 364.8,
-        "rulesTested": 34,
+        "rulesTested": 38,
         "passingAllWindows": 0,
-        "regime": null,
+        "regime": {
+          "coinsInUptrend": [],
+          "share": 0,
+          "state": "down",
+          "btc7dPct": -6.36,
+          "btc30dPct": -24.56
+        },
         "best": {
           "config": {
-            "strategy": "rsi-reversion",
-            "stopAtrMultiplier": 2.5,
+            "strategy": "dip-6h",
+            "dipRsi": 30,
+            "stopAtrMultiplier": 2,
             "rewardRisk": 2,
-            "maxHoldHours": 24
+            "maxHoldHours": 48
           },
           "unseen": {
-            "trades": 65,
-            "winRate": 0.38461538461538464,
-            "net": -1014.26,
-            "profitFactor": 0.5
+            "trades": 15,
+            "winRate": 0.6666666666666666,
+            "net": 466.2,
+            "profitFactor": 1.83
           }
         }
       },
       "latestNote": {
-        "at": "2026-11-23T15:29:55.713Z",
-        "tradesReviewed": 7,
-        "losses": 3,
-        "findings": 4,
+        "at": "2026-11-23T22:29:34.762Z",
+        "tradesReviewed": 1,
+        "losses": 1,
+        "findings": 2,
         "changes": 0,
         "adopted": false,
-        "nextIdea": "If tomorrow's daily close lifts any coin above its EMA50, the regime turns 'mixed': re-run the 2-year trend validation on those coins and consider an RSI<30 2R dip-6h challenger. Keep watching whether the hourly challengers' rally gains survive their 30-trade retirement check."
+        "nextIdea": "Break the main rules' 1-year result down per coin and per UTC entry hour. If 2-3 coins or a block of hours carry most of the loss, drop them from the main account's entries (keeping trade count high on the rest) and test that on unseen data."
       }
     },
     "verifier": {
@@ -114,10 +121,10 @@
       "workflow": "health.yml"
     },
     "manager": {
-      "role": "Claude every 6h: reads this report and the researcher notes, restarts and fixes jobs"
+      "role": "Codex every 6h: reads this report and the researcher notes, restarts and fixes jobs"
     },
     "supervisor": {
-      "role": "Claude every 8h: audits the manager and researcher for the owner"
+      "role": "Codex every 8h: audits the manager and researcher for the owner"
     }
   },
   "integrity": {
@@ -134,7 +141,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "2.5 days"
+        "value": "2.8 days"
       },
       {
         "id": "sample",
@@ -193,13 +200,13 @@
     "windowDays": 30,
     "label": "Estimated time to $85,000 at the trailing 30-day growth rate (not a promise)",
     "status": "insufficient-history",
-    "spanDays": 2.6712619675916653,
+    "spanDays": 2.9676645138887343,
     "message": "Needs at least 7 days of equity history."
   },
   "scorecard": [
     {
       "id": "main",
-      "label": "Main: trend-follow",
+      "label": "Main: aggressive",
       "equity": 29865.26287940766,
       "initial": 30000,
       "netPnl": -134.73712059234225,
@@ -276,59 +283,59 @@
     {
       "id": "hourly-legacy",
       "label": "Previous hourly rules",
-      "equity": 30123.218230996186,
+      "equity": 29631.467632120475,
       "initial": 29975.046647868254,
-      "netPnl": 334.1084887124103,
-      "profitFactor": 2.199337982986681,
-      "maxDrawdown": 0.01751721703325264,
-      "winRate": 0.5714285714285714,
+      "netPnl": -292.92536480311037,
+      "profitFactor": 0.6765440412548455,
+      "maxDrawdown": 0.033904417087924375,
+      "winRate": 0.4,
       "avgWin": 153.17147878398367,
-      "avgLoss": -92.8591421411748,
-      "closedTrades": 7,
-      "fees": 134.90969187887856,
-      "makerFills": 9,
-      "takerFills": 5,
-      "openPositions": 3,
+      "avgLoss": -150.93521332317417,
+      "closedTrades": 10,
+      "fees": 194.944595211616,
+      "makerFills": 12,
+      "takerFills": 8,
+      "openPositions": 1,
       "pause": "normal",
-      "drawdown": 0.017517217033252597
+      "drawdown": 0.03355589169291551
     },
     {
       "id": "lab-hourly",
       "label": "Lab hourly per-market rules",
-      "equity": 30046.08467165415,
+      "equity": 29427.09857103134,
       "initial": 29975.046647868254,
-      "netPnl": 265.69849277305923,
-      "profitFactor": 1.551442318552868,
-      "maxDrawdown": 0.014286801854790292,
-      "winRate": 0.5,
+      "netPnl": -547.9480768369198,
+      "profitFactor": 0.5770279758276646,
+      "maxDrawdown": 0.03459369959271613,
+      "winRate": 0.35714285714285715,
       "avgWin": 149.5046251602895,
-      "avgLoss": -96.36492660567765,
-      "closedTrades": 10,
-      "fees": 208.44299413865588,
-      "makerFills": 12,
-      "takerFills": 8,
-      "openPositions": 3,
+      "avgLoss": -143.94124473759635,
+      "closedTrades": 14,
+      "fees": 292.9767985483023,
+      "makerFills": 16,
+      "takerFills": 12,
+      "openPositions": 0,
       "pause": "normal",
-      "drawdown": 0.014286801854790254
+      "drawdown": 0.03459369959271619
     },
     {
       "id": "scout-daytrade",
       "label": "Day-trade scout: support bounce (1.5% zone), 4h hold, 1/4 risk",
-      "equity": 29694.93239255542,
+      "equity": 29466.405385693695,
       "initial": 29788.7180982152,
-      "netPnl": -93.78570565978161,
+      "netPnl": -233.90077932338596,
       "profitFactor": 0,
-      "maxDrawdown": 0.0031483632612374084,
+      "maxDrawdown": 0.011075902766565674,
       "winRate": 0,
       "avgWin": null,
-      "avgLoss": -46.892852829890806,
-      "closedTrades": 2,
-      "fees": 49.97918829152223,
-      "makerFills": 2,
-      "takerFills": 2,
-      "openPositions": 0,
+      "avgLoss": -58.47519483084649,
+      "closedTrades": 4,
+      "fees": 99.54174767254979,
+      "makerFills": 4,
+      "takerFills": 4,
+      "openPositions": 2,
       "pause": "normal",
-      "drawdown": 0.0031483632612374635
+      "drawdown": 0.01081995913549616
     },
     {
       "id": "scout-dip6h",
@@ -352,11 +359,11 @@
     {
       "id": "daytrader-range",
       "label": "Day trader: buy 24h range low, sell near high, up to 50% per trade",
-      "equity": 29954.849758825425,
+      "equity": 29634.420747281274,
       "initial": 29865.26287940766,
       "netPnl": 89.5868794177667,
       "profitFactor": 32.69405714356033,
-      "maxDrawdown": 0.0028632934014937513,
+      "maxDrawdown": 0.016123559551296428,
       "winRate": 0.5,
       "avgWin": 92.41349385251631,
       "avgLoss": -2.8266144347496125,
@@ -364,9 +371,9 @@
       "fees": 57.46083356209864,
       "makerFills": 4,
       "takerFills": 0,
-      "openPositions": 0,
+      "openPositions": 3,
       "pause": "normal",
-      "drawdown": 0
+      "drawdown": 0.01129627702483782
     }
   ],
   "drawdownPause": {
@@ -379,7 +386,8 @@
   },
   "verdict": "needs-attention",
   "issues": [
-    "No new paper entry for 46h; current rules may be too strict for this market."
+    "GitHub has not delivered any scheduled trader runs; only manual runs are trading.",
+    "No new paper entry for 53h; current rules may be too strict for this market."
   ],
   "dispatch": []
 }

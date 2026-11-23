@@ -1,3 +1,5 @@
+> **November 23 activation update:** the owner subsequently authorized activation and a new source refresh (`ae429e7`). The migration-only variable gate is removed; a destination-repository gate remains. Read [AGENT_RUNBOOK.md](AGENT_RUNBOOK.md) for the current two-hour trading cadence, coordinated five roles and settings blockers. The original manifest below documents the first import, not the later evolving journal.
+
 # PaperTrading → paperTradeCodex
 
 ## Ownership and snapshot

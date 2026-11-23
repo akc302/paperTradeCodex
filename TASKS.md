@@ -1,3 +1,15 @@
+# Destination activation — November 23, 2026
+
+This repository is **akc302/paperTradeCodex only**. Source `akc302/PaperTrading` remains read-only. Latest imported snapshot: `ae429e7a00261e0f8adbfa980f86741f95627a54`. The owner authorized starting simulated trading, with **trading checks every two hours**. Use `scripts/trade-cycle.mjs`; successful receipts block additional checks inside two hours. Source five-minute self-dispatch was removed. Read `AGENT_RUNBOOK.md` before acting; it supersedes old source-era scheduler descriptions below.
+
+Five roles are registered through two destination-only Codex tasks because the account's five-task cap rejected five separate new tasks: dedicated Trader (2h), and hourly Agent Team coordinating Verifier (1h), Researcher (5h), Manager (6h), Supervisor (8h). Role completion times persist separately so hourly collection does not refit every role. Old canceled tasks and unrelated tasks are unchanged. This is configuration, not evidence of future execution.
+
+GitHub denied setting the private-key secret and creating Pages (HTTP 403). Workspace agents may use the existing private key in process memory only; they must never publish it. Website activation and GitHub-only private updates require destination settings access. Repository health checks distinguish simulation freshness from Pages availability. No real trades are authorized.
+
+The first guarded destination check succeeded on 2026-11-23 at 23:12 UTC, preserving both journals, strategy settings and risk caps. It produced no new private fills; no trade was forced. Further role results and deployment verification follow in the activation checkpoint.
+
+---
+
 # PaperTrading task memory
 
 Paper only. No real order calls. Never commit Coinbase credentials, unlock keys, or plaintext portfolio data. User goal: $85,000 simulated portfolio; no deadline/return guarantee. PIN is a cosmetic gate; private account remains encrypted.

@@ -17,8 +17,7 @@ concurrency:
 
 jobs:
   publish:
-    # Migration gate: enable only after this repository's Actions/Pages setup.
-    if: ${{ github.repository == 'akc302/paperTradeCodex' && vars.PAPERTRADE_CODEX_ENABLED == 'true' }}
+    if: ${{ github.repository == 'akc302/paperTradeCodex' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

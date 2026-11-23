@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "repository": "akc302/paperTradeCodex",
+  "roles": {
+    "verifier": {
+      "completedAt": "2026-11-23T23:13:07.089Z",
+      "status": "healthy",
+      "intervalHours": 1
+    },
+    "researcher": {
+      "completedAt": "2026-11-23T23:13:26.119Z",
+      "status": "completed",
+      "intervalHours": 5
+    },
+    "manager": {
+      "completedAt": "2026-11-23T23:13:28.743Z",
+      "status": "completed",
+      "intervalHours": 6
+    },
+    "supervisor": {
+      "completedAt": "2026-11-23T23:13:31.910Z",
+      "status": "completed",
+      "intervalHours": 8
+    }
+  },
+  "verification": {
+    "checkedAt": "2026-11-23T23:13:07.028Z",
+    "ok": true,
+    "errors": [],
+    "scope": "repository files; published site must be checked separately"
+  }
+}

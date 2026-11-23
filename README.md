@@ -1,8 +1,8 @@
 # Level Lab — paperTradeCodex
 
-[Dashboard address (pending setup)](https://akc302.github.io/paperTradeCodex/) · [Source repository](https://github.com/akc302/paperTradeCodex)
+> Destination activation: trading checks now run every **two hours**. Five Codex roles are coordinated through a dedicated trader task and one hourly team task with independent role deadlines. Read [AGENT_RUNBOOK.md](AGENT_RUNBOOK.md). Source-era five-minute timing descriptions below are historical; destination code and the runbook take precedence. Pages and the GitHub private-key secret remain pending repository-settings access. All writes belong only to `akc302/paperTradeCodex`.
 
-> This is the independent **akc302/paperTradeCodex** copy. Read [MIGRATION.md](MIGRATION.md) for the exact source snapshot, scheduler/agent inventory and activation steps. All copied workflow jobs are gated off until `PAPERTRADE_CODEX_ENABLED=true` is set after destination setup. Historical source notes below do not establish that this copy is running. All future writes belong only in this repository.
+[Open the dashboard](https://akc302.github.io/paperTradeCodex/) · [Source repository](https://github.com/akc302/paperTradeCodex)
 
 A paper-only crypto research dashboard. No Coinbase credentials are embedded, no real order/account endpoints are called by the app or scheduler, and no real portfolio funds move.
 

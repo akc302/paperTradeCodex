@@ -8,6 +8,8 @@ The only authorized write/push repository for this project is **akc302/paperTrad
 - Never print, commit, upload, or expose credentials, unlock keys, raw account responses, or private plaintext financial state. Do not copy workspace-private files or source repository secrets. Public demo data is separate from the encrypted private portfolio.
 - Run relevant tests and `npm run build`, then audit the publication whitelist and private envelope before pushing implementation changes.
 - Read `MIGRATION.md` for snapshot provenance, copied schedules, external agent limitations and activation requirements. Original `TASKS.md` and `RESEARCH_PLAN.md` contain historical source-project notes; their old activation claims do not prove this destination is running.
-- Do not remove the `PAPERTRADE_CODEX_ENABLED` workflow gate, activate repository variables, enable Pages, or recreate external schedules until the owner finishes setup or requests activation. The current request is migration/preparation only.
+- The owner authorized activation on November 23, 2026. Trading checks must be at least two hours apart. Use `scripts/trade-cycle.mjs`; never bypass its successful-check receipt. The repository-only workflow gate must remain. Read `AGENT_RUNBOOK.md` for the five destination-only roles.
 - Do not restart the two canceled ChatGPT automations from the original project. External Claude/Cloud registrations remain under the owner's control.
 - Record future project work here. Do not modify the source project's code as part of follow-up tasks.
+
+- Scheduled agents must use isolated clean worktrees or clones, pull latest destination main before acting, and never overwrite another agent's changes. A rejected push requires replaying the operation on latest main; never force-push. Do not copy source journals again after destination trading starts.

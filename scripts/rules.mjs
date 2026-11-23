@@ -4,19 +4,34 @@ import {readFile,writeFile,rename,rm} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 import {TREND_DEFAULTS} from '../engine.js';
 import {decryptState,encryptState} from './private-state.mjs';
-import {ensureChallengers,retireLosers} from './challengers.mjs';
+import {ensureChallengers,retireLosers,RULE_KEYS} from './challengers.mjs';
 import {reviewChallengers} from './promotion.mjs';
 import {loadHistory} from './history.mjs';
 /** Daily review for one account: migrate once, seed challengers, then evaluate promotion. */
 export function dailyRules(state,{market,history,now}){
- const migrated=migrateToTrend(state,now),seeded=ensureChallengers(state,now),retired=retireLosers(state,now),review=reviewChallengers(state,{market,history,now});
- return {migrated,seeded,retired,promoted:review?.promoted??null,reviewed:!!review};
+ const migrated=migrateToTrend(state,now),ownerSwitch=ownerSwitchToHourly(state,now),seeded=ensureChallengers(state,now),retired=retireLosers(state,now),review=reviewChallengers(state,{market,history,now});
+ return {migrated,ownerSwitch,seeded,retired,promoted:review?.promoted??null,reviewed:!!review};
 }
 export const RULES_VERSION='trend-v1';
 export const MAIN_TREND=Object.freeze({strategy:'trend-follow',...TREND_DEFAULTS,maxHoldHours:0,patternRequired:false,entryOrder:'limit',limitOffset:0.0005,limitChecks:3});
 const CAPS=['riskPct','maxTotalRisk','maxAllocation','maxOpenPositions','maxDailyLoss'];
+export const OWNER_HOURLY_VERSION='owner-hourly-v1';
+/** Owner request (23 Nov 2026): the main PAPER account trades the hourly-legacy challenger's rules every day.
+ * Copies only entry/exit rules (limit entries kept for maker fees); risk caps are unchanged and checked. The challenger
+ * keeps its own ledger, the trend rules stay alive in the trend challengers, and the strategy lab tunes the main rules per market from here on. */
+export function ownerSwitchToHourly(state,now=Date.now()/1000){
+ if(state.rulesVersion===OWNER_HOURLY_VERSION)return false;
+ const src=(state.challengers??[]).find(c=>c.id==='hourly-legacy');if(!src)return false;
+ const at=new Date(now*1000).toISOString(),before=CAPS.map(k=>state.config?.[k]);
+ state.rulesHistory=[{at,event:'owner-switch-to-hourly',reason:'Owner asked the main paper account to trade the hourly-legacy rules daily.',previous:{config:{...state.config},productConfigs:structuredClone(state.productConfigs??{})}},...(state.rulesHistory??[])].slice(0,200);
+ const next={...state.config};for(const k of RULE_KEYS)delete next[k];Object.assign(next,structuredClone(src.rules),{entryOrder:'limit'});
+ for(const k of RULE_KEYS)if(next[k]===undefined)delete next[k];
+ if(JSON.stringify(CAPS.map(k=>next[k]))!==JSON.stringify(before))throw Error('Risk cap mutation refused');
+ state.config=next;state.productConfigs=structuredClone(src.productConfigs??{});state.rulesVersion=OWNER_HOURLY_VERSION;
+ return true;
+}
 export function migrateToTrend(state,now=Date.now()/1000){
- if(state.rulesVersion===RULES_VERSION)return false;
+ if(state.rulesVersion)return false; // any later version means this one-time migration already happened
  const at=new Date(now*1000).toISOString(),before=CAPS.map(k=>state.config?.[k]);
  state.rulesHistory=[{at,event:'archived-main-rules',reason:'Trend following became the main strategy; previous hourly rules kept as challengers.',config:{...state.config},productConfigs:structuredClone(state.productConfigs??{})},...(state.rulesHistory??[])].slice(0,200);
  state.legacyRules={config:{...state.config},productConfigs:structuredClone(state.productConfigs??{}),archivedAt:at};
