@@ -3,8 +3,8 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-24T04:12:47.974Z",
-      "nextDueAt": "2026-11-24T05:00:00.000Z",
+      "completedAt": "2026-11-24T05:14:06.679Z",
+      "nextDueAt": "2026-11-24T06:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -17,9 +17,11 @@
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "manager": {
-      "completedAt": "2026-11-23T23:13:28.743Z",
+      "completedAt": "2026-11-24T05:15:47.513Z",
+      "nextDueAt": "2026-11-24T11:00:00.000Z",
       "status": "completed",
-      "intervalHours": 6
+      "intervalHours": 6,
+      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "supervisor": {
       "completedAt": "2026-11-23T23:13:31.910Z",
@@ -28,7 +30,7 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-24T04:12:47.910Z",
+    "checkedAt": "2026-11-24T05:14:06.610Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately"
