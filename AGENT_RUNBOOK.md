@@ -34,3 +34,7 @@ The copied runtime diagnostics now use a two-hour cadence. Evidence coverage den
 Latest source snapshot imported for activation: `ae429e7a00261e0f8adbfa980f86741f95627a54` on November 23, 2026. All source data was imported before destination execution. After the first destination check, do not overwrite this independent journal with new source data. Future source code refreshes must merge code separately and preserve destination state and scheduling.
 
 If a Codex trader invocation arrives at most five minutes before the 7200-second receipt deadline due to scheduler jitter, wait in short intervals until due and recheck current main. Do not skip a whole two-hour cycle for a few seconds of early delivery. When a destination updater is already running, wait/pull/check instead of racing it. The hard receipt guard remains unchanged.
+
+## Stable support-role deadlines
+
+Support-role scheduling uses explicit `nextDueAt` deadlines anchored to UTC-hour boundaries. A delayed completion must not move the next deadline past the following hourly coordinator invocation. Legacy completion-only records are migrated on their next successful execution. Missed support cycles are advanced to the next future deadline without replaying multiple fits/reviews. Actual `completedAt` remains recorded separately. This applies only to verifier/researcher/manager/supervisor; the trader still requires a full 7200 seconds between successful checks.

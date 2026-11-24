@@ -3,9 +3,11 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-23T23:13:07.089Z",
+      "completedAt": "2026-11-24T00:13:42.432Z",
+      "nextDueAt": "2026-11-24T01:00:00.000Z",
       "status": "healthy",
-      "intervalHours": 1
+      "intervalHours": 1,
+      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "researcher": {
       "completedAt": "2026-11-23T23:13:26.119Z",
@@ -24,7 +26,7 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-23T23:13:07.028Z",
+    "checkedAt": "2026-11-24T00:13:42.327Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately"
