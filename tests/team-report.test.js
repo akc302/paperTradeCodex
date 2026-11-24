@@ -29,3 +29,18 @@ test('manager reads the latest researcher note and flags stale notes or a losing
  const losing=teamReport({...base,account:a},{products:{}},now,{researchNotes:{entries:[note]}});
  assert.ok(losing.issues.some(i=>/win rate 20%/.test(i)));assert.equal(losing.verdict,'needs-attention');
 });
+
+test('private manager report uses encrypted research notes and never substitutes public-demo findings',async()=>{
+ const fs=await import('node:fs/promises'),path=await import('node:path'),os=await import('node:os'),{spawnSync}=await import('node:child_process'),{encryptState,decryptState}=await import('../scripts/private-state.mjs');
+ const dir=await fs.mkdtemp(path.join(os.tmpdir(),'paper-note-scope-')),key=Buffer.alloc(32,31).toString('base64'),at=new Date().toISOString();
+ const state={version:1,account:createAccount(),products:[],config:{},updatedAt:at,researchNotes:{entries:[{at,nextIdea:'private-only-fixture'}]}};
+ try{
+  await fs.mkdir(path.join(dir,'data'));const write=(name,v)=>fs.writeFile(path.join(dir,'data',name+'.json'),JSON.stringify(v));
+  await write('market',{products:{}});await write('paper',{...state,researchNotes:undefined});await write('research-notes',{entries:[{at,nextIdea:'public-only-fixture'}]});await write('portfolio.enc',await encryptState(state,key));
+  const run=()=>spawnSync(process.execPath,[new URL('../scripts/team-report.mjs',import.meta.url).pathname],{cwd:dir,env:{...process.env,PAPER_STATE_KEY:key},encoding:'utf8'});
+  let result=run();assert.equal(result.status,0,result.stderr);let out=await decryptState(JSON.parse(await fs.readFile(path.join(dir,'data/portfolio.enc.json'),'utf8')),key);
+  assert.equal(out.teamReport.agents.researcher.latestNote.nextIdea,'private-only-fixture');assert.deepEqual(out.account,state.account);assert.ok(!result.stdout.includes('private-only-fixture'));
+  const pub=JSON.parse(await fs.readFile(path.join(dir,'data/team-report.json'),'utf8'));assert.equal(pub.agents.researcher.latestNote.nextIdea,'public-only-fixture');
+  delete out.researchNotes;await write('portfolio.enc',await encryptState(out,key));result=run();assert.equal(result.status,0,result.stderr);out=await decryptState(JSON.parse(await fs.readFile(path.join(dir,'data/portfolio.enc.json'),'utf8')),key);assert.equal(out.teamReport.agents.researcher.latestNote,null);
+ }finally{await fs.rm(dir,{recursive:true,force:true});}
+});

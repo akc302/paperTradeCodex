@@ -1,12 +1,18 @@
 {
-  "updatedAt": "2026-11-23T23:17:24.427Z",
+  "updatedAt": "2026-11-24T04:12:06.446Z",
   "repository": "akc302/paperTradeCodex",
   "intervalMinutes": 120,
-  "triggerEvent": "workflow_dispatch",
+  "triggerEvent": "codex-recovery",
   "scheduleEventCount": 0,
   "tradingCadenceVerified": false,
   "fiveMinuteCadenceVerified": false,
   "recentRuns": [
+    {
+      "createdAt": "2026-11-24T04:11:49.295Z",
+      "event": "codex-recovery",
+      "status": "completed",
+      "conclusion": "success"
+    },
     {
       "createdAt": "2026-11-23T23:12:27.533Z",
       "event": "codex",

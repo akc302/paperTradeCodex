@@ -2,11 +2,15 @@
   "version": 1,
   "repository": "akc302/paperTradeCodex",
   "intervalSeconds": 7200,
-  "lastSuccessfulAt": "2026-11-23T23:12:27.533Z",
+  "lastSuccessfulAt": "2026-11-24T04:11:49.295Z",
   "checks": [
     {
       "at": "2026-11-23T23:12:27.533Z",
       "event": "codex"
+    },
+    {
+      "at": "2026-11-24T04:11:49.295Z",
+      "event": "codex-recovery"
     }
   ],
   "note": "Successful paper checks only; a check may legitimately place no order."

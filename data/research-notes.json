@@ -368,6 +368,38 @@
       "adopted": false,
       "nextIdea": "Break the main rules' 1-year result down per coin and per UTC entry hour. If 2-3 coins or a block of hours carry most of the loss, drop them from the main account's entries (keeping trade count high on the rest) and test that on unseen data.",
       "status": "Recorded; no rule change."
+    },
+    {
+      "at": "2026-11-24T04:14:43.968Z",
+      "scope": "public-demo-only",
+      "tradesReviewed": 2,
+      "losses": 2,
+      "findings": [
+        "Closed outcomes after costs: 0 wins, 2 losses, 0 flats; net -134.74 USD.",
+        "Gross modeled fees 89.50 USD; credited rebates 22.37 USD. Fee tier is a saved snapshot, not a live verification.",
+        "Most losses by exit group: time-exit.",
+        "Outcome ML: collecting-data, 2/100 required feature-frozen closes.",
+        "AVAX-USD: adopt-improvement; candidate holdout not profitable, stress not profitable. Relative improvement is not a demonstrated profitable edge.",
+        "A roughly five-hour execution gap was recovered once; missing observations are not repaired by a backtest. No fabricated entries or outcomes."
+      ],
+      "changes": [
+        {
+          "product": "AVAX-USD",
+          "approach": "aggressive-day-hold+regime-block",
+          "decision": "adopt-improvement",
+          "parameters": {
+            "strategy": "aggressive",
+            "maxHoldHours": 24,
+            "stopAtrMultiplier": 2.5,
+            "rewardRisk": 1.5,
+            "patternRequired": true,
+            "regimeFilter": true
+          }
+        }
+      ],
+      "adopted": true,
+      "status": "relative-improvement-only",
+      "nextIdea": "Measure future after-cost expectancy and exit patterns under adopted rules; keep risk caps fixed, retain failed experiments, and collect sufficient chronological outcome evidence before fitting ML."
     }
   ]
 }

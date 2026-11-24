@@ -76,7 +76,7 @@ export async function run(){
  let sweep=null;try{sweep=await read('data/sweep.json');}catch{}
  const report=teamReport(paper,market,now,{operations,researchNotes,sweep});await writeFile('data/team-report.json',JSON.stringify(report,null,2)+'\n');
  const key=process.env.PAPER_STATE_KEY?.trim();let privateDispatch=[];
- if(key){try{const state=await decryptState(await read('data/portfolio.enc.json'),key);state.teamReport=teamReport(state,market,now,{operations,researchNotes,sweep});privateDispatch=state.teamReport.dispatch;const tmp='data/.team.enc.tmp';try{await writeFile(tmp,JSON.stringify(await encryptState(state,key),null,2)+'\n',{mode:0o600});await rename(tmp,'data/portfolio.enc.json');}finally{await rm(tmp,{force:true});}}catch{console.error('Private team report failed; ciphertext unchanged.');}}
+ if(key){try{const state=await decryptState(await read('data/portfolio.enc.json'),key);state.teamReport=teamReport(state,market,now,{operations,researchNotes:state.researchNotes??null,sweep});privateDispatch=state.teamReport.dispatch;const tmp='data/.team.enc.tmp';try{await writeFile(tmp,JSON.stringify(await encryptState(state,key),null,2)+'\n',{mode:0o600});await rename(tmp,'data/portfolio.enc.json');}finally{await rm(tmp,{force:true});}}catch{console.error('Private team report failed; ciphertext unchanged.');}}
  const all=[...new Set([...report.dispatch,...privateDispatch])];
  console.log(`Team verdict: ${report.verdict}. ${report.issues.join(' ')}`);
  if(process.env.GITHUB_OUTPUT)await writeFile(process.env.GITHUB_OUTPUT,`dispatch=${all.join(' ')}\n`,{flag:'a'});
