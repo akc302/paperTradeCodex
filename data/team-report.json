@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-24T05:15:44.635Z",
+  "generatedAt": "2026-11-26T22:20:34.778Z",
   "goal": 85000,
   "equity": 29865.26287940766,
   "startingEquity": 30000,
@@ -53,7 +53,7 @@
     },
     "DOGE-USD": {
       "strategy": "aggressive",
-      "approach": "current",
+      "approach": "regime-block",
       "decision": "keep"
     },
     "LINK-USD": {
@@ -63,19 +63,19 @@
     },
     "AVAX-USD": {
       "strategy": "aggressive",
-      "approach": "aggressive-day-hold+regime-block",
+      "approach": "longer-hold",
       "decision": "adopt-improvement"
     }
   },
   "agents": {
     "trader": {
       "role": "Codex paper trader every 2 hours",
-      "lastRunMinutesAgo": 64,
+      "lastRunMinutesAgo": 4,
       "healthy": true
     },
     "researcher": {
       "role": "Codex every 5h: loss analysis, backtest, rule adoption",
-      "lastRunHoursAgo": 1,
+      "lastRunHoursAgo": 0,
       "healthy": true,
       "sweep": {
         "at": "2026-11-23T17:17:43.630Z",
@@ -107,13 +107,19 @@
         }
       },
       "latestNote": {
-        "at": "2026-11-24T04:14:43.968Z",
+        "at": "2026-11-26T22:20:33.999Z",
         "tradesReviewed": 2,
         "losses": 2,
-        "findings": 6,
+        "findings": 7,
         "changes": 1,
-        "adopted": true,
-        "nextIdea": "Measure future after-cost expectancy and exit patterns under adopted rules; keep risk caps fixed, retain failed experiments, and collect sufficient chronological outcome evidence before fitting ML."
+        "adopted": [
+          {
+            "product": "AVAX-USD",
+            "approach": "longer-hold",
+            "decision": "adopt-improvement"
+          }
+        ],
+        "nextIdea": "Gather new entry-frozen outcomes and compare after-cost expectancy, drawdown and stress results. Validate updated historical inputs; improvement adoption means relative loss reduction, not a profitable edge. Retain risk caps and promotion guards."
       }
     },
     "verifier": {
@@ -141,7 +147,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "3.0 days"
+        "value": "5.7 days"
       },
       {
         "id": "sample",
@@ -200,7 +206,7 @@
     "windowDays": 30,
     "label": "Estimated time to $85,000 at the trailing 30-day growth rate (not a promise)",
     "status": "insufficient-history",
-    "spanDays": 3.219266608796186,
+    "spanDays": 5.93095807870505,
     "message": "Needs at least 7 days of equity history."
   },
   "scorecard": [
@@ -321,21 +327,21 @@
     {
       "id": "scout-daytrade",
       "label": "Day-trade scout: support bounce (1.5% zone), 4h hold, 1/4 risk",
-      "equity": 29521.182650346927,
+      "equity": 29486.30850666873,
       "initial": 29788.7180982152,
-      "netPnl": -267.53544786826893,
-      "profitFactor": 0.023840343128639634,
+      "netPnl": -302.4095915464649,
+      "profitFactor": 0.021149198779442647,
       "maxDrawdown": 0.011075902766565674,
-      "winRate": 0.16666666666666666,
+      "winRate": 0.14285714285714285,
       "avgWin": 6.5339074723657955,
-      "avgLoss": -54.81387106812694,
-      "closedTrades": 6,
-      "fees": 134.70409604439425,
-      "makerFills": 6,
-      "takerFills": 6,
+      "avgLoss": -51.49058316980512,
+      "closedTrades": 7,
+      "fees": 159.51545064257363,
+      "makerFills": 7,
+      "takerFills": 7,
       "openPositions": 0,
       "pause": "normal",
-      "drawdown": 0.008981099723263997
+      "drawdown": 0.010151816219462817
     },
     {
       "id": "scout-dip6h",
@@ -359,21 +365,21 @@
     {
       "id": "daytrader-range",
       "label": "Day trader: buy 24h range low, sell near high, up to 50% per trade",
-      "equity": 29362.5444720859,
+      "equity": 29015.461606931607,
       "initial": 29865.26287940766,
-      "netPnl": 89.5868794177667,
-      "profitFactor": 32.69405714356033,
-      "maxDrawdown": 0.020366981924610335,
-      "winRate": 0.5,
+      "netPnl": -555.7438544842976,
+      "profitFactor": 0.14257879524108055,
+      "maxDrawdown": 0.023078150869291474,
+      "winRate": 0.2,
       "avgWin": 92.41349385251631,
-      "avgLoss": -2.8266144347496125,
-      "closedTrades": 2,
-      "fees": 57.46083356209864,
-      "makerFills": 4,
-      "takerFills": 0,
-      "openPositions": 3,
+      "avgLoss": -162.03933708420348,
+      "closedTrades": 5,
+      "fees": 157.1887154535368,
+      "makerFills": 7,
+      "takerFills": 3,
+      "openPositions": 2,
       "pause": "normal",
-      "drawdown": 0.020366981924610283
+      "drawdown": 0.02213608878413409
     }
   ],
   "drawdownPause": {
@@ -387,7 +393,7 @@
   "verdict": "needs-attention",
   "issues": [
     "GitHub has not delivered any scheduled trader runs; only manual runs are trading.",
-    "No new paper entry for 59h; current rules may be too strict for this market."
+    "No new paper entry for 124h; current rules may be too strict for this market."
   ],
   "dispatch": []
 }

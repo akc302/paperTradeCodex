@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "reviewDate": "2026-11-24",
-  "reviewedAt": "2026-11-24T05:14:06.779Z",
+  "reviewDate": "2026-11-26",
+  "reviewedAt": "2026-11-26T22:18:09.027Z",
   "cadence": "once daily",
   "executionCoverage": {
-    "hoursObserved": 24,
+    "hoursObserved": 2,
     "complete": false,
     "note": "Missing or sparse execution checks must not be mistaken for a profitable or losing strategy."
   },
   "outcomes": {
-    "periodStart": "2026-11-23T00:00:00.000Z",
-    "periodEnd": "2026-11-24T00:00:00.000Z",
+    "periodStart": "2026-11-25T00:00:00.000Z",
+    "periodEnd": "2026-11-26T00:00:00.000Z",
     "closedTrades": 0,
     "wins": 0,
     "losses": 0,
@@ -34,65 +34,65 @@
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 823,
+      "asOf": 1795730400,
+      "candles": 889,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
         "confirmed": false,
         "matches": [],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 0.8970663197515828,
+        "volumeRatio": 0.6043780948935077,
         "reason": "No completed-candle entry confirmation; context alone is insufficient.",
         "levels": {
-          "closingHigh20": 63785.06,
-          "ma20": 61487.085999999996
+          "closingHigh20": 60890.77,
+          "ma20": 60637.75800000001
         },
-        "rsi": 39.14925616446509,
-        "previousRsi": 35.441245307641196
+        "rsi": 69.00896125790065,
+        "previousRsi": 68.25849777267454
       },
       "status": "no-demonstrated-edge",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.0791254653785043,
-          "netPnl": -791.254653785043,
-          "drawdown": 0.0791254653785043,
-          "closedTrades": 29,
-          "winRate": 0.20689655172413793,
-          "totalFees": 411.4743142568516
+          "returnPct": -0.08961971404135712,
+          "netPnl": -896.1971404135711,
+          "drawdown": 0.08961971404135712,
+          "closedTrades": 31,
+          "winRate": 0.1935483870967742,
+          "totalFees": 438.6663630757869
         },
         "filtered": {
-          "returnPct": -0.03940354570908985,
-          "netPnl": -394.0354570908985,
-          "drawdown": 0.04090390745835084,
-          "closedTrades": 18,
-          "winRate": 0.2222222222222222,
-          "totalFees": 259.1545903905568
+          "returnPct": -0.04623293572863913,
+          "netPnl": -462.3293572863913,
+          "drawdown": 0.04623293572863913,
+          "closedTrades": 19,
+          "winRate": 0.21052631578947367,
+          "totalFees": 273.347491985122
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.028971941638812133,
-          "netPnl": -289.7194163881213,
-          "drawdown": 0.03901155774434692,
-          "closedTrades": 10,
-          "winRate": 0.1,
-          "totalFees": 142.25540010290516
+          "returnPct": -0.02327675515006522,
+          "netPnl": -232.7675515006522,
+          "drawdown": 0.031298994826590154,
+          "closedTrades": 12,
+          "winRate": 0.16666666666666666,
+          "totalFees": 172.6149213905503
         },
         "filtered": {
-          "returnPct": -0.0223399130262369,
-          "netPnl": -223.399130262369,
-          "drawdown": 0.032327340920754,
-          "closedTrades": 7,
-          "winRate": 0.14285714285714285,
-          "totalFees": 102.75157008428477
+          "returnPct": -0.013807911914762008,
+          "netPnl": -138.07911914762008,
+          "drawdown": 0.026571731546700762,
+          "closedTrades": 8,
+          "winRate": 0.25,
+          "totalFees": 118.2076030565396
         }
       },
       "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
@@ -101,71 +101,71 @@
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     },
     "ETH-USD": {
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 823,
+      "asOf": 1795730400,
+      "candles": 889,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
         "confirmed": false,
         "matches": [],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 0.5413076818763334,
+        "volumeRatio": 1.7037015495610566,
         "reason": "No completed-candle entry confirmation; context alone is insufficient.",
         "levels": {
-          "closingHigh20": 1809.37,
-          "ma20": 1729.9119999999998
+          "closingHigh20": 1704.36,
+          "ma20": 1696.4855000000002
         },
-        "rsi": 39.785019127084084,
-        "previousRsi": 34.31556153916537
+        "rsi": 66.64859378902327,
+        "previousRsi": 66.41322312880712
       },
       "status": "no-demonstrated-edge",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.09897237489127929,
-          "netPnl": -989.7237489127929,
-          "drawdown": 0.10270388898004387,
-          "closedTrades": 37,
-          "winRate": 0.2972972972972973,
-          "totalFees": 519.831631450126
+          "returnPct": -0.11717363181716536,
+          "netPnl": -1171.7363181716537,
+          "drawdown": 0.12708673857396494,
+          "closedTrades": 39,
+          "winRate": 0.2564102564102564,
+          "totalFees": 545.2676074645074
         },
         "filtered": {
-          "returnPct": -0.03745708184612431,
-          "netPnl": -374.5708184612431,
-          "drawdown": 0.039371994633290344,
-          "closedTrades": 20,
-          "winRate": 0.2,
-          "totalFees": 289.69422953448486
+          "returnPct": -0.04945367710702012,
+          "netPnl": -494.5367710702012,
+          "drawdown": 0.06013809407589069,
+          "closedTrades": 22,
+          "winRate": 0.22727272727272727,
+          "totalFees": 317.8152773059694
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.03741766101835783,
-          "netPnl": -374.1766101835783,
-          "drawdown": 0.06435829602015292,
+          "returnPct": -0.026327329183675283,
+          "netPnl": -263.27329183675283,
+          "drawdown": 0.050947090553890816,
           "closedTrades": 15,
           "winRate": 0.4,
-          "totalFees": 209.9081811192192
+          "totalFees": 212.06929602237923
         },
         "filtered": {
-          "returnPct": -0.01669738475576778,
-          "netPnl": -166.9738475576778,
-          "drawdown": 0.03423610350566941,
-          "closedTrades": 8,
-          "winRate": 0.375,
-          "totalFees": 113.80732230526681
+          "returnPct": -0.014027850216921434,
+          "netPnl": -140.27850216921433,
+          "drawdown": 0.03311934700620186,
+          "closedTrades": 7,
+          "winRate": 0.42857142857142855,
+          "totalFees": 98.89837403250766
         }
       },
       "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
@@ -174,71 +174,73 @@
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     },
     "SOL-USD": {
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 823,
+      "asOf": 1795730400,
+      "candles": 889,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
-        "confirmed": false,
-        "matches": [],
+        "confirmed": true,
+        "matches": [
+          "closing-high-breakout-20h"
+        ],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 0.420921897246614,
-        "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+        "volumeRatio": 1.0133670280740361,
+        "reason": "Completed hourly candle matches an explicit entry rule.",
         "levels": {
-          "closingHigh20": 76.55,
-          "ma20": 72.9585
+          "closingHigh20": 71.22,
+          "ma20": 70.98
         },
-        "rsi": 44.667857145746694,
-        "previousRsi": 40.831035740876345
+        "rsi": 77.3739691049854,
+        "previousRsi": 74.19587653440625
       },
       "status": "no-demonstrated-edge",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.16052759420731655,
-          "netPnl": -1605.2759420731654,
-          "drawdown": 0.1617825207708058,
-          "closedTrades": 93,
-          "winRate": 0.08602150537634409,
-          "totalFees": 1276.7140275310724
+          "returnPct": -0.16694344531458555,
+          "netPnl": -1669.4344531458555,
+          "drawdown": 0.16694344531458555,
+          "closedTrades": 95,
+          "winRate": 0.08421052631578947,
+          "totalFees": 1301.619766427514
         },
         "filtered": {
-          "returnPct": -0.053155044204162186,
-          "netPnl": -531.5504420416219,
-          "drawdown": 0.05438451101911833,
+          "returnPct": -0.05643819223076625,
+          "netPnl": -564.3819223076625,
+          "drawdown": 0.05766339591740071,
           "closedTrades": 33,
           "winRate": 0.12121212121212122,
-          "totalFees": 476.3722893896944
+          "totalFees": 476.2735728366519
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.057339531095779606,
-          "netPnl": -573.395310957796,
-          "drawdown": 0.058202917327430624,
-          "closedTrades": 36,
-          "winRate": 0.3055555555555556,
-          "totalFees": 525.995166745236
+          "returnPct": -0.056381452096633984,
+          "netPnl": -563.8145209663398,
+          "drawdown": 0.06121831149577102,
+          "closedTrades": 44,
+          "winRate": 0.25,
+          "totalFees": 637.970139851143
         },
         "filtered": {
-          "returnPct": -0.031852231712094,
-          "netPnl": -318.52231712094,
-          "drawdown": 0.031852231712094,
-          "closedTrades": 11,
-          "winRate": 0.2727272727272727,
-          "totalFees": 161.14870733919457
+          "returnPct": -0.037942864187601844,
+          "netPnl": -379.42864187601845,
+          "drawdown": 0.0384925411689359,
+          "closedTrades": 15,
+          "winRate": 0.2,
+          "totalFees": 218.89318888875957
         }
       },
       "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
@@ -247,71 +249,73 @@
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     },
     "XRP-USD": {
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 822,
+      "asOf": 1795730400,
+      "candles": 888,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
-        "confirmed": false,
-        "matches": [],
+        "confirmed": true,
+        "matches": [
+          "ma20-reclaim"
+        ],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 0.5272638923056301,
-        "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+        "volumeRatio": 0.731474470869606,
+        "reason": "Completed hourly candle matches an explicit entry rule.",
         "levels": {
-          "closingHigh20": 0.9915,
-          "ma20": 0.951
+          "closingHigh20": 0.9582,
+          "ma20": 0.9519899999999998
         },
-        "rsi": 52.9994039165232,
-        "previousRsi": 49.09377534863872
+        "rsi": 70.7729316306581,
+        "previousRsi": 69.95346103962845
       },
       "status": "no-demonstrated-edge",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.10943829146970512,
-          "netPnl": -1094.382914697051,
-          "drawdown": 0.11262759524966987,
-          "closedTrades": 42,
-          "winRate": 0.23809523809523808,
-          "totalFees": 590.0396723257712
+          "returnPct": -0.1256066940178287,
+          "netPnl": -1256.066940178287,
+          "drawdown": 0.13625410173637612,
+          "closedTrades": 47,
+          "winRate": 0.2127659574468085,
+          "totalFees": 651.7448116386739
         },
         "filtered": {
-          "returnPct": -0.061135708695005814,
-          "netPnl": -611.3570869500581,
-          "drawdown": 0.06288036569776811,
-          "closedTrades": 25,
-          "winRate": 0.24,
-          "totalFees": 362.486828168781
+          "returnPct": -0.06769233470076615,
+          "netPnl": -676.9233470076615,
+          "drawdown": 0.0820072410280082,
+          "closedTrades": 29,
+          "winRate": 0.20689655172413793,
+          "totalFees": 414.29412286561444
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.05841126510399481,
-          "netPnl": -584.1126510399481,
-          "drawdown": 0.06058939991369862,
-          "closedTrades": 23,
-          "winRate": 0.21739130434782608,
-          "totalFees": 322.57332314240153
+          "returnPct": -0.040044509462902354,
+          "netPnl": -400.4450946290235,
+          "drawdown": 0.06051098950748774,
+          "closedTrades": 18,
+          "winRate": 0.2777777777777778,
+          "totalFees": 254.5106974550384
         },
         "filtered": {
-          "returnPct": -0.01643872450979652,
-          "netPnl": -164.3872450979652,
-          "drawdown": 0.02811412685900933,
-          "closedTrades": 14,
-          "winRate": 0.2857142857142857,
-          "totalFees": 196.13106223639176
+          "returnPct": -0.016347130724383534,
+          "netPnl": -163.47130724383533,
+          "drawdown": 0.03383659870151492,
+          "closedTrades": 13,
+          "winRate": 0.46153846153846156,
+          "totalFees": 184.07193168865487
         }
       },
       "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
@@ -320,71 +324,71 @@
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     },
     "ADA-USD": {
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 822,
+      "asOf": 1795730400,
+      "candles": 888,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
         "confirmed": false,
         "matches": [],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 0.49186883985861807,
+        "volumeRatio": 0.7126357174248595,
         "reason": "No completed-candle entry confirmation; context alone is insufficient.",
         "levels": {
-          "closingHigh20": 0.15408,
-          "ma20": 0.1487405
+          "closingHigh20": 0.15061,
+          "ma20": 0.14882299999999998
         },
-        "rsi": 48.78611540608213,
-        "previousRsi": 48.63708952898017
+        "rsi": 74.0691880359618,
+        "previousRsi": 77.3495672697405
       },
       "status": "no-demonstrated-edge",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.1542293985247057,
-          "netPnl": -1542.2939852470572,
-          "drawdown": 0.15442784673465393,
-          "closedTrades": 88,
-          "winRate": 0.18181818181818182,
-          "totalFees": 1207.7000470092476
+          "returnPct": -0.16238591822255474,
+          "netPnl": -1623.8591822255476,
+          "drawdown": 0.16238591822255474,
+          "closedTrades": 90,
+          "winRate": 0.17777777777777778,
+          "totalFees": 1232.7655340727524
         },
         "filtered": {
-          "returnPct": -0.060564624273798474,
-          "netPnl": -605.6462427379847,
-          "drawdown": 0.06132047236326706,
+          "returnPct": -0.06270778150694077,
+          "netPnl": -627.0778150694077,
+          "drawdown": 0.06346190526140777,
           "closedTrades": 32,
           "winRate": 0.1875,
-          "totalFees": 458.98952147588227
+          "totalFees": 458.92508176954874
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.05403328514902605,
-          "netPnl": -540.3328514902605,
-          "drawdown": 0.056302499820369306,
-          "closedTrades": 35,
-          "winRate": 0.34285714285714286,
-          "totalFees": 508.1348593807617
+          "returnPct": -0.04587980810096269,
+          "netPnl": -458.7980810096269,
+          "drawdown": 0.05485975206509552,
+          "closedTrades": 43,
+          "winRate": 0.37209302325581395,
+          "totalFees": 624.1871227712958
         },
         "filtered": {
-          "returnPct": -0.02054797288414011,
-          "netPnl": -205.47972884140108,
-          "drawdown": 0.023601863320053235,
-          "closedTrades": 14,
-          "winRate": 0.42857142857142855,
-          "totalFees": 207.86219096962665
+          "returnPct": -0.01965449057398255,
+          "netPnl": -196.54490573982548,
+          "drawdown": 0.02368387341755077,
+          "closedTrades": 17,
+          "winRate": 0.4117647058823529,
+          "totalFees": 252.01905758763363
         }
       },
       "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
@@ -393,71 +397,71 @@
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     },
     "DOGE-USD": {
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 822,
+      "asOf": 1795730400,
+      "candles": 888,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
         "confirmed": false,
         "matches": [],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 2.941547383869439,
+        "volumeRatio": 0.7392680783332195,
         "reason": "No completed-candle entry confirmation; context alone is insufficient.",
         "levels": {
-          "closingHigh20": 0.05894,
-          "ma20": 0.056693499999999994
+          "closingHigh20": 0.05706,
+          "ma20": 0.056717000000000004
         },
-        "rsi": 46.82669092122894,
-        "previousRsi": 46.82669092122894
+        "rsi": 73.92687638459066,
+        "previousRsi": 73.71608878928875
       },
       "status": "no-demonstrated-edge",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.08317116054364233,
-          "netPnl": -831.7116054364233,
-          "drawdown": 0.09289062234914745,
-          "closedTrades": 44,
-          "winRate": 0.29545454545454547,
-          "totalFees": 618.1896281344208
+          "returnPct": -0.09995189340822216,
+          "netPnl": -999.5189340822217,
+          "drawdown": 0.10951099521222732,
+          "closedTrades": 48,
+          "winRate": 0.2708333333333333,
+          "totalFees": 671.7891407918089
         },
         "filtered": {
-          "returnPct": -0.04030258718287314,
-          "netPnl": -403.0258718287314,
-          "drawdown": 0.04422992548980775,
-          "closedTrades": 20,
-          "winRate": 0.35,
-          "totalFees": 289.2212719183037
+          "returnPct": -0.06327362743778904,
+          "netPnl": -632.7362743778904,
+          "drawdown": 0.0682721949020664,
+          "closedTrades": 23,
+          "winRate": 0.2608695652173913,
+          "totalFees": 331.0291475424409
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.04987382502519504,
-          "netPnl": -498.7382502519504,
-          "drawdown": 0.06018329414137752,
-          "closedTrades": 22,
-          "winRate": 0.2727272727272727,
-          "totalFees": 310.714718463203
+          "returnPct": -0.0329988057168779,
+          "netPnl": -329.98805716877905,
+          "drawdown": 0.05059596015941709,
+          "closedTrades": 21,
+          "winRate": 0.2857142857142857,
+          "totalFees": 295.29557914796345
         },
         "filtered": {
-          "returnPct": -0.028102405234224716,
-          "netPnl": -281.02405234224716,
-          "drawdown": 0.037558721475673885,
-          "closedTrades": 10,
-          "winRate": 0.3,
-          "totalFees": 142.5431899706977
+          "returnPct": -0.010715660444977402,
+          "netPnl": -107.15660444977402,
+          "drawdown": 0.033665253388774,
+          "closedTrades": 11,
+          "winRate": 0.36363636363636365,
+          "totalFees": 154.31595151833162
         }
       },
       "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
@@ -466,144 +470,146 @@
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     },
     "LINK-USD": {
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 822,
+      "asOf": 1795730400,
+      "candles": 888,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
-        "confirmed": false,
-        "matches": [],
+        "confirmed": true,
+        "matches": [
+          "closing-high-breakout-20h"
+        ],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 0.9592400344899402,
-        "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+        "volumeRatio": 3.941031050268179,
+        "reason": "Completed hourly candle matches an explicit entry rule.",
         "levels": {
-          "closingHigh20": 9.326,
-          "ma20": 9.04195
+          "closingHigh20": 9.3,
+          "ma20": 9.217350000000003
         },
-        "rsi": 54.01546282042208,
-        "previousRsi": 50.03562377231645
+        "rsi": 78.37858258447454,
+        "previousRsi": 74.56427252003962
       },
-      "status": "no-demonstrated-edge",
+      "status": "promising-shadow",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.056318734048884836,
-          "netPnl": -563.1873404888483,
-          "drawdown": 0.059815997802107265,
-          "closedTrades": 38,
-          "winRate": 0.15789473684210525,
-          "totalFees": 551.6469065533641
+          "returnPct": -0.056744304012300566,
+          "netPnl": -567.4430401230056,
+          "drawdown": 0.056744304012300566,
+          "closedTrades": 39,
+          "winRate": 0.1794871794871795,
+          "totalFees": 566.3677899854773
         },
         "filtered": {
-          "returnPct": -0.009439343234769512,
-          "netPnl": -94.39343234769512,
-          "drawdown": 0.013110341065569447,
-          "closedTrades": 17,
-          "winRate": 0.23529411764705882,
-          "totalFees": 252.84805777958917
+          "returnPct": -0.019630308470907038,
+          "netPnl": -196.3030847090704,
+          "drawdown": 0.02328809628536692,
+          "closedTrades": 19,
+          "winRate": 0.21052631578947367,
+          "totalFees": 281.7738274666352
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.017890077271154586,
-          "netPnl": -178.90077271154587,
-          "drawdown": 0.020803043206867006,
-          "closedTrades": 12,
+          "returnPct": -0.019225046408191157,
+          "netPnl": -192.25046408191156,
+          "drawdown": 0.022843936664848116,
+          "closedTrades": 15,
           "winRate": 0.3333333333333333,
-          "totalFees": 177.4345818710048
+          "totalFees": 221.95788050165402
         },
         "filtered": {
-          "returnPct": -0.0032741551607248765,
-          "netPnl": -32.741551607248766,
+          "returnPct": 0.00039024084291086185,
+          "netPnl": 3.9024084291086183,
           "drawdown": 0.007910108253321233,
-          "closedTrades": 5,
-          "winRate": 0.6,
-          "totalFees": 74.54430306784485
+          "closedTrades": 6,
+          "winRate": 0.6666666666666666,
+          "totalFees": 89.59265793978527
         }
       },
-      "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+      "reason": "Fixed filter improved training and later holdout net returns with no higher drawdown; still requires forward paper evidence.",
       "assumptions": {
         "execution": "next hourly open, adverse slippage; stop first if ambiguous",
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     },
     "AVAX-USD": {
       "version": 1,
       "mode": "shadow",
       "timeframe": "1h",
-      "asOf": 1795492800,
-      "candles": 822,
+      "asOf": 1795730400,
+      "candles": 888,
       "confirmation": {
         "version": 1,
         "timeframe": "1h",
-        "asOf": 1795492800,
+        "asOf": 1795730400,
         "mode": "observe",
         "confirmed": false,
         "matches": [],
         "context": [],
         "status": "evaluated",
-        "volumeRatio": 0.615012632776258,
+        "volumeRatio": 1.1246312562441445,
         "reason": "No completed-candle entry confirmation; context alone is insufficient.",
         "levels": {
-          "closingHigh20": 7.028,
-          "ma20": 6.816450000000001
+          "closingHigh20": 6.686,
+          "ma20": 6.63905
         },
-        "rsi": 48.12260726196884,
-        "previousRsi": 45.30586902846165
+        "rsi": 65.92250691773808,
+        "previousRsi": 65.81458250828453
       },
       "status": "no-demonstrated-edge",
       "recommendation": "Observe only; keep the current entry rules.",
       "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
       "training": {
         "baseline": {
-          "returnPct": -0.08481587915945965,
-          "netPnl": -848.1587915945966,
-          "drawdown": 0.08609117592531111,
-          "closedTrades": 32,
-          "winRate": 0.3125,
-          "totalFees": 442.9247318925904
+          "returnPct": -0.13652343703282277,
+          "netPnl": -1365.2343703282277,
+          "drawdown": 0.13678287206014575,
+          "closedTrades": 86,
+          "winRate": 0.3023255813953488,
+          "totalFees": 1178.207582814261
         },
         "filtered": {
-          "returnPct": -0.06121733252035174,
-          "netPnl": -612.1733252035174,
-          "drawdown": 0.06400384057169846,
-          "closedTrades": 16,
-          "winRate": 0.3125,
-          "totalFees": 227.9815082840921
+          "returnPct": -0.0426402996208104,
+          "netPnl": -426.402996208104,
+          "drawdown": 0.0426402996208104,
+          "closedTrades": 28,
+          "winRate": 0.32142857142857145,
+          "totalFees": 407.83247468468846
         }
       },
       "holdout": {
-        "start": 1794603600,
-        "end": 1795492800,
+        "start": 1794769200,
+        "end": 1795730400,
         "baseline": {
-          "returnPct": -0.05633829225566896,
-          "netPnl": -563.3829225566897,
-          "drawdown": 0.06757738728449057,
-          "closedTrades": 12,
-          "winRate": 0.16666666666666666,
-          "totalFees": 168.06232210191666
+          "returnPct": -0.04911002614422796,
+          "netPnl": -491.1002614422796,
+          "drawdown": 0.05087422854377471,
+          "closedTrades": 41,
+          "winRate": 0.2682926829268293,
+          "totalFees": 593.6765593980205
         },
         "filtered": {
-          "returnPct": -0.023848346301255697,
-          "netPnl": -238.48346301255697,
-          "drawdown": 0.04077561813157954,
-          "closedTrades": 6,
-          "winRate": 0.16666666666666666,
-          "totalFees": 83.60230421413921
+          "returnPct": -0.030497690565363517,
+          "netPnl": -304.9769056536352,
+          "drawdown": 0.03776353412904282,
+          "closedTrades": 16,
+          "winRate": 0.3125,
+          "totalFees": 229.6137628950455
         }
       },
       "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
@@ -612,7 +618,7 @@
         "costs": "existing account fee, rebate and slippage configuration",
         "risk": "identical risk caps and targets in both arms"
       },
-      "splitTime": 1794603600
+      "splitTime": 1794769200
     }
   },
   "tradeModel": {
@@ -680,6 +686,694 @@
     "Historical validation does not guarantee future profit."
   ],
   "history": [
+    {
+      "version": 1,
+      "reviewDate": "2026-11-26",
+      "reviewedAt": "2026-11-26T22:18:09.027Z",
+      "cadence": "once daily",
+      "executionCoverage": {
+        "hoursObserved": 2,
+        "complete": false,
+        "note": "Missing or sparse execution checks must not be mistaken for a profitable or losing strategy."
+      },
+      "outcomes": {
+        "periodStart": "2026-11-25T00:00:00.000Z",
+        "periodEnd": "2026-11-26T00:00:00.000Z",
+        "closedTrades": 0,
+        "wins": 0,
+        "losses": 0,
+        "flats": 0,
+        "winRate": null,
+        "netPnl": 0,
+        "grossFees": 0,
+        "rebatesCredited": 0,
+        "pendingRebates": 0,
+        "expectancy": null,
+        "profitFactor": null,
+        "maxDrawdown": 0,
+        "byMarket": {},
+        "bySetup": {},
+        "byExit": {},
+        "byPattern": {},
+        "note": "Completed simulated trade outcomes after modeled costs. Virtual snapshot rebalances excluded. Null ratios mean insufficient denominator, not an infinite edge."
+      },
+      "patternResearch": {
+        "BTC-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 889,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": false,
+            "matches": [],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 0.6043780948935077,
+            "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+            "levels": {
+              "closingHigh20": 60890.77,
+              "ma20": 60637.75800000001
+            },
+            "rsi": 69.00896125790065,
+            "previousRsi": 68.25849777267454
+          },
+          "status": "no-demonstrated-edge",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.08961971404135712,
+              "netPnl": -896.1971404135711,
+              "drawdown": 0.08961971404135712,
+              "closedTrades": 31,
+              "winRate": 0.1935483870967742,
+              "totalFees": 438.6663630757869
+            },
+            "filtered": {
+              "returnPct": -0.04623293572863913,
+              "netPnl": -462.3293572863913,
+              "drawdown": 0.04623293572863913,
+              "closedTrades": 19,
+              "winRate": 0.21052631578947367,
+              "totalFees": 273.347491985122
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.02327675515006522,
+              "netPnl": -232.7675515006522,
+              "drawdown": 0.031298994826590154,
+              "closedTrades": 12,
+              "winRate": 0.16666666666666666,
+              "totalFees": 172.6149213905503
+            },
+            "filtered": {
+              "returnPct": -0.013807911914762008,
+              "netPnl": -138.07911914762008,
+              "drawdown": 0.026571731546700762,
+              "closedTrades": 8,
+              "winRate": 0.25,
+              "totalFees": 118.2076030565396
+            }
+          },
+          "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        },
+        "ETH-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 889,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": false,
+            "matches": [],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 1.7037015495610566,
+            "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+            "levels": {
+              "closingHigh20": 1704.36,
+              "ma20": 1696.4855000000002
+            },
+            "rsi": 66.64859378902327,
+            "previousRsi": 66.41322312880712
+          },
+          "status": "no-demonstrated-edge",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.11717363181716536,
+              "netPnl": -1171.7363181716537,
+              "drawdown": 0.12708673857396494,
+              "closedTrades": 39,
+              "winRate": 0.2564102564102564,
+              "totalFees": 545.2676074645074
+            },
+            "filtered": {
+              "returnPct": -0.04945367710702012,
+              "netPnl": -494.5367710702012,
+              "drawdown": 0.06013809407589069,
+              "closedTrades": 22,
+              "winRate": 0.22727272727272727,
+              "totalFees": 317.8152773059694
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.026327329183675283,
+              "netPnl": -263.27329183675283,
+              "drawdown": 0.050947090553890816,
+              "closedTrades": 15,
+              "winRate": 0.4,
+              "totalFees": 212.06929602237923
+            },
+            "filtered": {
+              "returnPct": -0.014027850216921434,
+              "netPnl": -140.27850216921433,
+              "drawdown": 0.03311934700620186,
+              "closedTrades": 7,
+              "winRate": 0.42857142857142855,
+              "totalFees": 98.89837403250766
+            }
+          },
+          "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        },
+        "SOL-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 889,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": true,
+            "matches": [
+              "closing-high-breakout-20h"
+            ],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 1.0133670280740361,
+            "reason": "Completed hourly candle matches an explicit entry rule.",
+            "levels": {
+              "closingHigh20": 71.22,
+              "ma20": 70.98
+            },
+            "rsi": 77.3739691049854,
+            "previousRsi": 74.19587653440625
+          },
+          "status": "no-demonstrated-edge",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.16694344531458555,
+              "netPnl": -1669.4344531458555,
+              "drawdown": 0.16694344531458555,
+              "closedTrades": 95,
+              "winRate": 0.08421052631578947,
+              "totalFees": 1301.619766427514
+            },
+            "filtered": {
+              "returnPct": -0.05643819223076625,
+              "netPnl": -564.3819223076625,
+              "drawdown": 0.05766339591740071,
+              "closedTrades": 33,
+              "winRate": 0.12121212121212122,
+              "totalFees": 476.2735728366519
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.056381452096633984,
+              "netPnl": -563.8145209663398,
+              "drawdown": 0.06121831149577102,
+              "closedTrades": 44,
+              "winRate": 0.25,
+              "totalFees": 637.970139851143
+            },
+            "filtered": {
+              "returnPct": -0.037942864187601844,
+              "netPnl": -379.42864187601845,
+              "drawdown": 0.0384925411689359,
+              "closedTrades": 15,
+              "winRate": 0.2,
+              "totalFees": 218.89318888875957
+            }
+          },
+          "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        },
+        "XRP-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 888,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": true,
+            "matches": [
+              "ma20-reclaim"
+            ],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 0.731474470869606,
+            "reason": "Completed hourly candle matches an explicit entry rule.",
+            "levels": {
+              "closingHigh20": 0.9582,
+              "ma20": 0.9519899999999998
+            },
+            "rsi": 70.7729316306581,
+            "previousRsi": 69.95346103962845
+          },
+          "status": "no-demonstrated-edge",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.1256066940178287,
+              "netPnl": -1256.066940178287,
+              "drawdown": 0.13625410173637612,
+              "closedTrades": 47,
+              "winRate": 0.2127659574468085,
+              "totalFees": 651.7448116386739
+            },
+            "filtered": {
+              "returnPct": -0.06769233470076615,
+              "netPnl": -676.9233470076615,
+              "drawdown": 0.0820072410280082,
+              "closedTrades": 29,
+              "winRate": 0.20689655172413793,
+              "totalFees": 414.29412286561444
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.040044509462902354,
+              "netPnl": -400.4450946290235,
+              "drawdown": 0.06051098950748774,
+              "closedTrades": 18,
+              "winRate": 0.2777777777777778,
+              "totalFees": 254.5106974550384
+            },
+            "filtered": {
+              "returnPct": -0.016347130724383534,
+              "netPnl": -163.47130724383533,
+              "drawdown": 0.03383659870151492,
+              "closedTrades": 13,
+              "winRate": 0.46153846153846156,
+              "totalFees": 184.07193168865487
+            }
+          },
+          "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        },
+        "ADA-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 888,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": false,
+            "matches": [],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 0.7126357174248595,
+            "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+            "levels": {
+              "closingHigh20": 0.15061,
+              "ma20": 0.14882299999999998
+            },
+            "rsi": 74.0691880359618,
+            "previousRsi": 77.3495672697405
+          },
+          "status": "no-demonstrated-edge",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.16238591822255474,
+              "netPnl": -1623.8591822255476,
+              "drawdown": 0.16238591822255474,
+              "closedTrades": 90,
+              "winRate": 0.17777777777777778,
+              "totalFees": 1232.7655340727524
+            },
+            "filtered": {
+              "returnPct": -0.06270778150694077,
+              "netPnl": -627.0778150694077,
+              "drawdown": 0.06346190526140777,
+              "closedTrades": 32,
+              "winRate": 0.1875,
+              "totalFees": 458.92508176954874
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.04587980810096269,
+              "netPnl": -458.7980810096269,
+              "drawdown": 0.05485975206509552,
+              "closedTrades": 43,
+              "winRate": 0.37209302325581395,
+              "totalFees": 624.1871227712958
+            },
+            "filtered": {
+              "returnPct": -0.01965449057398255,
+              "netPnl": -196.54490573982548,
+              "drawdown": 0.02368387341755077,
+              "closedTrades": 17,
+              "winRate": 0.4117647058823529,
+              "totalFees": 252.01905758763363
+            }
+          },
+          "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        },
+        "DOGE-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 888,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": false,
+            "matches": [],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 0.7392680783332195,
+            "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+            "levels": {
+              "closingHigh20": 0.05706,
+              "ma20": 0.056717000000000004
+            },
+            "rsi": 73.92687638459066,
+            "previousRsi": 73.71608878928875
+          },
+          "status": "no-demonstrated-edge",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.09995189340822216,
+              "netPnl": -999.5189340822217,
+              "drawdown": 0.10951099521222732,
+              "closedTrades": 48,
+              "winRate": 0.2708333333333333,
+              "totalFees": 671.7891407918089
+            },
+            "filtered": {
+              "returnPct": -0.06327362743778904,
+              "netPnl": -632.7362743778904,
+              "drawdown": 0.0682721949020664,
+              "closedTrades": 23,
+              "winRate": 0.2608695652173913,
+              "totalFees": 331.0291475424409
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.0329988057168779,
+              "netPnl": -329.98805716877905,
+              "drawdown": 0.05059596015941709,
+              "closedTrades": 21,
+              "winRate": 0.2857142857142857,
+              "totalFees": 295.29557914796345
+            },
+            "filtered": {
+              "returnPct": -0.010715660444977402,
+              "netPnl": -107.15660444977402,
+              "drawdown": 0.033665253388774,
+              "closedTrades": 11,
+              "winRate": 0.36363636363636365,
+              "totalFees": 154.31595151833162
+            }
+          },
+          "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        },
+        "LINK-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 888,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": true,
+            "matches": [
+              "closing-high-breakout-20h"
+            ],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 3.941031050268179,
+            "reason": "Completed hourly candle matches an explicit entry rule.",
+            "levels": {
+              "closingHigh20": 9.3,
+              "ma20": 9.217350000000003
+            },
+            "rsi": 78.37858258447454,
+            "previousRsi": 74.56427252003962
+          },
+          "status": "promising-shadow",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.056744304012300566,
+              "netPnl": -567.4430401230056,
+              "drawdown": 0.056744304012300566,
+              "closedTrades": 39,
+              "winRate": 0.1794871794871795,
+              "totalFees": 566.3677899854773
+            },
+            "filtered": {
+              "returnPct": -0.019630308470907038,
+              "netPnl": -196.3030847090704,
+              "drawdown": 0.02328809628536692,
+              "closedTrades": 19,
+              "winRate": 0.21052631578947367,
+              "totalFees": 281.7738274666352
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.019225046408191157,
+              "netPnl": -192.25046408191156,
+              "drawdown": 0.022843936664848116,
+              "closedTrades": 15,
+              "winRate": 0.3333333333333333,
+              "totalFees": 221.95788050165402
+            },
+            "filtered": {
+              "returnPct": 0.00039024084291086185,
+              "netPnl": 3.9024084291086183,
+              "drawdown": 0.007910108253321233,
+              "closedTrades": 6,
+              "winRate": 0.6666666666666666,
+              "totalFees": 89.59265793978527
+            }
+          },
+          "reason": "Fixed filter improved training and later holdout net returns with no higher drawdown; still requires forward paper evidence.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        },
+        "AVAX-USD": {
+          "version": 1,
+          "mode": "shadow",
+          "timeframe": "1h",
+          "asOf": 1795730400,
+          "candles": 888,
+          "confirmation": {
+            "version": 1,
+            "timeframe": "1h",
+            "asOf": 1795730400,
+            "mode": "observe",
+            "confirmed": false,
+            "matches": [],
+            "context": [],
+            "status": "evaluated",
+            "volumeRatio": 1.1246312562441445,
+            "reason": "No completed-candle entry confirmation; context alone is insufficient.",
+            "levels": {
+              "closingHigh20": 6.686,
+              "ma20": 6.63905
+            },
+            "rsi": 65.92250691773808,
+            "previousRsi": 65.81458250828453
+          },
+          "status": "no-demonstrated-edge",
+          "recommendation": "Observe only; keep the current entry rules.",
+          "warning": "Hourly candle replay is an approximation of five-minute quote execution, not a forecast. No NYSE opening-range rule is applied to 24/7 crypto.",
+          "training": {
+            "baseline": {
+              "returnPct": -0.13652343703282277,
+              "netPnl": -1365.2343703282277,
+              "drawdown": 0.13678287206014575,
+              "closedTrades": 86,
+              "winRate": 0.3023255813953488,
+              "totalFees": 1178.207582814261
+            },
+            "filtered": {
+              "returnPct": -0.0426402996208104,
+              "netPnl": -426.402996208104,
+              "drawdown": 0.0426402996208104,
+              "closedTrades": 28,
+              "winRate": 0.32142857142857145,
+              "totalFees": 407.83247468468846
+            }
+          },
+          "holdout": {
+            "start": 1794769200,
+            "end": 1795730400,
+            "baseline": {
+              "returnPct": -0.04911002614422796,
+              "netPnl": -491.1002614422796,
+              "drawdown": 0.05087422854377471,
+              "closedTrades": 41,
+              "winRate": 0.2682926829268293,
+              "totalFees": 593.6765593980205
+            },
+            "filtered": {
+              "returnPct": -0.030497690565363517,
+              "netPnl": -304.9769056536352,
+              "drawdown": 0.03776353412904282,
+              "closedTrades": 16,
+              "winRate": 0.3125,
+              "totalFees": 229.6137628950455
+            }
+          },
+          "reason": "The fixed pattern filter did not improve both training and holdout with positive holdout profit and no higher drawdown.",
+          "assumptions": {
+            "execution": "next hourly open, adverse slippage; stop first if ambiguous",
+            "costs": "existing account fee, rebate and slippage configuration",
+            "risk": "identical risk caps and targets in both arms"
+          },
+          "splitTime": 1794769200
+        }
+      },
+      "tradeModel": {
+        "status": "collecting-data",
+        "mode": "shadow",
+        "label": "Positive realized paper P&L after gross fees and credited rebates",
+        "eligibleClosedTrades": 2,
+        "minimumRequired": 100,
+        "reason": "Need more closed trades with frozen entry-time features."
+      },
+      "proposals": [
+        {
+          "product": "BTC-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 0,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        },
+        {
+          "product": "ETH-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 0,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        },
+        {
+          "product": "SOL-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 0,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        },
+        {
+          "product": "XRP-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 1,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        },
+        {
+          "product": "ADA-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 1,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        },
+        {
+          "product": "DOGE-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 0,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        },
+        {
+          "product": "LINK-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 0,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        },
+        {
+          "product": "AVAX-USD",
+          "status": "insufficient-executed-evidence",
+          "eligibleClosedTrades": 0,
+          "reason": "Need complete daily execution sampling coverage, a fresh heartbeat, 100 eligible completed trades overall and 30 for this market, including at least five wins and five losses. Parameters retained."
+        }
+      ],
+      "notes": [
+        "Reviewing evidence does not place/close trades or alter existing positions.",
+        "Risk caps stay fixed. Insufficient evidence retains parameters.",
+        "Market-label shadow ML and executed-trade-outcome ML are distinct models.",
+        "Historical validation does not guarantee future profit."
+      ]
+    },
     {
       "version": 1,
       "reviewDate": "2026-11-24",

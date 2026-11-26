@@ -400,6 +400,37 @@
       "adopted": true,
       "status": "relative-improvement-only",
       "nextIdea": "Measure future after-cost expectancy and exit patterns under adopted rules; keep risk caps fixed, retain failed experiments, and collect sufficient chronological outcome evidence before fitting ML."
+    },
+    {
+      "at": "2026-11-26T22:20:33.999Z",
+      "tradesReviewed": 2,
+      "losses": 2,
+      "findings": [
+        "Costs were $67.12 (50% of the net loss); each trade needs ~0.70% to break even.",
+        "Before costs, entries still lost $67.61: entry timing had no edge.",
+        "2/2 trades ended on the time exit before target or stop.",
+        "Target touched on 0/2 trades; average best move after entry 0.59% vs average target 6.47%.",
+        "Long execution gap limits forward conclusions; no synthetic fills were added for missed cycles.",
+        "Fee tiers are saved snapshots; rebates are modeled, not real payments.",
+        "Executed-outcome model: collecting-data. Historical trend validation: not-validated."
+      ],
+      "changes": [
+        {
+          "product": "AVAX-USD",
+          "approach": "longer-hold",
+          "decision": "adopt-improvement"
+        }
+      ],
+      "adopted": [
+        {
+          "product": "AVAX-USD",
+          "approach": "longer-hold",
+          "decision": "adopt-improvement"
+        }
+      ],
+      "nextIdea": "Gather new entry-frozen outcomes and compare after-cost expectancy, drawdown and stress results. Validate updated historical inputs; improvement adoption means relative loss reduction, not a profitable edge. Retain risk caps and promotion guards.",
+      "historyVerifiedAt": "2026-11-26T22:20:33.999Z",
+      "historyScope": "24 refreshed public series; hourly bars through November 26 21:00 UTC. Legacy sweep report was not rerun."
     }
   ]
 }
