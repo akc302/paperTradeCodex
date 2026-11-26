@@ -54,7 +54,7 @@ export function teamReport(state,market,now=Date.now()/1000,{operations={},resea
  if(research>6*HOUR){issues.push(`Researcher (agent 2) last ran ${Number.isFinite(research)?Math.round(research/HOUR)+'h':'never'} ago; expected every 5h.`);dispatch.push('learning.yml:research');}
  if(state.autoTrade===false)issues.push('Automatic entries are switched off.');
  if((state.errors??[]).length)issues.push(`${state.errors.length} trader error(s): ${state.errors.map(e=>e.message).join(' ')}`);
- if(operations.scheduleEventCount===0)issues.push('GitHub has not delivered any scheduled trader runs; only manual runs are trading.');
+ if(operations.scheduleEventCount===0)issues.push('No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard.');
  if(lastEntry&&now-lastEntry>24*HOUR)issues.push(`No new paper entry for ${Math.round((now-lastEntry)/HOUR)}h; current rules may be too strict for this market.`);
  const ledger=integrity(a);if(!ledger.ok)issues.push(...ledger.problems.map(p=>'Calculation error: '+p));
  const pause=state.pause??null;if(pause?.state==='blocked')issues.push(`Drawdown pause: equity ${(pause.drawdown*100).toFixed(1)}% below its peak; new entries blocked until a supervisor or manager sets pause.cleared in paper.json.`);else if(pause?.state==='halved')issues.push(`Drawdown ${(pause.drawdown*100).toFixed(1)}% from peak: new position sizes halved.`);

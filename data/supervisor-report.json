@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-26T22:20:41.220Z",
+  "at": "2026-11-26T23:14:12.259Z",
   "goal": 85000,
   "start": 30000,
   "equity": 29865.26287940766,
@@ -8,8 +8,8 @@
   "onTrack": false,
   "verdict": "needs-attention",
   "issues": [
-    "GitHub has not delivered any scheduled trader runs; only manual runs are trading.",
-    "No new paper entry for 124h; current rules may be too strict for this market."
+    "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard.",
+    "No new paper entry for 125h; current rules may be too strict for this market."
   ],
   "last24h": {
     "closedTrades": 0,
@@ -28,7 +28,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "5.7 days"
+        "value": "5.8 days"
       },
       {
         "id": "sample",

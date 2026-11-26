@@ -3,8 +3,8 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-26T22:17:44.465Z",
-      "nextDueAt": "2026-11-26T23:00:00.000Z",
+      "completedAt": "2026-11-26T23:13:33.106Z",
+      "nextDueAt": "2026-11-27T00:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -17,111 +17,35 @@
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "manager": {
-      "completedAt": "2026-11-26T22:20:03.906Z",
-      "nextDueAt": "2026-11-26T23:00:00.000Z",
+      "completedAt": "2026-11-26T23:13:35.732Z",
+      "nextDueAt": "2026-11-27T05:00:00.000Z",
       "status": "completed",
       "intervalHours": 6,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "supervisor": {
-      "completedAt": "2026-11-26T22:20:06.875Z",
-      "nextDueAt": "2026-11-26T23:00:00.000Z",
+      "completedAt": "2026-11-26T23:13:38.566Z",
+      "nextDueAt": "2026-11-27T07:00:00.000Z",
       "status": "completed",
       "intervalHours": 8,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     }
   },
   "verification": {
-    "checkedAt": "2026-11-26T22:17:44.406Z",
+    "checkedAt": "2026-11-26T23:13:33.057Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-26T22:20:44.469Z",
-      "recentRuns": [
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T22:16:08Z",
-          "databaseId": 45903680829,
-          "event": "push",
-          "status": "completed",
-          "workflowName": "Publish dashboard"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T19:50:55Z",
-          "databaseId": 45886672028,
-          "event": "workflow_dispatch",
-          "status": "completed",
-          "workflowName": "Update paper account"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T19:50:38Z",
-          "databaseId": 45886636908,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Hourly health check"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T15:18:16Z",
-          "databaseId": 45847729495,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Journal evidence and daily learning"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T12:51:32Z",
-          "databaseId": 45823580451,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Journal evidence and daily learning"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T12:43:09Z",
-          "databaseId": 45822271213,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Update paper account"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T10:02:35Z",
-          "databaseId": 45797573687,
-          "event": "workflow_dispatch",
-          "status": "completed",
-          "workflowName": "Update paper account"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T10:02:26Z",
-          "databaseId": 45797552319,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Hourly health check"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T08:48:22Z",
-          "databaseId": 45786274891,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Journal evidence and daily learning"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-26T02:55:01Z",
-          "databaseId": 45745546988,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Journal evidence and daily learning"
-        }
-      ],
-      "note": "Scheduled updater 45822271213 and manual recovery 45886672028 failed in execution. No successful scheduled trader receipt is recorded. Logs unavailable during this inspection; latest failure cause unconfirmed."
+      "checkedAt": "2026-11-26T23:14:13.001Z",
+      "runId": 45904493610,
+      "event": "schedule",
+      "conclusion": "success",
+      "guardSkipped": true,
+      "newPaperCheck": false,
+      "receipt": "2026-11-26T22:16:38.501Z",
+      "note": "Observed timer delivery with verified guard skip; not evidence of successful scheduled paper execution or regular cadence."
     },
-    "nextWork": "Check actual run events and shared receipt next hour; recover once only after 135 minutes stale with no active updater."
+    "nextWork": "Inspect subsequent receipt/events; recover only beyond 135 minutes stale with no active updater. Researcher next due 02:00 UTC."
   }
 }

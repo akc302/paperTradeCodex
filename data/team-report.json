@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-26T22:20:34.778Z",
+  "generatedAt": "2026-11-26T23:14:06.890Z",
   "goal": 85000,
   "equity": 29865.26287940766,
   "startingEquity": 30000,
@@ -70,12 +70,12 @@
   "agents": {
     "trader": {
       "role": "Codex paper trader every 2 hours",
-      "lastRunMinutesAgo": 4,
+      "lastRunMinutesAgo": 57,
       "healthy": true
     },
     "researcher": {
       "role": "Codex every 5h: loss analysis, backtest, rule adoption",
-      "lastRunHoursAgo": 0,
+      "lastRunHoursAgo": 0.9,
       "healthy": true,
       "sweep": {
         "at": "2026-11-23T17:17:43.630Z",
@@ -147,7 +147,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "5.7 days"
+        "value": "5.8 days"
       },
       {
         "id": "sample",
@@ -206,7 +206,7 @@
     "windowDays": 30,
     "label": "Estimated time to $85,000 at the trailing 30-day growth rate (not a promise)",
     "status": "insufficient-history",
-    "spanDays": 5.93095807870505,
+    "spanDays": 5.96813530092714,
     "message": "Needs at least 7 days of equity history."
   },
   "scorecard": [
@@ -392,8 +392,8 @@
   },
   "verdict": "needs-attention",
   "issues": [
-    "GitHub has not delivered any scheduled trader runs; only manual runs are trading.",
-    "No new paper entry for 124h; current rules may be too strict for this market."
+    "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard.",
+    "No new paper entry for 125h; current rules may be too strict for this market."
   ],
   "dispatch": []
 }
