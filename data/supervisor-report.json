@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-23T23:13:30.916Z",
+  "at": "2026-11-24T07:12:09.824Z",
   "goal": 85000,
   "start": 30000,
   "equity": 29865.26287940766,
@@ -24,7 +24,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "2.8 days"
+        "value": "3.1 days"
       },
       {
         "id": "sample",
@@ -66,7 +66,7 @@
         "id": "uptime",
         "label": "Trader ran in 95%+ of hours over the last 7 days",
         "pass": false,
-        "value": "24%"
+        "value": "37%"
       },
       {
         "id": "integrity",
@@ -84,5 +84,14 @@
   },
   "fixed": [],
   "nextStep": "Review flagged evidence and operational gaps. No automatic risk changes.",
-  "scope": "paperTradeCodex only; two-hour execution; no real orders"
+  "scope": "paperTradeCodex only; two-hour execution; no real orders",
+  "audit": {
+    "checkedAt": "2026-11-24T07:13:01.026Z",
+    "feeSource": "Saved snapshot; no live tier check per fill",
+    "feeSnapshotStale": true,
+    "rebateAssumption": "User-confirmed eligibility; simulated credit, not a real USDC payment",
+    "researchInterpretation": "Relative improvement is not proof of profitable forward trading. Outcome models require frozen eligible samples and chronological validation.",
+    "nextWork": "Audit refreshed historical input timestamps at the next research cycle; retain promotion guards and risk caps. Separate stored fee assumptions from live tier verification.",
+    "reportLimit": "Supervisor summary calls teamReport without its researcher-note or workflow options; independently reviewed account-specific notes and actual Actions events separately."
+  }
 }

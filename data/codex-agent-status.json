@@ -3,8 +3,8 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-24T06:11:47.764Z",
-      "nextDueAt": "2026-11-24T07:00:00.000Z",
+      "completedAt": "2026-11-24T07:12:07.903Z",
+      "nextDueAt": "2026-11-24T08:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -24,87 +24,30 @@
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "supervisor": {
-      "completedAt": "2026-11-23T23:13:31.910Z",
+      "completedAt": "2026-11-24T07:12:10.587Z",
+      "nextDueAt": "2026-11-24T15:00:00.000Z",
       "status": "completed",
-      "intervalHours": 8
+      "intervalHours": 8,
+      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     }
   },
   "verification": {
-    "checkedAt": "2026-11-24T06:11:47.712Z",
+    "checkedAt": "2026-11-24T07:12:07.851Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-24T06:12:08.367Z",
-      "recentRuns": [
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-24T05:17:03Z",
-          "databaseId": 45332216657,
-          "event": "push",
-          "status": "completed",
-          "workflowName": "Publish dashboard"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-24T04:47:40Z",
-          "databaseId": 45328835392,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Journal evidence and daily learning"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-24T04:15:56Z",
-          "databaseId": 45325172579,
-          "event": "push",
-          "status": "completed",
-          "workflowName": "Publish dashboard"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-24T03:22:22Z",
-          "databaseId": 45319045835,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Journal evidence and daily learning"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-24T03:03:54Z",
-          "databaseId": 45316839245,
-          "event": "workflow_dispatch",
-          "status": "completed",
-          "workflowName": "Update paper account"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-24T03:03:44Z",
-          "databaseId": 45316819466,
-          "event": "schedule",
-          "status": "completed",
-          "workflowName": "Hourly health check"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-24T00:14:57Z",
-          "databaseId": 45295598096,
-          "event": "push",
-          "status": "completed",
-          "workflowName": "Publish dashboard"
-        },
-        {
-          "conclusion": "failure",
-          "createdAt": "2026-11-23T23:18:52Z",
-          "databaseId": 45287706901,
-          "event": "push",
-          "status": "completed",
-          "workflowName": "Publish dashboard"
-        }
-      ],
+      "checkedAt": "2026-11-24T07:13:01.026Z",
+      "latestPublisher": {
+        "runId": 45338709814,
+        "event": "push",
+        "conclusion": "failure",
+        "failedStep": "actions/configure-pages@v5"
+      },
       "activeUpdater": false,
-      "scope": "Recent destination Actions events; no successful scheduled trader event observed in this sample. Workspace receipts are separate evidence."
+      "successfulScheduledTraderObserved": false,
+      "note": "Reviewed recent destination events. Workspace recovery is not a scheduled GitHub trader run."
     },
-    "nextWork": "Check the next trader receipt and actual destination workflow events; recover only after 135 minutes stale and with no active updater. Existing secret/Pages blockers remain unresolved."
+    "nextWork": "Recheck receipt and actual events next hour; recover only if over 135 minutes stale with no active updater."
   }
 }
