@@ -3,8 +3,8 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T04:10:13.583Z",
-      "nextDueAt": "2026-11-27T05:00:00.000Z",
+      "completedAt": "2026-11-27T05:13:46.991Z",
+      "nextDueAt": "2026-11-27T06:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -17,8 +17,8 @@
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "manager": {
-      "completedAt": "2026-11-26T23:13:35.732Z",
-      "nextDueAt": "2026-11-27T05:00:00.000Z",
+      "completedAt": "2026-11-27T05:15:39.185Z",
+      "nextDueAt": "2026-11-27T11:00:00.000Z",
       "status": "completed",
       "intervalHours": 6,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -32,26 +32,27 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T04:10:13.525Z",
+    "checkedAt": "2026-11-27T05:13:46.934Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T04:11:03.644Z",
-      "failedUpdater": {
-        "runId": 45933319766,
-        "event": "workflow_dispatch",
-        "conclusion": "failure",
-        "verifiedCause": "PAPER_STATE_KEY unavailable; empty key environment"
-      },
-      "healthTrigger": {
-        "runId": 45933306812,
+      "checkedAt": "2026-11-27T05:15:57.819Z",
+      "scheduledUpdater": {
+        "runId": 45943721496,
         "event": "schedule",
-        "conclusion": "failure"
+        "conclusion": "success",
+        "guardSkipped": true,
+        "newPaperCheck": false
       },
-      "successfulScheduledPaperCheckObserved": false,
-      "note": "Prior successful scheduled run 45904493610 skipped under the guard. Workspace recovery is distinct from a GitHub schedule-event check."
+      "failedLearning": {
+        "runId": 45944010996,
+        "event": "schedule",
+        "conclusion": "failure",
+        "verifiedCause": "Encryption key missing; empty PAPER_STATE_KEY environment"
+      },
+      "note": "Scheduled delivery with a guard skip does not establish successful trading cadence."
     },
-    "nextWork": "At next due cycle inspect actual receipt/events; recover only beyond 135 minutes stale with no updater. Manager at 05:00 reviews today’s daily evidence and missing destination key; supervisor at 07:00 audits claims and private note provenance."
+    "nextWork": "Inspect next receipt/events; recover only after 135 minutes stale and no active updater. Researcher/supervisor due 07:00 UTC; manager due 11:00 UTC."
   }
 }

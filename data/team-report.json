@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-26T23:14:06.890Z",
+  "generatedAt": "2026-11-27T05:15:36.393Z",
   "goal": 85000,
-  "equity": 29865.26287940766,
+  "equity": 29934.367468135522,
   "startingEquity": 30000,
-  "progressToGoal": -0.0024497658289516534,
-  "returnPct": -0.004491237353078032,
+  "progressToGoal": -0.0011933187611723208,
+  "returnPct": -0.002187751062149255,
   "drawdown": 0.008947045452893567,
-  "openPositions": 0,
+  "openPositions": 1,
   "last24h": {
     "closedTrades": 0,
     "wins": 0,
@@ -33,7 +33,7 @@
     },
     "ETH-USD": {
       "strategy": "aggressive",
-      "approach": "aggressive-day-hold+regime-block",
+      "approach": "longer-hold",
       "decision": "keep"
     },
     "SOL-USD": {
@@ -54,7 +54,7 @@
     "DOGE-USD": {
       "strategy": "aggressive",
       "approach": "regime-block",
-      "decision": "keep"
+      "decision": "adopt-improvement"
     },
     "LINK-USD": {
       "strategy": "aggressive",
@@ -63,19 +63,19 @@
     },
     "AVAX-USD": {
       "strategy": "aggressive",
-      "approach": "longer-hold",
-      "decision": "adopt-improvement"
+      "approach": "wider-stop",
+      "decision": "keep"
     }
   },
   "agents": {
     "trader": {
       "role": "Codex paper trader every 2 hours",
-      "lastRunMinutesAgo": 57,
+      "lastRunMinutesAgo": 66,
       "healthy": true
     },
     "researcher": {
       "role": "Codex every 5h: loss analysis, backtest, rule adoption",
-      "lastRunHoursAgo": 0.9,
+      "lastRunHoursAgo": 1.1,
       "healthy": true,
       "sweep": {
         "at": "2026-11-23T17:17:43.630Z",
@@ -107,19 +107,19 @@
         }
       },
       "latestNote": {
-        "at": "2026-11-26T22:20:33.999Z",
+        "at": "2026-11-27T04:11:02.945Z",
         "tradesReviewed": 2,
         "losses": 2,
         "findings": 7,
         "changes": 1,
         "adopted": [
           {
-            "product": "AVAX-USD",
-            "approach": "longer-hold",
+            "product": "DOGE-USD",
+            "approach": "regime-block",
             "decision": "adopt-improvement"
           }
         ],
-        "nextIdea": "Gather new entry-frozen outcomes and compare after-cost expectancy, drawdown and stress results. Validate updated historical inputs; improvement adoption means relative loss reduction, not a profitable edge. Retain risk caps and promotion guards."
+        "nextIdea": "Compare new frozen entry outcomes, net expectancy, cost-flipped losses and drawdown against the retained baseline. Require existing sample/chronological/stress guards; relative improvement does not establish a profitable edge."
       }
     },
     "verifier": {
@@ -147,7 +147,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "5.8 days"
+        "value": "6.0 days"
       },
       {
         "id": "sample",
@@ -189,7 +189,7 @@
         "id": "uptime",
         "label": "Trader ran in 95%+ of hours over the last 7 days",
         "pass": false,
-        "value": "37%"
+        "value": "38%"
       },
       {
         "id": "integrity",
@@ -202,18 +202,18 @@
   },
   "goalEstimate": {
     "goal": 85000,
-    "equity": 29865.26287940766,
+    "equity": 29934.367468135522,
     "windowDays": 30,
     "label": "Estimated time to $85,000 at the trailing 30-day growth rate (not a promise)",
     "status": "insufficient-history",
-    "spanDays": 5.96813530092714,
+    "spanDays": 6.219171215276475,
     "message": "Needs at least 7 days of equity history."
   },
   "scorecard": [
     {
       "id": "main",
       "label": "Main: aggressive",
-      "equity": 29865.26287940766,
+      "equity": 29934.367468135522,
       "initial": 30000,
       "netPnl": -134.73712059234225,
       "profitFactor": 0,
@@ -225,9 +225,9 @@
       "fees": 67.12291127748253,
       "makerFills": 0,
       "takerFills": 4,
-      "openPositions": 0,
+      "openPositions": 1,
       "pause": "normal",
-      "drawdown": 0.004900472986521631
+      "drawdown": 0.002597933617113579
     },
     {
       "id": "trend-k2",
@@ -289,7 +289,7 @@
     {
       "id": "hourly-legacy",
       "label": "Previous hourly rules",
-      "equity": 29698.138514705573,
+      "equity": 29766.85639796442,
       "initial": 29975.046647868254,
       "netPnl": -276.90813316268736,
       "profitFactor": 0.6942306933485574,
@@ -301,18 +301,18 @@
       "fees": 220.00640474177345,
       "makerFills": 13,
       "takerFills": 9,
-      "openPositions": 0,
+      "openPositions": 1,
       "pause": "normal",
-      "drawdown": 0.03138138982652283
+      "drawdown": 0.029140124080412555
     },
     {
       "id": "lab-hourly",
       "label": "Lab hourly per-market rules",
-      "equity": 29427.09857103134,
+      "equity": 29495.18930080046,
       "initial": 29975.046647868254,
       "netPnl": -547.9480768369198,
       "profitFactor": 0.5770279758276646,
-      "maxDrawdown": 0.03459369959271613,
+      "maxDrawdown": 0.03486440798951522,
       "winRate": 0.35714285714285715,
       "avgWin": 149.5046251602895,
       "avgLoss": -143.94124473759635,
@@ -320,9 +320,9 @@
       "fees": 292.9767985483023,
       "makerFills": 16,
       "takerFills": 12,
-      "openPositions": 0,
+      "openPositions": 1,
       "pause": "normal",
-      "drawdown": 0.03459369959271619
+      "drawdown": 0.03235986674100755
     },
     {
       "id": "scout-daytrade",
@@ -365,11 +365,11 @@
     {
       "id": "daytrader-range",
       "label": "Day trader: buy 24h range low, sell near high, up to 50% per trade",
-      "equity": 29015.461606931607,
+      "equity": 29437.420032232574,
       "initial": 29865.26287940766,
       "netPnl": -555.7438544842976,
       "profitFactor": 0.14257879524108055,
-      "maxDrawdown": 0.023078150869291474,
+      "maxDrawdown": 0.03149414783960947,
       "winRate": 0.2,
       "avgWin": 92.41349385251631,
       "avgLoss": -162.03933708420348,
@@ -379,12 +379,12 @@
       "takerFills": 3,
       "openPositions": 2,
       "pause": "normal",
-      "drawdown": 0.02213608878413409
+      "drawdown": 0.017868881971579986
     }
   ],
   "drawdownPause": {
     "state": "normal",
-    "drawdown": 0.004900472986521631,
+    "drawdown": 0.002597933617113579,
     "peak": 30012.337528729568,
     "sizeMultiplier": 1,
     "triggeredAt": null,
@@ -392,8 +392,7 @@
   },
   "verdict": "needs-attention",
   "issues": [
-    "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard.",
-    "No new paper entry for 125h; current rules may be too strict for this market."
+    "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard."
   ],
   "dispatch": []
 }
