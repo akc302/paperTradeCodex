@@ -1,30 +1,30 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-27T11:12:30.860Z",
+  "generatedAt": "2026-11-27T17:09:59.212Z",
   "goal": 85000,
-  "equity": 30071.67771191055,
+  "equity": 29570.16888688264,
   "startingEquity": 30000,
-  "progressToGoal": 0.0013032311256463635,
-  "returnPct": 0.0023892570636849996,
-  "drawdown": 0.008947045452893567,
-  "openPositions": 1,
+  "progressToGoal": -0.007815111147588389,
+  "returnPct": -0.014327703770578713,
+  "drawdown": 0.016677114919640076,
+  "openPositions": 2,
   "last24h": {
-    "closedTrades": 0,
-    "wins": 0,
-    "winRate": null,
-    "netPnl": 0,
-    "grossFees": 0,
-    "rebatesCredited": 0
-  },
-  "allTime": {
-    "closedTrades": 2,
+    "closedTrades": 1,
     "wins": 0,
     "winRate": 0,
-    "netPnl": -134.73712059234225,
-    "grossFees": 89.49721503664338,
-    "rebatesCredited": 22.374303759160846
+    "netPnl": -173.53563262487688,
+    "grossFees": 33.183176518445805,
+    "rebatesCredited": 8.295794129611451
   },
-  "losingStreak": 2,
+  "allTime": {
+    "closedTrades": 3,
+    "wins": 0,
+    "winRate": 0,
+    "netPnl": -308.27275321721913,
+    "grossFees": 122.68039155508919,
+    "rebatesCredited": 30.670097888772297
+  },
+  "losingStreak": 3,
   "rulesInUse": {
     "BTC-USD": {
       "strategy": "aggressive",
@@ -33,7 +33,7 @@
     },
     "ETH-USD": {
       "strategy": "aggressive",
-      "approach": "longer-hold",
+      "approach": "aggressive-day-hold",
       "decision": "keep"
     },
     "SOL-USD": {
@@ -70,12 +70,12 @@
   "agents": {
     "trader": {
       "role": "Codex paper trader every 2 hours",
-      "lastRunMinutesAgo": 118,
+      "lastRunMinutesAgo": 2,
       "healthy": true
     },
     "researcher": {
       "role": "Codex every 5h: loss analysis, backtest, rule adoption",
-      "lastRunHoursAgo": 2,
+      "lastRunHoursAgo": 0,
       "healthy": true,
       "sweep": {
         "at": "2026-11-23T17:17:43.630Z",
@@ -107,13 +107,13 @@
         }
       },
       "latestNote": {
-        "at": "2026-11-27T09:16:31.569Z",
-        "tradesReviewed": 2,
-        "losses": 2,
+        "at": "2026-11-27T17:09:56.154Z",
+        "tradesReviewed": 3,
+        "losses": 3,
         "findings": 7,
         "changes": 0,
         "adopted": [],
-        "nextIdea": "Gather new frozen entry outcomes, compare net expectancy and drawdown after costs and stress, and retain current promotion/sample guards. Do not force entries or fit to erase losses."
+        "nextIdea": "Gather new frozen entry outcomes; compare after-cost expectancy, time exits, target reach, drawdown and no-rebate stress against the retained baseline. Keep chronological validation, sample and promotion guards."
       }
     },
     "verifier": {
@@ -129,7 +129,7 @@
   },
   "integrity": {
     "ok": true,
-    "cashDifference": 0,
+    "cashDifference": 1.8189894035458565e-12,
     "problems": []
   },
   "readiness": {
@@ -141,13 +141,13 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "6.3 days"
+        "value": "6.5 days"
       },
       {
         "id": "sample",
         "label": "150+ closed trades in the last 28 days",
         "pass": false,
-        "value": "2 trades"
+        "value": "3 trades"
       },
       {
         "id": "winrate",
@@ -159,19 +159,19 @@
         "id": "profit",
         "label": "Net profit after fees and rebates, profit factor 1.3+",
         "pass": false,
-        "value": "$-134.74, PF 0.00"
+        "value": "$-308.27, PF 0.00"
       },
       {
         "id": "weekly",
         "label": "Profitable in each of the last 4 weeks",
         "pass": false,
-        "value": "$-135 / $0 / $0 / $0"
+        "value": "$-308 / $0 / $0 / $0"
       },
       {
         "id": "drawdown",
         "label": "Max drawdown 10% or less over 28 days",
         "pass": true,
-        "value": "0.9%"
+        "value": "1.3%"
       },
       {
         "id": "validated",
@@ -196,32 +196,32 @@
   },
   "goalEstimate": {
     "goal": 85000,
-    "equity": 30071.67771191055,
+    "equity": 29570.16888688264,
     "windowDays": 30,
     "label": "Estimated time to $85,000 at the trailing 30-day growth rate (not a promise)",
     "status": "insufficient-history",
-    "spanDays": 6.467023842591378,
+    "spanDays": 6.715268657406171,
     "message": "Needs at least 7 days of equity history."
   },
   "scorecard": [
     {
       "id": "main",
       "label": "Main: aggressive",
-      "equity": 30071.67771191055,
+      "equity": 29570.16888688264,
       "initial": 30000,
-      "netPnl": -134.73712059234225,
+      "netPnl": -308.27275321721913,
       "profitFactor": 0,
-      "maxDrawdown": 0.008947045452893567,
+      "maxDrawdown": 0.013431487026986492,
       "winRate": 0,
       "avgWin": null,
-      "avgLoss": -67.36856029617113,
-      "closedTrades": 2,
-      "fees": 67.12291127748253,
-      "makerFills": 0,
-      "takerFills": 4,
-      "openPositions": 1,
+      "avgLoss": -102.7575844057397,
+      "closedTrades": 3,
+      "fees": 92.01029366631688,
+      "makerFills": 1,
+      "takerFills": 5,
+      "openPositions": 2,
       "pause": "normal",
-      "drawdown": 0
+      "drawdown": 0.013154766965380427
     },
     {
       "id": "trend-k2",
@@ -283,11 +283,11 @@
     {
       "id": "hourly-legacy",
       "label": "Previous hourly rules",
-      "equity": 29903.39826118473,
+      "equity": 29486.71500749835,
       "initial": 29975.046647868254,
       "netPnl": -276.90813316268736,
       "profitFactor": 0.6942306933485574,
-      "maxDrawdown": 0.033904417087924375,
+      "maxDrawdown": 0.03697448796475212,
       "winRate": 0.45454545454545453,
       "avgWin": 125.74062935527154,
       "avgLoss": -150.93521332317417,
@@ -295,18 +295,18 @@
       "fees": 220.00640474177345,
       "makerFills": 13,
       "takerFills": 9,
-      "openPositions": 1,
+      "openPositions": 3,
       "pause": "normal",
-      "drawdown": 0.024686747660288888
+      "drawdown": 0.036863431040386474
     },
     {
       "id": "lab-hourly",
       "label": "Lab hourly per-market rules",
-      "equity": 29630.485015246224,
+      "equity": 29217.60461962629,
       "initial": 29975.046647868254,
       "netPnl": -547.9480768369198,
       "profitFactor": 0.5770279758276646,
-      "maxDrawdown": 0.03486440798951522,
+      "maxDrawdown": 0.0401682488784003,
       "winRate": 0.35714285714285715,
       "avgWin": 149.5046251602895,
       "avgLoss": -143.94124473759635,
@@ -314,9 +314,9 @@
       "fees": 292.9767985483023,
       "makerFills": 16,
       "takerFills": 12,
-      "openPositions": 1,
+      "openPositions": 3,
       "pause": "normal",
-      "drawdown": 0.027921259420317535
+      "drawdown": 0.040057560261270386
     },
     {
       "id": "scout-daytrade",
@@ -359,7 +359,7 @@
     {
       "id": "daytrader-range",
       "label": "Day trader: buy 24h range low, sell near high, up to 50% per trade",
-      "equity": 29704.32890193716,
+      "equity": 29179.024851297425,
       "initial": 29865.26287940766,
       "netPnl": -555.7438544842976,
       "profitFactor": 0.14257879524108055,
@@ -373,12 +373,12 @@
       "takerFills": 3,
       "openPositions": 2,
       "pause": "normal",
-      "drawdown": 0.008963906388541942
+      "drawdown": 0.026489812327131435
     }
   ],
   "drawdownPause": {
     "state": "normal",
-    "drawdown": 0,
+    "drawdown": 0.013154766965380427,
     "peak": 30071.67771191055,
     "sizeMultiplier": 1,
     "triggeredAt": null,
@@ -388,5 +388,17 @@
   "issues": [
     "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard."
   ],
-  "dispatch": []
+  "dispatch": [],
+  "independentReview": {
+    "at": "2026-11-27T17:09:56.154Z",
+    "allLedgersBalanced": true,
+    "dailyReviewAlreadyComplete": true,
+    "findings": [
+      "No risk-cap, position, or journal changes by support roles.",
+      "Scheduled updater success at 15:09 UTC did not advance the paper receipt; the 17:08 recovery is a Codex execution.",
+      "Latest publisher failed at configure-pages. Previously confirmed destination secret and Pages setup limitations remain unresolved.",
+      "Research is not validated as a profitable edge; manager has reviewed the current scoped research note."
+    ],
+    "nextWork": "On the next manager deadline reconcile all ledgers and verify new research notes, actual workflow events and unresolved setup. Do not rerun a completed daily review or force entries."
+  }
 }
