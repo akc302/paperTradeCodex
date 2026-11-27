@@ -3,8 +3,8 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T10:08:39.804Z",
-      "nextDueAt": "2026-11-27T11:00:00.000Z",
+      "completedAt": "2026-11-27T11:12:30.764Z",
+      "nextDueAt": "2026-11-27T12:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -17,8 +17,8 @@
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "manager": {
-      "completedAt": "2026-11-27T05:15:39.185Z",
-      "nextDueAt": "2026-11-27T11:00:00.000Z",
+      "completedAt": "2026-11-27T11:12:33.608Z",
+      "nextDueAt": "2026-11-27T17:00:00.000Z",
       "status": "completed",
       "intervalHours": 6,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -32,27 +32,28 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T10:08:39.752Z",
+    "checkedAt": "2026-11-27T11:12:30.712Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T10:08:57.475Z",
-      "learning": {
-        "runId": 45969919071,
-        "event": "schedule",
-        "conclusion": "failure",
-        "verifiedCause": "Encryption key missing; PAPER_STATE_KEY environment empty"
-      },
-      "publisher": {
-        "runId": 45972454941,
+      "checkedAt": "2026-11-27T11:12:59.515Z",
+      "latestPublisher": {
+        "runId": 45979667070,
         "event": "push",
         "conclusion": "failure",
         "failedStep": "actions/configure-pages@v5"
       },
+      "latestKnownScheduledUpdater": {
+        "runId": 45943721496,
+        "event": "schedule",
+        "conclusion": "success",
+        "guardSkipped": true,
+        "newPaperCheck": false
+      },
       "activeUpdater": false,
-      "note": "Receipt age approximately 54 minutes; no recovery warranted. Existing secret/Pages blockers persist; workspace receipts do not prove scheduled GitHub execution."
+      "note": "Receipt approximately 118 minutes old at inspection, below recovery threshold. No new schedule-event execution evidence; known secret and Pages blockers persist."
     },
-    "nextWork": "At 11:00 verify receipt/events and run due manager; recover only beyond 135 minutes stale with no updater. Researcher due 12:00, supervisor 15:00 UTC."
+    "nextWork": "At 12:00 recheck receipt/events and due research; recovery only beyond 135 minutes stale with no active updater. Supervisor due 15:00, manager due 17:00 UTC. Daily review already completed today."
   }
 }

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-27T05:15:36.393Z",
+  "generatedAt": "2026-11-27T11:12:30.860Z",
   "goal": 85000,
-  "equity": 29934.367468135522,
+  "equity": 30071.67771191055,
   "startingEquity": 30000,
-  "progressToGoal": -0.0011933187611723208,
-  "returnPct": -0.002187751062149255,
+  "progressToGoal": 0.0013032311256463635,
+  "returnPct": 0.0023892570636849996,
   "drawdown": 0.008947045452893567,
   "openPositions": 1,
   "last24h": {
@@ -53,8 +53,8 @@
     },
     "DOGE-USD": {
       "strategy": "aggressive",
-      "approach": "regime-block",
-      "decision": "adopt-improvement"
+      "approach": "current",
+      "decision": "keep"
     },
     "LINK-USD": {
       "strategy": "aggressive",
@@ -70,12 +70,12 @@
   "agents": {
     "trader": {
       "role": "Codex paper trader every 2 hours",
-      "lastRunMinutesAgo": 66,
+      "lastRunMinutesAgo": 118,
       "healthy": true
     },
     "researcher": {
       "role": "Codex every 5h: loss analysis, backtest, rule adoption",
-      "lastRunHoursAgo": 1.1,
+      "lastRunHoursAgo": 2,
       "healthy": true,
       "sweep": {
         "at": "2026-11-23T17:17:43.630Z",
@@ -107,19 +107,13 @@
         }
       },
       "latestNote": {
-        "at": "2026-11-27T04:11:02.945Z",
+        "at": "2026-11-27T09:16:31.569Z",
         "tradesReviewed": 2,
         "losses": 2,
         "findings": 7,
-        "changes": 1,
-        "adopted": [
-          {
-            "product": "DOGE-USD",
-            "approach": "regime-block",
-            "decision": "adopt-improvement"
-          }
-        ],
-        "nextIdea": "Compare new frozen entry outcomes, net expectancy, cost-flipped losses and drawdown against the retained baseline. Require existing sample/chronological/stress guards; relative improvement does not establish a profitable edge."
+        "changes": 0,
+        "adopted": [],
+        "nextIdea": "Gather new frozen entry outcomes, compare net expectancy and drawdown after costs and stress, and retain current promotion/sample guards. Do not force entries or fit to erase losses."
       }
     },
     "verifier": {
@@ -147,7 +141,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "6.0 days"
+        "value": "6.3 days"
       },
       {
         "id": "sample",
@@ -202,18 +196,18 @@
   },
   "goalEstimate": {
     "goal": 85000,
-    "equity": 29934.367468135522,
+    "equity": 30071.67771191055,
     "windowDays": 30,
     "label": "Estimated time to $85,000 at the trailing 30-day growth rate (not a promise)",
     "status": "insufficient-history",
-    "spanDays": 6.219171215276475,
+    "spanDays": 6.467023842591378,
     "message": "Needs at least 7 days of equity history."
   },
   "scorecard": [
     {
       "id": "main",
       "label": "Main: aggressive",
-      "equity": 29934.367468135522,
+      "equity": 30071.67771191055,
       "initial": 30000,
       "netPnl": -134.73712059234225,
       "profitFactor": 0,
@@ -227,7 +221,7 @@
       "takerFills": 4,
       "openPositions": 1,
       "pause": "normal",
-      "drawdown": 0.002597933617113579
+      "drawdown": 0
     },
     {
       "id": "trend-k2",
@@ -289,7 +283,7 @@
     {
       "id": "hourly-legacy",
       "label": "Previous hourly rules",
-      "equity": 29766.85639796442,
+      "equity": 29903.39826118473,
       "initial": 29975.046647868254,
       "netPnl": -276.90813316268736,
       "profitFactor": 0.6942306933485574,
@@ -303,12 +297,12 @@
       "takerFills": 9,
       "openPositions": 1,
       "pause": "normal",
-      "drawdown": 0.029140124080412555
+      "drawdown": 0.024686747660288888
     },
     {
       "id": "lab-hourly",
       "label": "Lab hourly per-market rules",
-      "equity": 29495.18930080046,
+      "equity": 29630.485015246224,
       "initial": 29975.046647868254,
       "netPnl": -547.9480768369198,
       "profitFactor": 0.5770279758276646,
@@ -322,7 +316,7 @@
       "takerFills": 12,
       "openPositions": 1,
       "pause": "normal",
-      "drawdown": 0.03235986674100755
+      "drawdown": 0.027921259420317535
     },
     {
       "id": "scout-daytrade",
@@ -365,7 +359,7 @@
     {
       "id": "daytrader-range",
       "label": "Day trader: buy 24h range low, sell near high, up to 50% per trade",
-      "equity": 29437.420032232574,
+      "equity": 29704.32890193716,
       "initial": 29865.26287940766,
       "netPnl": -555.7438544842976,
       "profitFactor": 0.14257879524108055,
@@ -379,13 +373,13 @@
       "takerFills": 3,
       "openPositions": 2,
       "pause": "normal",
-      "drawdown": 0.017868881971579986
+      "drawdown": 0.008963906388541942
     }
   ],
   "drawdownPause": {
     "state": "normal",
-    "drawdown": 0.002597933617113579,
-    "peak": 30012.337528729568,
+    "drawdown": 0,
+    "peak": 30071.67771191055,
     "sizeMultiplier": 1,
     "triggeredAt": null,
     "clearedAt": null
