@@ -3,8 +3,8 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T09:15:19.862Z",
-      "nextDueAt": "2026-11-27T10:00:00.000Z",
+      "completedAt": "2026-11-27T10:08:39.804Z",
+      "nextDueAt": "2026-11-27T11:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -32,28 +32,27 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T09:15:19.805Z",
+    "checkedAt": "2026-11-27T10:08:39.752Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T09:16:36.907Z",
-      "latestScheduledUpdater": {
-        "runId": 45943721496,
-        "event": "schedule",
-        "conclusion": "success",
-        "guardSkipped": true,
-        "newPaperCheck": false
-      },
-      "activeLearning": {
+      "checkedAt": "2026-11-27T10:08:57.475Z",
+      "learning": {
         "runId": 45969919071,
-        "conclusion": "",
         "event": "schedule",
-        "status": "in_progress",
-        "checkedAt": "2026-11-27T09:16:39.812Z"
+        "conclusion": "failure",
+        "verifiedCause": "Encryption key missing; PAPER_STATE_KEY environment empty"
       },
-      "note": "No updater was active before recovery. Concurrent learning may commit later; fetch/replay before push. Prior destination secret/Pages blockers remain unresolved."
+      "publisher": {
+        "runId": 45972454941,
+        "event": "push",
+        "conclusion": "failure",
+        "failedStep": "actions/configure-pages@v5"
+      },
+      "activeUpdater": false,
+      "note": "Receipt age approximately 54 minutes; no recovery warranted. Existing secret/Pages blockers persist; workspace receipts do not prove scheduled GitHub execution."
     },
-    "nextWork": "Check latest receipt/events next hour. Research next due 12:00, manager 11:00, supervisor 15:00 UTC; retain saved-fee caveat and model guards."
+    "nextWork": "At 11:00 verify receipt/events and run due manager; recover only beyond 135 minutes stale with no updater. Researcher due 12:00, supervisor 15:00 UTC."
   }
 }
