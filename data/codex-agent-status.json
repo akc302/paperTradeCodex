@@ -3,8 +3,8 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T00:09:42.917Z",
-      "nextDueAt": "2026-11-27T01:00:00.000Z",
+      "completedAt": "2026-11-27T01:09:20.201Z",
+      "nextDueAt": "2026-11-27T02:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -32,28 +32,9 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T00:09:42.865Z",
+    "checkedAt": "2026-11-27T01:09:20.147Z",
     "ok": true,
     "errors": [],
-    "scope": "repository files; published site must be checked separately",
-    "workflowEvidence": {
-      "checkedAt": "2026-11-27T00:10:00.890Z",
-      "latestPublisher": {
-        "runId": 45909760571,
-        "event": "push",
-        "conclusion": "failure",
-        "failedStep": "actions/configure-pages@v5"
-      },
-      "latestScheduledUpdater": {
-        "runId": 45904493610,
-        "event": "schedule",
-        "conclusion": "success",
-        "guardSkipped": true,
-        "newPaperCheck": false
-      },
-      "activeUpdater": false,
-      "note": "Reviewed latest destination runs. Last successful check remains 22:16:38 UTC; below the 135-minute recovery threshold. Existing publication blocker persists."
-    },
-    "nextWork": "Recheck current receipt/events at next hourly deadline; recover only if over 135 minutes stale and no updater active. Researcher due 02:00, manager 05:00, supervisor 07:00 UTC."
+    "scope": "repository files; published site must be checked separately"
   }
 }
