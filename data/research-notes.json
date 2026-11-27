@@ -431,6 +431,37 @@
       "nextIdea": "Gather new entry-frozen outcomes and compare after-cost expectancy, drawdown and stress results. Validate updated historical inputs; improvement adoption means relative loss reduction, not a profitable edge. Retain risk caps and promotion guards.",
       "historyVerifiedAt": "2026-11-26T22:20:33.999Z",
       "historyScope": "24 refreshed public series; hourly bars through November 26 21:00 UTC. Legacy sweep report was not rerun."
+    },
+    {
+      "at": "2026-11-27T04:11:02.945Z",
+      "tradesReviewed": 2,
+      "losses": 2,
+      "findings": [
+        "Costs were $67.12 (50% of the net loss); each trade needs ~0.70% to break even.",
+        "Before costs, entries still lost $67.61: entry timing had no edge.",
+        "2/2 trades ended on the time exit before target or stop.",
+        "Target touched on 0/2 trades; average best move after entry 0.59% vs average target 6.47%.",
+        "Observed execution gaps remain in the evidence; no fills were reconstructed for missed intervals.",
+        "Fees/rebates use saved assumptions, not a live fee-tier query.",
+        "Outcome model collecting-data; trend research not-validated."
+      ],
+      "changes": [
+        {
+          "product": "DOGE-USD",
+          "approach": "regime-block",
+          "decision": "adopt-improvement"
+        }
+      ],
+      "adopted": [
+        {
+          "product": "DOGE-USD",
+          "approach": "regime-block",
+          "decision": "adopt-improvement"
+        }
+      ],
+      "nextIdea": "Compare new frozen entry outcomes, net expectancy, cost-flipped losses and drawdown against the retained baseline. Require existing sample/chronological/stress guards; relative improvement does not establish a profitable edge.",
+      "historyVerifiedAt": "2026-11-27T04:11:02.946Z",
+      "historyScope": "24 refreshed public series; hourly through November 27 03:00 UTC. Legacy sweep was not rerun."
     }
   ]
 }
