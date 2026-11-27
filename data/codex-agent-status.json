@@ -3,12 +3,12 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T20:14:50.105Z",
-      "nextDueAt": "2026-11-27T21:00:00.000Z",
+      "completedAt": "2026-11-27T21:09:06.928Z",
+      "nextDueAt": "2026-11-27T22:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
-      "nextWork": "At 21:00 UTC inspect actual workflow events and latest receipt. Recovery only after 135 minutes stale and no active trader. Researcher due 22:00, manager and supervisor 23:00 UTC."
+      "nextWork": "At 22:00 UTC inspect actual runs and receipt; recovery only beyond 135 minutes stale with no active trader. Run due research then; manager and supervisor due 23:00 UTC."
     },
     "researcher": {
       "completedAt": "2026-11-27T17:09:23.907Z",
@@ -36,12 +36,12 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T20:14:50.053Z",
+    "checkedAt": "2026-11-27T21:09:06.879Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T20:14:51.699Z",
+      "checkedAt": "2026-11-27T21:09:08.418Z",
       "activeUpdater": false,
       "latestScheduledUpdater": {
         "runId": 46022421621,
@@ -59,13 +59,13 @@
         "exactCause": "Not verified from job logs this cycle"
       },
       "latestPublisher": {
-        "runId": 46055936402,
+        "runId": 46062360325,
         "event": "push",
         "conclusion": "failure",
         "failedStep": "actions/configure-pages@v5"
       },
-      "note": "Receipt approximately 56 minutes old at inspection; no recovery needed. No newer updater event observed. Existing secret/Pages setup limitations remain unresolved."
+      "note": "Receipt approximately 110 minutes old at inspection, below the 135-minute recovery threshold. No recovery run. No newer updater event observed; known secret/Pages setup limitations remain unresolved."
     },
-    "nextWork": "At 21:00 UTC inspect actual workflow events and latest receipt. Recovery only after 135 minutes stale and no active trader. Researcher due 22:00, manager and supervisor 23:00 UTC."
+    "nextWork": "At 22:00 UTC inspect actual runs and receipt; recovery only beyond 135 minutes stale with no active trader. Run due research then; manager and supervisor due 23:00 UTC."
   }
 }
