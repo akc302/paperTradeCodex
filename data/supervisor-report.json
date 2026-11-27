@@ -1,10 +1,10 @@
 {
-  "at": "2026-11-27T09:16:34.269Z",
+  "at": "2026-11-27T15:16:20.967Z",
   "goal": 85000,
   "start": 30000,
-  "equity": 30071.67771191055,
-  "remaining": 54928.32228808945,
-  "progressPct": 0.13032311256463636,
+  "equity": 29943.94566909687,
+  "remaining": 55056.054330903135,
+  "progressPct": -0.10191696527841983,
   "onTrack": false,
   "verdict": "needs-attention",
   "issues": [
@@ -27,7 +27,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "6.2 days"
+        "value": "6.4 days"
       },
       {
         "id": "sample",
@@ -87,5 +87,20 @@
   },
   "fixed": [],
   "nextStep": "Review flagged evidence and operational gaps. No automatic risk changes.",
-  "scope": "paperTradeCodex only; two-hour execution; no real orders"
+  "scope": "paperTradeCodex only; two-hour execution; no real orders",
+  "independentReview": {
+    "at": "2026-11-27T15:16:47.264Z",
+    "ledgerAndChallengersBalanced": true,
+    "scopedResearchNotesVerified": true,
+    "feeSnapshotStale": true,
+    "liveFeeTierVerified": false,
+    "findings": [
+      "Readiness remains insufficient; no profitable or all-winning strategy claim is supported.",
+      "Fees and rebates are modeled from saved assumptions, not authenticated live tier verification.",
+      "Two-hour checks do not continuously observe stops or pending fills. Evidence coverage is not a count of hourly executions.",
+      "Latest scheduled updater completed without a new successful-check receipt; this is consistent with the two-hour guard. Learning failed; Pages publication remains blocked.",
+      "Manager report predates the latest research; refresh on its existing 17:00 UTC deadline. No risk or strategy changes made."
+    ],
+    "nextWork": "On the next supervisor cycle review manager/researcher updates, sample and validation evidence, private/public separation and actual successful-check delivery. Retain unresolved setup blockers until verified fixed."
+  }
 }
