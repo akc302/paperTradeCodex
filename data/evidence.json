@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cadence": "hourly collection; daily review",
-  "lastCollectedAt": "2026-11-27T15:16:15.536Z",
+  "lastCollectedAt": "2026-11-27T16:12:44.007Z",
   "hourly": [
     {
       "periodStart": "2026-11-20T03:00:00.000Z",
@@ -4415,11 +4415,38 @@
       "expectedCheckIntervalSeconds": 7200,
       "latestScheduledCheck": 1795788935.824,
       "evidenceComplete": false
+    },
+    {
+      "periodStart": "2026-11-27T15:00:00.000Z",
+      "periodEnd": "2026-11-27T16:00:00.000Z",
+      "closedTrades": 0,
+      "wins": 0,
+      "losses": 0,
+      "flats": 0,
+      "winRate": null,
+      "netPnl": 0,
+      "grossFees": 0,
+      "rebatesCredited": 0,
+      "pendingRebates": 0,
+      "expectancy": null,
+      "profitFactor": null,
+      "maxDrawdown": 0,
+      "byMarket": {},
+      "bySetup": {},
+      "byExit": {},
+      "byPattern": {},
+      "note": "Completed simulated trade outcomes after modeled costs. Virtual snapshot rebalances excluded. Null ratios mean insufficient denominator, not an infinite edge.",
+      "tradeHeartbeat": "2026-11-27T14:15:21.597Z",
+      "observedChecks": 0,
+      "largestCheckGapSeconds": 3600,
+      "expectedCheckIntervalSeconds": 7200,
+      "latestScheduledCheck": 1795788935.824,
+      "evidenceComplete": false
     }
   ],
   "allTime": {
     "periodStart": "1970-01-01T00:00:00.000Z",
-    "periodEnd": "2026-11-27T15:16:15.536Z",
+    "periodEnd": "2026-11-27T16:12:44.007Z",
     "closedTrades": 2,
     "wins": 0,
     "losses": 2,

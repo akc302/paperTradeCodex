@@ -3,12 +3,12 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T15:16:19.008Z",
-      "nextDueAt": "2026-11-27T16:00:00.000Z",
+      "completedAt": "2026-11-27T16:12:46.548Z",
+      "nextDueAt": "2026-11-27T17:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
-      "nextWork": "At 16:00 UTC recheck actual runs and receipt. Recovery only after 135 minutes stale with no active trader; do not bypass the receipt."
+      "nextWork": "At 17:00 UTC inspect actual runs and latest receipt. If stale beyond 135 minutes and no trader is active, allow one guarded recovery. Researcher and manager are also due at 17:00; supervisor at 23:00."
     },
     "researcher": {
       "completedAt": "2026-11-27T14:16:31.274Z",
@@ -36,12 +36,12 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T15:16:18.930Z",
+    "checkedAt": "2026-11-27T16:12:46.493Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T15:16:47.264Z",
+      "checkedAt": "2026-11-27T16:13:04.501Z",
       "activeUpdater": false,
       "latestScheduledUpdater": {
         "runId": 46022421621,
@@ -49,23 +49,23 @@
         "conclusion": "success",
         "newPaperCheck": false,
         "guardSkipInferred": true,
-        "basis": "Receipt remains 14:15:21.597Z; scheduled run started within 7200 seconds; deployment skipped."
+        "basis": "Receipt still 2026-11-27T14:15:21.597Z; scheduled job started within the 7200-second guard."
       },
       "latestLearning": {
-        "runId": 46021843409,
+        "runId": 46023570251,
         "event": "schedule",
         "conclusion": "failure",
         "failedStep": "Collect or research, manager report, and save",
         "exactCause": "Not verified from job logs this cycle"
       },
       "latestPublisher": {
-        "runId": 46014592760,
+        "runId": 46023553273,
         "event": "push",
         "conclusion": "failure",
         "failedStep": "actions/configure-pages@v5"
       },
-      "note": "Receipt approximately 61 minutes old; no recovery authorized or needed. Existing secret/Pages setup limitations remain unresolved; workflow success is not evidence of a new paper check."
+      "note": "Receipt approximately 117 minutes old at initial inspection, below the 135-minute recovery threshold. No recovery run. Previously confirmed secret/Pages setup limitations remain unresolved."
     },
-    "nextWork": "At 16:00 UTC recheck actual runs and receipt. Recovery only after 135 minutes stale with no active trader; do not bypass the receipt."
+    "nextWork": "At 17:00 UTC inspect actual runs and latest receipt. If stale beyond 135 minutes and no trader is active, allow one guarded recovery. Researcher and manager are also due at 17:00; supervisor at 23:00."
   }
 }
