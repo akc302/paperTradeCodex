@@ -480,6 +480,25 @@
       "adopted": [],
       "nextIdea": "Gather new frozen entry outcomes, compare net expectancy and drawdown after costs and stress, and retain current promotion/sample guards. Do not force entries or fit to erase losses.",
       "historyScope": "24 public series refreshed; hourly candles through November 27 08:00 UTC. Legacy grid sweep not rerun."
+    },
+    {
+      "at": "2026-11-27T14:16:56.005Z",
+      "scope": "public-demo-only",
+      "tradesReviewed": 2,
+      "losses": 2,
+      "findings": [
+        "Costs were $67.12 (50% of the net loss); each trade needs ~0.70% to break even.",
+        "Before costs, entries still lost $67.61: entry timing had no edge.",
+        "2/2 trades ended on the time exit before target or stop.",
+        "Target touched on 0/2 trades; average best move after entry 0.59% vs average target 6.47%.",
+        "No replacement adopted this cycle. A five-hour gap between successful checks limits forward evidence; no missed fills were reconstructed.",
+        "Frozen-outcome model collecting-data (2/100); historical trend not-validated.",
+        "Net returns include modeled fees, rebates and adverse slippage. Saved fee tier is not live verified; relative loss reduction would not establish profitability."
+      ],
+      "changes": [],
+      "adopted": [],
+      "nextIdea": "Collect new entry-frozen outcomes and compare net expectancy, exit patterns, drawdown and no-rebate stress against the retained baseline. Keep sample, chronological validation, promotion and risk guards.",
+      "historyScope": "24 public historical series refreshed this cycle; legacy grid sweep not rerun."
     }
   ]
 }

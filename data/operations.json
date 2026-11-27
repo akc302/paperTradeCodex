@@ -1,12 +1,18 @@
 {
-  "updatedAt": "2026-11-27T09:14:53.141Z",
+  "updatedAt": "2026-11-27T14:15:38.898Z",
   "repository": "akc302/paperTradeCodex",
   "intervalMinutes": 120,
-  "triggerEvent": "codex-recovery",
+  "triggerEvent": "codex",
   "scheduleEventCount": 0,
   "tradingCadenceVerified": false,
   "fiveMinuteCadenceVerified": false,
   "recentRuns": [
+    {
+      "createdAt": "2026-11-27T14:15:21.597Z",
+      "event": "codex",
+      "status": "completed",
+      "conclusion": "success"
+    },
     {
       "createdAt": "2026-11-27T09:14:36.101Z",
       "event": "codex-recovery",
@@ -33,12 +39,6 @@
     },
     {
       "createdAt": "2026-11-24T07:11:43.876Z",
-      "event": "codex-recovery",
-      "status": "completed",
-      "conclusion": "success"
-    },
-    {
-      "createdAt": "2026-11-24T04:11:49.295Z",
       "event": "codex-recovery",
       "status": "completed",
       "conclusion": "success"

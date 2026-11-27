@@ -3,43 +3,55 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T11:12:30.764Z",
-      "nextDueAt": "2026-11-27T12:00:00.000Z",
+      "completedAt": "2026-11-27T14:16:09.551Z",
+      "nextDueAt": "2026-11-27T15:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
-      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
+      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
+      "nextWork": "Recheck receipt age and actual workflow events at 15:00 UTC; distinguish guard skips from successful checks."
     },
     "researcher": {
-      "completedAt": "2026-11-27T09:15:42.216Z",
-      "nextDueAt": "2026-11-27T12:00:00.000Z",
+      "completedAt": "2026-11-27T14:16:31.274Z",
+      "nextDueAt": "2026-11-27T17:00:00.000Z",
       "status": "completed",
       "intervalHours": 5,
-      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
+      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
+      "nextWork": "At 17:00 UTC review new frozen outcomes and holdout/no-rebate stress after costs; preserve current rules unless existing guards pass."
     },
     "manager": {
       "completedAt": "2026-11-27T11:12:33.608Z",
       "nextDueAt": "2026-11-27T17:00:00.000Z",
       "status": "completed",
       "intervalHours": 6,
-      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
+      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
+      "nextWork": "At 17:00 UTC reconcile all ledgers, review research notes and stalled secret/Pages setup; daily review already completed today."
     },
     "supervisor": {
       "completedAt": "2026-11-27T09:15:44.922Z",
       "nextDueAt": "2026-11-27T15:00:00.000Z",
       "status": "completed",
       "intervalHours": 8,
-      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
+      "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
+      "nextWork": "At 15:00 UTC independently audit privacy, saved fee assumptions, delayed observations and unresolved delivery/setup blockers."
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T11:12:30.712Z",
+    "checkedAt": "2026-11-27T14:16:09.477Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T11:12:59.515Z",
+      "checkedAt": "2026-11-27T14:16:56.005Z",
+      "activeUpdater": false,
+      "latestUpdater": {
+        "runId": 46004541893,
+        "event": "workflow_dispatch",
+        "conclusion": "failure",
+        "failedStep": "Trade, record timer evidence, and save",
+        "logAccess": "Denied by log storage; exact cause unverified this cycle"
+      },
       "latestPublisher": {
-        "runId": 45979667070,
+        "runId": 45988650705,
         "event": "push",
         "conclusion": "failure",
         "failedStep": "actions/configure-pages@v5"
@@ -51,9 +63,8 @@
         "guardSkipped": true,
         "newPaperCheck": false
       },
-      "activeUpdater": false,
-      "note": "Receipt approximately 118 minutes old at inspection, below recovery threshold. No new schedule-event execution evidence; known secret and Pages blockers persist."
+      "note": "One local guarded paper check succeeded at 14:15 UTC. This does not establish GitHub schedule delivery. Previously confirmed destination secret and Pages setup blockers remain unresolved."
     },
-    "nextWork": "At 12:00 recheck receipt/events and due research; recovery only beyond 135 minutes stale with no active updater. Supervisor due 15:00, manager due 17:00 UTC. Daily review already completed today."
+    "nextWork": "At next verifier deadline inspect actual events and receipt; recover only beyond 135 minutes stale with no active updater. Do not retry settings without appropriate access."
   }
 }
