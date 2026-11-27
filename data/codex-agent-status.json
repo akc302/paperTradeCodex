@@ -3,12 +3,12 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T19:19:03.193Z",
-      "nextDueAt": "2026-11-27T20:00:00.000Z",
+      "completedAt": "2026-11-27T20:14:50.105Z",
+      "nextDueAt": "2026-11-27T21:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
-      "nextWork": "At 20:00 UTC inspect actual runs and receipt age; recover only beyond 135 minutes stale and no active trader. Researcher due 22:00, manager and supervisor 23:00 UTC."
+      "nextWork": "At 21:00 UTC inspect actual workflow events and latest receipt. Recovery only after 135 minutes stale and no active trader. Researcher due 22:00, manager and supervisor 23:00 UTC."
     },
     "researcher": {
       "completedAt": "2026-11-27T17:09:23.907Z",
@@ -36,12 +36,12 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T19:19:03.144Z",
+    "checkedAt": "2026-11-27T20:14:50.053Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T19:19:28.777Z",
+      "checkedAt": "2026-11-27T20:14:51.699Z",
       "activeUpdater": false,
       "latestScheduledUpdater": {
         "runId": 46022421621,
@@ -49,7 +49,7 @@
         "conclusion": "success",
         "newPaperCheck": false,
         "guardSkipInferred": true,
-        "basis": "Started within 7200 seconds of the then-current 14:15 receipt, which remained unchanged."
+        "basis": "Started within 7200 seconds of the then-current receipt, which remained unchanged."
       },
       "latestLearning": {
         "runId": 46023570251,
@@ -59,18 +59,13 @@
         "exactCause": "Not verified from job logs this cycle"
       },
       "latestPublisher": {
-        "runId": 46039707484,
+        "runId": 46055936402,
         "event": "push",
         "conclusion": "failure",
         "failedStep": "actions/configure-pages@v5"
       },
-      "localTrader": {
-        "at": "2026-11-27T19:18:23.845Z",
-        "event": "codex",
-        "successful": true
-      },
-      "note": "Completed one due paper check after the full two-hour guard. Earlier 18:09 verifier evidence was preserved through a workspace interruption and included with the 19:19 review. Local success does not prove GitHub schedule delivery; setup blockers remain unresolved."
+      "note": "Receipt approximately 56 minutes old at inspection; no recovery needed. No newer updater event observed. Existing secret/Pages setup limitations remain unresolved."
     },
-    "nextWork": "At 20:00 UTC inspect actual runs and receipt age; recover only beyond 135 minutes stale and no active trader. Researcher due 22:00, manager and supervisor 23:00 UTC."
+    "nextWork": "At 21:00 UTC inspect actual workflow events and latest receipt. Recovery only after 135 minutes stale and no active trader. Researcher due 22:00, manager and supervisor 23:00 UTC."
   }
 }
