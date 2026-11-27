@@ -3,15 +3,15 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-27T06:16:53.317Z",
-      "nextDueAt": "2026-11-27T07:00:00.000Z",
+      "completedAt": "2026-11-27T09:15:19.862Z",
+      "nextDueAt": "2026-11-27T10:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "researcher": {
-      "completedAt": "2026-11-27T04:10:34.979Z",
-      "nextDueAt": "2026-11-27T07:00:00.000Z",
+      "completedAt": "2026-11-27T09:15:42.216Z",
+      "nextDueAt": "2026-11-27T12:00:00.000Z",
       "status": "completed",
       "intervalHours": 5,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
@@ -24,26 +24,20 @@
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     },
     "supervisor": {
-      "completedAt": "2026-11-26T23:13:38.566Z",
-      "nextDueAt": "2026-11-27T07:00:00.000Z",
+      "completedAt": "2026-11-27T09:15:44.922Z",
+      "nextDueAt": "2026-11-27T15:00:00.000Z",
       "status": "completed",
       "intervalHours": 8,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed"
     }
   },
   "verification": {
-    "checkedAt": "2026-11-27T06:16:53.260Z",
+    "checkedAt": "2026-11-27T09:15:19.805Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-27T06:17:14.159Z",
-      "latestPublisher": {
-        "runId": 45944820591,
-        "event": "push",
-        "conclusion": "failure",
-        "failedStep": "actions/configure-pages@v5"
-      },
+      "checkedAt": "2026-11-27T09:16:36.907Z",
       "latestScheduledUpdater": {
         "runId": 45943721496,
         "event": "schedule",
@@ -51,9 +45,15 @@
         "guardSkipped": true,
         "newPaperCheck": false
       },
-      "activeUpdater": false,
-      "note": "Receipt age approximately 127 minutes at inspection; below the 135-minute recovery threshold. No recovery executed. Prior confirmed secret/Pages blockers remain unresolved."
+      "activeLearning": {
+        "runId": 45969919071,
+        "conclusion": "",
+        "event": "schedule",
+        "status": "in_progress",
+        "checkedAt": "2026-11-27T09:16:39.812Z"
+      },
+      "note": "No updater was active before recovery. Concurrent learning may commit later; fetch/replay before push. Prior destination secret/Pages blockers remain unresolved."
     },
-    "nextWork": "Check next actual receipt/events at 07:00; recover once only if over 135 minutes stale and no active updater. Researcher and supervisor also due 07:00; manager due 11:00 UTC."
+    "nextWork": "Check latest receipt/events next hour. Research next due 12:00, manager 11:00, supervisor 15:00 UTC; retain saved-fee caveat and model guards."
   }
 }

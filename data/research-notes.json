@@ -462,6 +462,24 @@
       "nextIdea": "Compare new frozen entry outcomes, net expectancy, cost-flipped losses and drawdown against the retained baseline. Require existing sample/chronological/stress guards; relative improvement does not establish a profitable edge.",
       "historyVerifiedAt": "2026-11-27T04:11:02.946Z",
       "historyScope": "24 refreshed public series; hourly through November 27 03:00 UTC. Legacy sweep was not rerun."
+    },
+    {
+      "at": "2026-11-27T09:16:31.569Z",
+      "tradesReviewed": 2,
+      "losses": 2,
+      "findings": [
+        "Costs were $67.12 (50% of the net loss); each trade needs ~0.70% to break even.",
+        "Before costs, entries still lost $67.61: entry timing had no edge.",
+        "2/2 trades ended on the time exit before target or stop.",
+        "Target touched on 0/2 trades; average best move after entry 0.59% vs average target 6.47%.",
+        "No adopted replacement this cycle; observed execution gaps limit forward conclusions.",
+        "Trade-outcome model: collecting-data; trend research: not-validated.",
+        "Fees use a saved tier snapshot and modeled rebates; no live account fee-tier verification."
+      ],
+      "changes": [],
+      "adopted": [],
+      "nextIdea": "Gather new frozen entry outcomes, compare net expectancy and drawdown after costs and stress, and retain current promotion/sample guards. Do not force entries or fit to erase losses.",
+      "historyScope": "24 public series refreshed; hourly candles through November 27 08:00 UTC. Legacy grid sweep not rerun."
     }
   ]
 }

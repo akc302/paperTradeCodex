@@ -1,15 +1,14 @@
 {
-  "at": "2026-11-26T23:14:12.259Z",
+  "at": "2026-11-27T09:16:34.269Z",
   "goal": 85000,
   "start": 30000,
-  "equity": 29865.26287940766,
-  "remaining": 55134.73712059234,
-  "progressPct": -0.24497658289516533,
+  "equity": 30071.67771191055,
+  "remaining": 54928.32228808945,
+  "progressPct": 0.13032311256463636,
   "onTrack": false,
   "verdict": "needs-attention",
   "issues": [
-    "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard.",
-    "No new paper entry for 125h; current rules may be too strict for this market."
+    "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard."
   ],
   "last24h": {
     "closedTrades": 0,
@@ -28,7 +27,7 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "5.8 days"
+        "value": "6.2 days"
       },
       {
         "id": "sample",
@@ -70,7 +69,7 @@
         "id": "uptime",
         "label": "Trader ran in 95%+ of hours over the last 7 days",
         "pass": false,
-        "value": "37%"
+        "value": "38%"
       },
       {
         "id": "integrity",
