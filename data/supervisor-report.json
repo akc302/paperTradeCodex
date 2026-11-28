@@ -1,22 +1,22 @@
 {
-  "at": "2026-11-27T15:16:20.967Z",
+  "at": "2026-11-28T01:16:33.093Z",
   "goal": 85000,
   "start": 30000,
-  "equity": 29943.94566909687,
-  "remaining": 55056.054330903135,
-  "progressPct": -0.10191696527841983,
+  "equity": 29543.10181238899,
+  "remaining": 55456.898187611005,
+  "progressPct": -0.8307239774745605,
   "onTrack": false,
   "verdict": "needs-attention",
   "issues": [
     "No scheduled trader run has recorded a successful paper check; schedule events may have failed or skipped the two-hour guard."
   ],
   "last24h": {
-    "closedTrades": 0,
+    "closedTrades": 3,
     "wins": 0,
-    "winRate": null,
-    "netPnl": 0,
-    "grossFees": 0,
-    "rebatesCredited": 0
+    "winRate": 0,
+    "netPnl": -322.1610670186682,
+    "grossFees": 99.67056984487003,
+    "rebatesCredited": 24.917642461217508
   },
   "readiness": {
     "ready": false,
@@ -27,13 +27,13 @@
         "id": "history",
         "label": "28+ days of forward paper trading with the research team",
         "pass": false,
-        "value": "6.4 days"
+        "value": "6.9 days"
       },
       {
         "id": "sample",
         "label": "150+ closed trades in the last 28 days",
         "pass": false,
-        "value": "2 trades"
+        "value": "5 trades"
       },
       {
         "id": "winrate",
@@ -45,19 +45,19 @@
         "id": "profit",
         "label": "Net profit after fees and rebates, profit factor 1.3+",
         "pass": false,
-        "value": "$-134.74, PF 0.00"
+        "value": "$-456.90, PF 0.00"
       },
       {
         "id": "weekly",
         "label": "Profitable in each of the last 4 weeks",
         "pass": false,
-        "value": "$-135 / $0 / $0 / $0"
+        "value": "$-457 / $0 / $0 / $0"
       },
       {
         "id": "drawdown",
         "label": "Max drawdown 10% or less over 28 days",
         "pass": true,
-        "value": "0.9%"
+        "value": "1.8%"
       },
       {
         "id": "validated",
@@ -69,7 +69,7 @@
         "id": "uptime",
         "label": "Trader ran in 95%+ of hours over the last 7 days",
         "pass": false,
-        "value": "38%"
+        "value": "39%"
       },
       {
         "id": "integrity",
@@ -82,25 +82,24 @@
   },
   "integrity": {
     "ok": true,
-    "cashDifference": 0,
+    "cashDifference": 3.637978807091713e-12,
     "problems": []
   },
   "fixed": [],
   "nextStep": "Review flagged evidence and operational gaps. No automatic risk changes.",
   "scope": "paperTradeCodex only; two-hour execution; no real orders",
   "independentReview": {
-    "at": "2026-11-27T15:16:47.264Z",
-    "ledgerAndChallengersBalanced": true,
-    "scopedResearchNotesVerified": true,
+    "at": "2026-11-28T01:16:27.663Z",
+    "allLedgersBalanced": true,
+    "scopedNotesVerified": true,
     "feeSnapshotStale": true,
     "liveFeeTierVerified": false,
     "findings": [
-      "Readiness remains insufficient; no profitable or all-winning strategy claim is supported.",
-      "Fees and rebates are modeled from saved assumptions, not authenticated live tier verification.",
-      "Two-hour checks do not continuously observe stops or pending fills. Evidence coverage is not a count of hourly executions.",
-      "Latest scheduled updater completed without a new successful-check receipt; this is consistent with the two-hour guard. Learning failed; Pages publication remains blocked.",
-      "Manager report predates the latest research; refresh on its existing 17:00 UTC deadline. No risk or strategy changes made."
+      "Relative-improvement adoption is not validated-edge status; small samples and repeated overlapping fits limit claims.",
+      "Risk caps and closed trade history preserved. Daily proposals retained, and no challenger promoted.",
+      "Two-hour checks cannot continuously observe stops or pending fills; successful local recovery does not prove scheduler reliability.",
+      "Privacy audit must pass before publication; private metrics remain encrypted."
     ],
-    "nextWork": "On the next supervisor cycle review manager/researcher updates, sample and validation evidence, private/public separation and actual successful-check delivery. Retain unresolved setup blockers until verified fixed."
+    "nextWork": "Recheck after-cost forward evidence, manager/research conclusions, privacy, fee assumptions and unresolved workflow/setup failures on the next due cycle."
   }
 }

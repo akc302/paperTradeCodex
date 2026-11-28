@@ -518,6 +518,51 @@
       "adopted": [],
       "nextIdea": "Gather new frozen entry outcomes; compare after-cost expectancy, time exits, target reach, drawdown and no-rebate stress against the retained baseline. Keep chronological validation, sample and promotion guards.",
       "historyScope": "24 public series refreshed; hourly through 2026-11-27 16:00 UTC, six-hour through 06:00 UTC and daily through November 26. Legacy grid sweep not rerun."
+    },
+    {
+      "at": "2026-11-28T01:16:27.663Z",
+      "scope": "public-demo-only",
+      "tradesReviewed": 5,
+      "losses": 5,
+      "findings": [
+        "Costs were $141.88 (31% of the net loss); each trade needs ~0.70% to break even.",
+        "Before costs, entries still lost $315.02: entry timing had no edge.",
+        "4/5 trades ended on the time exit before target or stop.",
+        "Target touched on 0/5 trades; average best move after entry 0.87% vs average target 5.14%.",
+        "Executed-outcome model collecting-data: 5/100 frozen eligible closes. Trend validation not-validated.",
+        "Relative-improvement adoption is supported by its existing gate; the holdout sample does not meet validated-edge requirements.",
+        "Daily execution coverage is incomplete; daily parameter proposals retained for insufficient evidence. No challenger promotion.",
+        "Saved fee snapshot, modeled rebates and adverse slippage are not live fee verification. The nearly six-hour execution gap remains in the forward evidence; no fills reconstructed."
+      ],
+      "changes": [
+        {
+          "product": "ETH-USD",
+          "approach": "aggressive-day-hold+regime-block",
+          "decision": "adopt-improvement"
+        }
+      ],
+      "adopted": [
+        {
+          "product": "ETH-USD",
+          "approach": "aggressive-day-hold+regime-block",
+          "decision": "adopt-improvement"
+        }
+      ],
+      "adoptionReviews": [
+        {
+          "product": "ETH-USD",
+          "decision": "adopt-improvement",
+          "holdoutTrades": 5,
+          "baselineTrades": 7,
+          "holdoutReturn": 0.004682873630817266,
+          "baselineReturn": -0.007109175346244593,
+          "stressReturn": 0.0023931927012696176,
+          "validated": false,
+          "assessment": "Existing relative-improvement gate passed. Small sample and overlapping research windows do not establish a durable profitable edge."
+        }
+      ],
+      "nextIdea": "Observe future after-cost expectancy, stop/time exits, drawdown and no-rebate stress under the adopted rule. Collect entry-frozen outcomes; retain sample, chronological validation and promotion guards.",
+      "historyScope": "24 public series refreshed: hourly through 2026-11-28 00:00 UTC, six-hour through November 27 18:00 and daily through November 27. Legacy sweep not rerun."
     }
   ]
 }
