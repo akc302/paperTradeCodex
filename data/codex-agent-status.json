@@ -3,28 +3,28 @@
   "repository": "akc302/paperTradeCodex",
   "roles": {
     "verifier": {
-      "completedAt": "2026-11-28T02:09:12.587Z",
-      "nextDueAt": "2026-11-28T03:00:00.000Z",
+      "completedAt": "2026-11-28T06:13:52.195Z",
+      "nextDueAt": "2026-11-28T07:00:00.000Z",
       "status": "healthy",
       "intervalHours": 1,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
-      "nextWork": "At 03:00 UTC inspect actual workflow events and receipt. Run due research; recovery only beyond 135 minutes stale with no active trader. Manager due 05:00 and supervisor 07:00 UTC."
+      "nextWork": "At 07:00 UTC inspect actual runs and receipt, and perform due supervisor review. Recovery only beyond 135 minutes stale with no active trader."
     },
     "researcher": {
-      "completedAt": "2026-11-28T01:13:42.531Z",
-      "nextDueAt": "2026-11-28T03:00:00.000Z",
+      "completedAt": "2026-11-28T06:14:15.879Z",
+      "nextDueAt": "2026-11-28T08:00:00.000Z",
       "status": "completed",
       "intervalHours": 5,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
-      "nextWork": "At 03:00 UTC review new frozen outcomes and after-cost/holdout/stress evidence under the adopted rule; retain validation and risk guards."
+      "nextWork": "At 08:00 UTC review new entry-frozen outcomes, after-cost expectancy and validation/stress evidence; preserve risk and promotion guards."
     },
     "manager": {
-      "completedAt": "2026-11-28T01:15:34.639Z",
-      "nextDueAt": "2026-11-28T05:00:00.000Z",
+      "completedAt": "2026-11-28T06:14:18.694Z",
+      "nextDueAt": "2026-11-28T11:00:00.000Z",
       "status": "completed",
       "intervalHours": 6,
       "scheduleBasis": "UTC-hour deadlines; missed cycles are not replayed",
-      "nextWork": "At 05:00 UTC reconcile ledgers, review current research and stalled setup, and verify daily-review freshness without repeating it."
+      "nextWork": "At 11:00 UTC reconcile main/challenger ledgers, current research and stalled setup; avoid repeating the completed daily review."
     },
     "supervisor": {
       "completedAt": "2026-11-28T01:15:37.577Z",
@@ -36,35 +36,43 @@
     }
   },
   "verification": {
-    "checkedAt": "2026-11-28T02:09:12.517Z",
+    "checkedAt": "2026-11-28T06:13:52.137Z",
     "ok": true,
     "errors": [],
     "scope": "repository files; published site must be checked separately",
     "workflowEvidence": {
-      "checkedAt": "2026-11-28T02:09:14.239Z",
+      "checkedAt": "2026-11-28T06:14:49.717Z",
       "activeUpdater": false,
+      "latestUpdater": {
+        "runId": 46106716105,
+        "event": "workflow_dispatch",
+        "conclusion": "failure",
+        "failedStep": "Trade, record timer evidence, and save",
+        "exactCause": "Not verified from job logs this cycle"
+      },
       "latestScheduledUpdater": {
         "runId": 46082784267,
         "event": "schedule",
-        "conclusion": "failure",
-        "failedStep": "Trade, record timer evidence, and save",
-        "exactCause": "Detailed logs unavailable in the preceding review"
+        "conclusion": "failure"
       },
       "latestLearning": {
         "runId": 46083142898,
         "event": "schedule",
-        "conclusion": "failure",
-        "failedStep": "Collect or research, manager report, and save",
-        "exactCause": "Detailed logs unavailable in the preceding review"
+        "conclusion": "failure"
       },
       "latestPublisher": {
-        "runId": 46092340836,
+        "runId": 46096682166,
         "event": "push",
         "conclusion": "failure",
         "failedStep": "actions/configure-pages@v5"
       },
-      "note": "Receipt approximately 56 minutes old at inspection; no recovery needed. No newer updater event observed. Previously confirmed destination secret/Pages limitations remain unresolved."
+      "recovery": {
+        "at": "2026-11-28T06:13:09.151Z",
+        "event": "codex-recovery",
+        "reason": "Receipt approximately 300 minutes old; no active updater"
+      },
+      "note": "One guarded recovery only. Missed cycles were not replayed. Previously confirmed secret/Pages limitations remain unresolved."
     },
-    "nextWork": "At 03:00 UTC inspect actual workflow events and receipt. Run due research; recovery only beyond 135 minutes stale with no active trader. Manager due 05:00 and supervisor 07:00 UTC."
+    "nextWork": "At 07:00 UTC inspect actual runs and receipt, and perform due supervisor review. Recovery only beyond 135 minutes stale with no active trader."
   }
 }

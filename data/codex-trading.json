@@ -2,7 +2,7 @@
   "version": 1,
   "repository": "akc302/paperTradeCodex",
   "intervalSeconds": 7200,
-  "lastSuccessfulAt": "2026-11-28T01:12:39.404Z",
+  "lastSuccessfulAt": "2026-11-28T06:13:09.151Z",
   "checks": [
     {
       "at": "2026-11-23T23:12:27.533Z",
@@ -46,6 +46,10 @@
     },
     {
       "at": "2026-11-28T01:12:39.404Z",
+      "event": "codex-recovery"
+    },
+    {
+      "at": "2026-11-28T06:13:09.151Z",
       "event": "codex-recovery"
     }
   ],
